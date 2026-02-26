@@ -13,6 +13,22 @@ const App = {
         const imageWhite = "imageNoBackground.png";
         // The 2 image filenames used. Need to keep these assets available in the same folder so the html can render it consistently.
 
+        const gameComplete = ref(false); // A boolean that controls when the game is done 
+        const answeredQuestions = ref([]); // An array of all questions that have been answered and must subsequently get disabled 
+
+        // This if...else determines when the game should end (when all 20 questions have been answered)
+        if (answeredQuestions.value.length === 20){
+            gameComplete.value = true;
+        } else {
+            gameComplete.value = false;
+        }
+
+        // This function is activated when the player presses a "restart game" button. 
+        function restartGame () {
+            gameComplete.value = false;
+            answeredQuestions.value = [];
+        }
+        
         const categories = [
             // These are category headers shown at the top of the board. Need to align the question bank so each column/category has matching questions.
             { name: "Anatomy" },
@@ -145,10 +161,10 @@ const App = {
 
         return {
             // Everything returned here becomes available to index.html for bindings (like {{scoreCount}}, v-for loops, etc).
-            // When gameplay is implemented, we will also need to return additional states such as selectedAnswer, validateResults, and answeredQuestionsId 
+            // When gameplay is implemented, we will also need to return additional states such as selectedAnswer, validateResults, and answeredQuestions
             // selectedAnswer: a string that can be equal to answerA, answerB, answerC, or answerD. It records the answer that the user selected for a particular question. 
             // validateResults: a function that checks if selectedAnswer = correctAnswer, and increases the user's score accordingly. 
-            // answeredQuestionsId: an array that keeps track of which questions have already been answered and disables the corresponding buttons. 
+            // answeredQuestions: an array that keeps track of which questions have already been answered and disables the corresponding buttons. 
 
             scoreCount,
             rowOneButtons,
@@ -157,7 +173,10 @@ const App = {
             rowFourButtons,
             categories,
             imageBlue,
-            imageWhite
+            imageWhite, 
+            gameComplete,
+            answeredQuestions, 
+            restartGame
         }
 
     }
