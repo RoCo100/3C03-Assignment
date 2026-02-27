@@ -17,9 +17,10 @@
 <div id="app">
 
   <body>
-    <v-app>
+    <v-app :style="{ backgroundColor: backgroundColour }">
       <v-main>
 
+        <template v-if="!gameComplete">
         <v-card variant="flat" style="position:absolute; z-index:1; left: 2%; top:65%;" color="#BBEDFF"
           :style="{width: '20vw', height: '13vw'}" class="text-light-blue-darken-4">
           <!-- This is the score panel. It displays the current score and a thematic whale image. Add gameplay controls here later (eg. Reset Game button) if needed -->
@@ -242,13 +243,33 @@
 
           </v-container>
         </div>
+        </template>
+        
+      <div class="d-flex justify-center align-center" style="min-height: 100vh;">
+        <v-card v-if="gameComplete" :style="{width: '85vw', height: '45vw'}" class="text-center">
+          <v-card-title style="font-size: 2.5vw" class="text-light-blue-darken-4">Experience Completed!</v-card-title>
+          <v-card-subtitle>Well done. You're one step closer to unlearning anthropocentrism.</v-card-subtitle>
+          <v-card-text>Overall, you earned {{ scoreCount }} points. </v-card-text>
+          <v-btn @click="restartGame">Play Again</v-btn> 
+        </v-card>
+      </div>
 
+      <div class="d-flex justify-center align-center" style="min-height: 100vh;">
+        <v-card v-if="gameComplete" :style="{width: '85vw', height: '45vw'}" class="text-center">
+          <!--This is the card that appears when all 20 questions have been successfully answered. -->
+          <v-card-title style="font-size: 2.5vw" class="text-light-blue-darken-4">Experience Completed!</v-card-title>
+          <v-card-subtitle style="font-size: 2vw" class="text-light-blue-darken-3">Well done. You're one step closer to unlearning anthropocentrism.</v-card-subtitle>
+          <v-card-text style="font-size: 1.5vw" class="text-light-blue-darken-4">Overall, you earned {{ scoreCount }} points. </v-card-text>
+          <v-img :src="imageWhite" :style="{width: '20vw', margin: '0 auto', display: 'block'}"></v-img>
+          <v-btn @click="restartGame" color="#35A2D5">Play Again</v-btn>
+          <!-- The user can select the "Play Again" button to restart the game. -->
+        </v-card>
+      </div>
+        
       </v-main>
     </v-app>
 
   </body>
 </div>
-
-<!-- When all 20 of the Jeopardy questions have been answered by the user (answeredQuestionIds.length = 20), we will need to implement a pop-up dialogue that indicates the game is complete and tells the user their final score. -->
 
 </html>
