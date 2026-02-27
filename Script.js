@@ -27,11 +27,19 @@ const App = {
             gameComplete.value = false;
         }
 
-        // This function is activated when the player presses a "restart game" button. 
+        // This function is activated when the player presses a "Play Again" button. 
         function restartGame () {
             gameComplete.value = false;
             answeredQuestions.value = [];
             backgroundColour.value = "white"; // Changes the background colour 
+        }
+
+        // This function is connected to multiple-choice answers. It checks if the user has selected the correct answer.
+        function validateResult (input, correct, points) { 
+            if (input == correct) {
+                scoreCount.value = scoreCount.value + points;
+            } else {
+            }
         }
         
         const categories = [
@@ -50,32 +58,37 @@ const App = {
             {
                 button: "col1row1",
                 points: "200",
-                content: "question1"
+                content: "question1",
                 //Additional string values: answerA, answerB, answerC, answerD. These will be accompanied by a correctAnswer variable that is equal to one of the answer options.
                 //The answer that is recorded from html using the @click will execute a validateResults function that records the user actions,
                 //and compare the user selected option to see if it is the same as the correctAnswer variable.
                 //If correct, we will add points to a points-counter variable that is displayed in the menu.
                 //Else, we will ask the user to "choose again" and leave the score as-is.
+                correctAnswer: null
             },
             {
                 button: "col2row1",
                 points: "200",
-                content: "question2"
+                content: "question2",
+                correctAnswer: null
             },
             {
                 button: "col3row1",
                 points: "200",
-                content: "question3"
+                content: "question3",
+                correctAnswer: null
             },
             {
                 button: "col4row1",
                 points: "200",
-                content: "question4"
+                content: "question4",
+                correctAnswer: null
             },
             {
                 button: "col5row1",
                 points: "200",
-                content: "question5"
+                content: "question5",
+                correctAnswer: null
             }
         ]
         const rowTwoButtons = [
@@ -84,27 +97,32 @@ const App = {
             {
                 button: "col1row2",
                 points: "400",
-                content: "question6"
+                content: "question6",
+                correctAnswer: null
             },
             {
                 button: "col2row2",
                 points: "400",
-                content: "question7"
+                content: "question7",
+                correctAnswer: null
             },
             {
                 button: "col3row2",
                 points: "400",
-                content: "question8"
+                content: "question8",
+                correctAnswer: null
             },
             {
                 button: "col4row2",
                 points: "400",
-                content: "question9"
+                content: "question9",
+                correctAnswer: null
             },
             {
                 button: "col5row2",
                 points: "400",
-                content: "question10"
+                content: "question10",
+                correctAnswer: null
             }
         ]
         const rowThreeButtons = [
@@ -112,27 +130,32 @@ const App = {
             {
                 button: "col1row3",
                 points: "600",
-                content: "question11"
+                content: "question11",
+                correctAnswer: null
             },
             {
                 button: "col2row3",
                 points: "600",
-                content: "question12"
+                content: "question12",
+                correctAnswer: null
             },
             {
                 button: "col3row3",
                 points: "600",
-                content: "question13"
+                content: "question13",
+                correctAnswer: null
             },
             {
                 button: "col4row3",
                 points: "600",
-                content: "question14"
+                content: "question14",
+                correctAnswer: null
             },
             {
                 button: "col5row3",
                 points: "600",
-                content: "question15"
+                content: "question15",
+                correctAnswer: null
             }
         ]
         const rowFourButtons = [
@@ -140,27 +163,32 @@ const App = {
             {
                 button: "col1row4",
                 points: "800",
-                content: "question16"
+                content: "question16",
+                correctAnswer: null
             },
             {
                 button: "col2row4",
                 points: "800",
-                content: "question17"
+                content: "question17",
+                correctAnswer: null
             },
             {
                 button: "col3row4",
                 points: "800",
-                content: "question18"
+                content: "question18",
+                correctAnswer: null
             },
             {
                 button: "col4row4",
                 points: "800",
-                content: "question19"
+                content: "question19",
+                correctAnswer: null
             },
             {
                 button: "col5row4",
                 points: "800",
-                content: "question20"
+                content: "question20",
+                correctAnswer: null
             }
         ]
 
@@ -181,7 +209,9 @@ const App = {
             imageWhite, 
             gameComplete,
             answeredQuestions, 
-            restartGame
+            backgroundColour,
+            restartGame,
+            validateResult
         }
 
     }
