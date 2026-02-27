@@ -9,6 +9,9 @@ const App = {
         // Update this when a user answers a question correctly/incorrectly (requires click handlers + question logic).
         // Add a function validateResult to check if the choice made is the correctAnswer string value in each array of the row of buttons. 
         
+        const backgroundColour = ref("white");
+        // Sets the background for the main screen
+        
         const imageBlue = "whale.png";
         const imageWhite = "imageNoBackground.png";
         // The 2 image filenames used. Need to keep these assets available in the same folder so the html can render it consistently.
@@ -19,6 +22,7 @@ const App = {
         // This if...else determines when the game should end (when all 20 questions have been answered)
         if (answeredQuestions.value.length === 20){
             gameComplete.value = true;
+            backgroundColour.value = "#BBEDFF"; // Changes the background colour 
         } else {
             gameComplete.value = false;
         }
@@ -27,6 +31,7 @@ const App = {
         function restartGame () {
             gameComplete.value = false;
             answeredQuestions.value = [];
+            backgroundColour.value = "white"; // Changes the background colour 
         }
         
         const categories = [
