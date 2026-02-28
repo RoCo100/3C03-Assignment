@@ -1,5 +1,5 @@
 
-const { createApp, ref, computed } = Vue; //computed value makes Vue re-calculate whenever the reactive item it depends on changes
+const { createApp, ref } = Vue;
 const { createVuetify } = Vuetify;
 const vuetify = createVuetify();
 
@@ -16,16 +16,21 @@ const App = {
         const imageWhite = "imageNoBackground.png";
         // The 2 image filenames used. Need to keep these assets available in the same folder so the html can render it consistently.
 
+
+        const gameComplete = ref(false); // A boolean that controls when the game is done 
         const answeredQuestions = ref([]); // An array of all questions that have been answered and must subsequently get disabled 
 
-        const gameComplete = computed (() => {
-            return answeredQuestions.value.length === 20;
-        }); // the computed returns true only when the length is 20
-       
+        // This if...else determines when the game should end (when all 20 questions have been answered)
+        if (answeredQuestions.value.length === 20) {
+            gameComplete.value = true;
+            backgroundColour.value = "#BBEDFF"; // Changes the background colour 
+        } else {
+            gameComplete.value = false;
+        }
 
         // This function is activated when the player presses a "Play Again" button. 
         function restartGame() {
-            answeredQuestions.value = [];
+            answeredQuestions.value = false;
             scoreCount.value = 0;
             backgroundColour.value = "white"; // Changes the background colour 
         }
@@ -50,44 +55,6 @@ const App = {
             { name: "Ships" },
             { name: "Pollution" }
         ]
-        
-        const questions = ref([
-            {id: "anatomy200",  //unique key
-                category: 0,   //which column
-                row: 1,         //which row (200, 400, 600, 800)
-                question:"...", 
-                answers: ["A","B","C","D"], 
-                correct:2       // 0=A, 1=B, 2=C, 3=D
-            },
-
-        ]);
-        /*
-
-        const csvText = '' //the coloumns are: id, category, row, question, answerA, answerB, answerC, answerD, correct
-            //copy and past the csv text into later
-
-        function generateBoard(){
-                // This function generates the board of buttons. It is activated when the game starts and after they click "Play Again".
-                const board = [];
-                for (let row = 1; row <= rowOneButtons; row++){
-                    const rowArray = [];
-
-                    for (let col = 1; col <= columns; col++){
-                        const questionNumber = (row - 1) * columns + col;
-
-                        rowArray.push({ //adds an object to the row array for each button. The object has:
-                            points: row * 200, //the point value of the question, which is determined by the row number (e.g., row 1 = 200 points, row 2 = 400 points, etc.)
-                            content: `question${questionNumber}`, //the question placeholder (e.g., "question1") to link a click to a question in a future question bank
-                            button: `col${col}row${row}`, //a unique key for Vue rendering (used in :key). This is determined by the column and row number (e.g., "col1row1" for the first button, "col2row1" for the second button, etc.)
-                            correctAnswer: null //a placeholder for the correct answer, which will be filled in when the question bank is implemented. This will be used in the validateResult function to check if the user's answer is correct
-                        });
-                    }
-                    board.push(rowArray); //adds the row array to the board array
-                }
-                return board; //returns the complete board array, which is an array of arrays (rows) containing objects (buttons)
-        }
-
-*/
 
         //This function controls opening and closing a question button. It is activated once when the user seleects a question, and again when the user selects the "exit" button. 
         function toggleCardOpenClose(button) {
