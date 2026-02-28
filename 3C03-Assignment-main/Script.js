@@ -1,5 +1,5 @@
 
-const { createApp, ref, computed } = Vue; //computer value makes Vue re-calculate whenever the reactive thing it depends on change
+const { createApp, ref, computed } = Vue; //computed value makes Vue re-calculate whenever the reactive item it depends on changes
 const { createVuetify } = Vuetify;
 const vuetify = createVuetify();
 
@@ -17,7 +17,6 @@ const App = {
         // The 2 image filenames used. Need to keep these assets available in the same folder so the html can render it consistently.
 
         const answeredQuestions = ref([]); // An array of all questions that have been answered and must subsequently get disabled 
-
 
         const gameComplete = computed (() => {
             return answeredQuestions.value.length === 20;
@@ -67,9 +66,6 @@ const App = {
         const csvText = '' //the coloumns are: id, category, row, question, answerA, answerB, answerC, answerD, correct
             //copy and past the csv text into later
 
-
-
-
         function generateBoard(){
                 // This function generates the board of buttons. It is activated when the game starts and after they click "Play Again".
                 const board = [];
@@ -91,10 +87,16 @@ const App = {
                 return board; //returns the complete board array, which is an array of arrays (rows) containing objects (buttons)
         }
 
-
-
-
 */
+
+        //This function controls opening and closing a question button. It is activated once when the user seleects a question, and again when the user selects the "exit" button. 
+        function toggleCardOpenClose(button) {
+            if (button.showCard.value == false) {
+                button.showCard.value = true
+            } else {
+                button.showCard.value = false
+            }
+        }
 
         const rowOneButtons = [
             // The 200-point row. Each object has:
@@ -102,35 +104,35 @@ const App = {
             // - points: label shown on the tile (currently a String)
             // - content: question placeholder (e.g., "question1") to link a click to a question in a future question bank
             {
+                showCard: ref(false),
                 button: "col1row1",
                 points: "200",
                 content: "question1",
-                //Additional string values: answerA, answerB, answerC, answerD. These will be accompanied by a correctAnswer variable that is equal to one of the answer options.
-                //The answer that is recorded from html using the @click will execute a validateResults function that records the user actions,
-                //and compare the user selected option to see if it is the same as the correctAnswer variable.
-                //If correct, we will add points to a points-counter variable that is displayed in the menu.
-                //Else, we will ask the user to "choose again" and leave the score as-is.
                 correctAnswer: null
             },
             {
+                showCard: ref(false),
                 button: "col2row1",
                 points: "200",
                 content: "question2",
                 correctAnswer: null
             },
             {
+                showCard: ref(false),
                 button: "col3row1",
                 points: "200",
                 content: "question3",
                 correctAnswer: null
             },
             {
+                showCard: ref(false),
                 button: "col4row1",
                 points: "200",
                 content: "question4",
                 correctAnswer: null
             },
             {
+                showCard: ref(false),
                 button: "col5row1",
                 points: "200",
                 content: "question5",
@@ -141,30 +143,35 @@ const App = {
             // The 400-point row. Same schema as rowOneButtons.
             // Need to use item.content + item.points in click logic to open the correct question and score it once.
             {
+                showCard: ref(false),
                 button: "col1row2",
                 points: "400",
                 content: "question6",
                 correctAnswer: null
             },
             {
+                showCard: ref(false),
                 button: "col2row2",
                 points: "400",
                 content: "question7",
                 correctAnswer: null
             },
             {
+                showCard: ref(false),
                 button: "col3row2",
                 points: "400",
                 content: "question8",
                 correctAnswer: null
             },
             {
+                showCard: ref(false),
                 button: "col4row2",
                 points: "400",
                 content: "question9",
                 correctAnswer: null
             },
             {
+                showCard: ref(false),
                 button: "col5row2",
                 points: "400",
                 content: "question10",
@@ -174,63 +181,73 @@ const App = {
         const rowThreeButtons = [
             // The 600-point row. Same schema as rowOneButtons.
             {
+                showCard: ref(false),
                 button: "col1row3",
                 points: "600",
                 content: "question11",
                 correctAnswer: null
             },
             {
+                showCard: ref(false),
                 button: "col2row3",
                 points: "600",
                 content: "question12",
                 correctAnswer: null
             },
             {
+                showCard: ref(false),
                 button: "col3row3",
                 points: "600",
                 content: "question13",
                 correctAnswer: null
             },
             {
+                showCard: ref(false),
                 button: "col4row3",
                 points: "600",
                 content: "question14",
                 correctAnswer: null
             },
             {
+                showCard: ref(false),
                 button: "col5row3",
                 points: "600",
                 content: "question15",
                 correctAnswer: null
             }
         ]
-        const rowFourButtons = [
+        const rowFourButton = [
             // The 800-point row. Same schema as rowOneButtons.
             {
+                showCard: ref(false),
                 button: "col1row4",
                 points: "800",
                 content: "question16",
                 correctAnswer: null
             },
             {
+                showCard: ref(false),
                 button: "col2row4",
                 points: "800",
                 content: "question17",
                 correctAnswer: null
             },
             {
+                showCard: ref(false),
                 button: "col3row4",
                 points: "800",
                 content: "question18",
                 correctAnswer: null
             },
             {
+                showCard: ref(false),
                 button: "col4row4",
                 points: "800",
                 content: "question19",
                 correctAnswer: null
             },
             {
+                showCard: ref(false),
                 button: "col5row4",
                 points: "800",
                 content: "question20",
@@ -257,7 +274,8 @@ const App = {
             answeredQuestions,
             backgroundColour,
             restartGame,
-            validateResult
+            validateResult,
+            toggleCardOpenClose
         }
 
     }
