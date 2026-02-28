@@ -31,10 +31,10 @@ const App = {
         }
 
         // This function is connected to multiple-choice answers. It checks if the user has selected the correct answer.
-        function validateResult(input, correct, points) {
+        function validateResult(input, correct, buttonID, points) {
             if (input == correct) {
                 scoreCount.value = scoreCount.value + Number(points);
-                answeredQuestions.value.push(points); // Add the points to the answered questions array
+                answeredQuestions.value.push(buttonID); // Add the buttonID to the answered questions array
                 //after getting a question right, the question needs to disply a "correct!"
             } else {
                 //need to display "incorrect, try again!" and not add points to the score.
@@ -98,7 +98,7 @@ const App = {
             }
         }
 
-        const rowOneButtons = [
+        const lowDiscomfortRow = [
             // The 200-point row. Each object has:
             // - button: unique key for Vue rendering (used in :key)
             // - points: label shown on the tile (currently a String)
@@ -139,7 +139,7 @@ const App = {
                 correctAnswer: null
             }
         ]
-        const rowTwoButtons = [
+        const mediumDiscomfortRow = [
             // The 400-point row. Same schema as rowOneButtons.
             // Need to use item.content + item.points in click logic to open the correct question and score it once.
             {
@@ -178,7 +178,7 @@ const App = {
                 correctAnswer: null
             }
         ]
-        const rowThreeButtons = [
+        const highDiscomfortRow = [
             // The 600-point row. Same schema as rowOneButtons.
             {
                 showCard: ref(false),
@@ -216,7 +216,7 @@ const App = {
                 correctAnswer: null
             }
         ]
-        const rowFourButton = [
+        const extremeDiscomfortRow = [
             // The 800-point row. Same schema as rowOneButtons.
             {
                 showCard: ref(false),
@@ -263,10 +263,10 @@ const App = {
             // answeredQuestions: an array that keeps track of which questions have already been answered and disables the corresponding buttons. 
 
             scoreCount,
-            rowOneButtons,
-            rowTwoButtons,
-            rowThreeButtons,
-            rowFourButtons,
+            lowDiscomfortRow,
+            mediumDiscomfortRow,
+            highDiscomfortRow,
+            extremeDiscomfortRow,
             categories,
             imageBlue,
             imageWhite,
