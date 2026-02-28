@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@3.x/dist/vuetify.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@3.x/dist/vuetify.min.js"></script>
+  <script src="Script.js" defer></script>
+  <!-- This script loads the Vue and Vuetify app logic -->
+</head>
+
+<!-- Throughout this code, we use vw (viewport width) and vh (viewport height) to size various components. We use this format because it allows components to shrink or grow if the display screen is maximized/minimized by the user. --> 
+  
+<div id="app">
+
+  <body>
+    <v-app :style="{ backgroundColor: backgroundColour }">
+      <v-main>
+      <template v-if="!gameComplete">
+        <v-card variant="flat" style="position:absolute; z-index:1; left: 2%; top:65%;" color="#BBEDFF"
+          :style="{width: '20vw', height: '30vh'}" class="text-light-blue-darken-4">
+          <!-- This is the score panel. It displays the current score and a thematic whale image. Add gameplay controls here later (eg. Reset Game button) if needed -->
+          <!-- scoreCount should change when a user answers a question (correct/incorrect conditions). -->
+          <v-card-title style="font-size: 1.5vw" class="pb-0"> Score </v-card-title>
+          <v-card-text style="font-size: 1.5vw" class="pb-0"> {{scoreCount}} </v-card-text>
+          <div align="center">
+            <v-img :src="imageBlue" :style="{width: '13vw', height: '8vw'}"></v-img>
+            <!-- This is the blue whale image used for the menu. Keep this image available in the same folder so Vuetify can load it-->
+          
+          </div>
+        </v-card>
+
+        <v-card variant="flat" color="#BBEDFF" class="text-light-blue-darken-4" :style="{width: '20vw', height: '60vh'}"
+          style="position:absolute; z-index:1; left: 2%; top:2%;">
+
+          <v-card-title class="text-pre-wrap" style="font-size: 1.5vw">Are you aware of the long-term threats that face
+            whales?</v-card-title>
+            <!-- Module topic is whale health + long-term threats (like shipping impacts and pollution). This card explains rules and sets user expectations (that the game is Jeopardy-style; 4 multiple-choice options per question). -->
+          <v-card-text style="font-size: 1.15vw">
+            Shipping does not simply impact whales through collisions and immediate death. The side effects of shipping
+            activity (e.g., chemical and physical pollution) can have long-term harmful impacts on whales’ health and
+            reproductive abilities.
+            Test your knowledge – or learn as you go – through this Jeopardy-style trivia game! Each question has four
+            multiple choice options.
+          </v-card-text>
+        </v-card>
+
+        <div class="position-absolute right-0 pa-2">
+          <v-card variant="flat" :style="{width: '71vw'}" color="#BBEDFF"
+            class="mx-auto text-center text-light-blue-darken-4 ma-2">
+            <v-card-title style="font-size: 2.5vw">Jeopardy: Whale Health</v-card-title>
+            <!-- This is the board title / header. This is the main identity label for the module, aligned with the theme in the instruction card -->
+          </v-card>
+
+          <v-container align="center" class="mt-6">
+            <v-row align="center" :style="{width: '73vw'}">
+              <v-col v-for="item in categories" :key="item.name" align="center">
+                <!-- Here, categories are generated from the JS categories array. We need to ensure that the question bank aligns with these categories (each column corresponds to a category)-->
+                
+                <v-card variant="flat" color="#BBEDFF" :style="{width: '11vw'}">
+                  <v-card-title class="text-light-blue-darken-4" style="font-size: 1.5vw">{{item.name}}</v-card-title>
+                </v-card>
+              </v-col>
+
+              <v-col v-for="item in lowDiscomfortRow" :key="item.button" class="d-flex justify-center mt-4">
+                <!-- This loop generates the 200-point question buttons for the first row. Also, we need to add an if...else statement that disables questions that have already been answered so they cannot be selected twice. -->
+                
+                <v-btn @click="toggleCardOpenClose(item)" :style="{width: '11vw', height: '9vh'}" color="#35A2D5" size="x-large">{{item.points}}</v-btn>
+
+                  <v-dialog v-model=item.showCard.value :style="{width: '85vw'}" align=center>
+                      <v-card>
+                        <v-card-title class="mt-4">{{item.content}}</v-card-title>
+
+                          <v-row>
+                              <v-col cols="6">
+                                <!--Each button is connected to the validateResult funtion. The button can only trigger the function once, so that the user cannot gain points over and over again by selecting the right answer. -->
+                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerA, item.correctAnswer, item.button, item.points)">Option A</v-btn> 
+                              </v-col>
+                              <v-col cols="6">
+                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerB, item.correctAnswer, item.button, item.points)">Option B</v-btn>
+                              </v-col>
+                              <v-col cols="6">
+                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerC, item.correctAnswer, item.button, item.points)">Option C</v-btn>
+                              </v-col>
+                              <v-col cols="6">
+                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerD, item.correctAnswer, item.button, item.points)">Option D</v-btn>
+                              </v-col>
+                          </v-row>
+                            
+                          <div align=center class="pa-4"> 
+                            <v-img :src="imageWhite" max-width="40%" class="mt-4"> </v-img>
+                            <v-btn :style="{width: '15vw', height: '4vh'}" @click="toggleCardOpenClose(item)" >Exit</v-btn>
+                          </div>
+
+                      </v-card>
+                  </v-dialog>
+              </v-col>
+
+              <!-- This is the same as previously, but for the second row of buttons. -->
+              <v-col v-for="item in mediumDiscomfortRow" :key="item.button" align="center">
+                  <v-btn @click="toggleCardOpenClose(item)" :style="{width: '11vw', height: '9vh'}" color="#35A2D5" size="x-large">{{item.points}}</v-btn>
+
+                  <v-dialog v-model=item.showCard.value :style="{width: '85vw'}" align=center>
+                      <v-card>
+                        <v-card-title class="mt-4">{{item.content}}</v-card-title>
+
+                          <v-row>
+                              <v-col cols="6">
+                                <!--Each button is connected to the validateResult funtion. The button can only trigger the function once, so that the user cannot gain points over and over again by selecting the right answer. -->
+                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerA, item.correctAnswer, item.button, item.points)">Option A</v-btn> 
+                              </v-col>
+                              <v-col cols="6">
+                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerB, item.correctAnswer, item.button, item.points)">Option B</v-btn>
+                              </v-col>
+                              <v-col cols="6">
+                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerC, item.correctAnswer, item.button, item.points)">Option C</v-btn>
+                              </v-col>
+                              <v-col cols="6">
+                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerD, item.correctAnswer, item.button, item.points)">Option D</v-btn>
+                              </v-col>
+                          </v-row>
+                            
+                          <div align=center class="pa-4"> 
+                            <v-img :src="imageWhite" max-width="40%" class="mt-4"> </v-img>
+                            <v-btn :style="{width: '15vw', height: '4vh'}" @click="toggleCardOpenClose(item)" >Exit</v-btn>
+                          </div>
+
+                      </v-card>
+                  </v-dialog>
+              </v-col>
+
+              <!-- This is the same as previously, but for the third row of buttons. -->
+              <v-col v-for="item in highDiscomfortRow" :key="item.button" align="center">
+                  <v-btn @click="toggleCardOpenClose(item)" :style="{width: '11vw', height: '9vh'}" color="#35A2D5" size="x-large">{{item.points}}</v-btn>
+
+                  <v-dialog v-model=item.showCard.value :style="{width: '85vw'}" align=center>
+                      <v-card>
+                        <v-card-title class="mt-4">{{item.content}}</v-card-title>
+
+                          <v-row>
+                              <v-col cols="6">
+                                <!--Each button is connected to the validateResult funtion. The button can only trigger the function once, so that the user cannot gain points over and over again by selecting the right answer. -->
+                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerA, item.correctAnswer, item.button, item.points)">Option A</v-btn> 
+                              </v-col>
+                              <v-col cols="6">
+                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerB, item.correctAnswer, item.button, item.points)">Option B</v-btn>
+                              </v-col>
+                              <v-col cols="6">
+                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerC, item.correctAnswer, item.button, item.points)">Option C</v-btn>
+                              </v-col>
+                              <v-col cols="6">
+                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerD, item.correctAnswer, item.button, item.points)">Option D</v-btn>
+                              </v-col>
+                          </v-row>
+                            
+                          <div align=center class="pa-4"> 
+                            <v-img :src="imageWhite" max-width="40%" class="mt-4"> </v-img>
+                            <v-btn :style="{width: '15vw', height: '4vh'}" @click="toggleCardOpenClose(item)" >Exit</v-btn>
+                          </div>
+
+                      </v-card>
+                  </v-dialog>
+              </v-col>
+
+              <!-- This is the same as previously, but for the fourth row of buttons. -->
+              <v-col v-for="item in extremeDiscomfortRow" :key="item.button" align="center">
+                  <v-btn @click="toggleCardOpenClose(item)" :style="{width: '11vw', height: '9vh'}" color="#35A2D5" size="x-large">{{item.points}}</v-btn>
+
+                  <v-dialog v-model=item.showCard.value :style="{width: '85vw'}" align=center>
+                      <v-card>
+                        <v-card-title class="mt-4">{{item.content}}</v-card-title>
+
+                          <v-row>
+                              <v-col cols="6">
+                                <!--Each button is connected to the validateResult funtion. The button can only trigger the function once, so that the user cannot gain points over and over again by selecting the right answer. -->
+                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerA, item.correctAnswer, item.button, item.points)">Option A</v-btn> 
+                              </v-col>
+                              <v-col cols="6">
+                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerB, item.correctAnswer, item.button, item.points)">Option B</v-btn>
+                              </v-col>
+                              <v-col cols="6">
+                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerC, item.correctAnswer, item.button, item.points)">Option C</v-btn>
+                              </v-col>
+                              <v-col cols="6">
+                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerD, item.correctAnswer, item.button, item.points)">Option D</v-btn>
+                              </v-col>
+                          </v-row>
+                            
+                          <div align=center class="pa-4"> 
+                            <v-img :src="imageWhite" max-width="40%" class="mt-4"> </v-img>
+                            <v-btn :style="{width: '15vw', height: '4vh'}" @click="toggleCardOpenClose(item)" >Exit</v-btn>
+                          </div>
+
+                      </v-card>
+                  </v-dialog>
+              </v-col>
+            </v-row>
+
+          </v-container>
+        </div>
+        
+      </template>
+
+      <div class="d-flex justify-center align-center" style="min-height: 100vh;">
+        <v-card v-if="gameComplete" :style="{width: '85vw', height: '70vh'}" class="text-center">
+          <v-card-title style="font-size: 2.5vw" class="text-light-blue-darken-4">Experience Completed!</v-card-title>
+          <v-card-subtitle style="font-size: 2vw" class="text-light-blue-darken-3">Well done. You're one step closer to unlearning anthropocentrism.</v-card-subtitle>
+          <v-card-text style="font-size: 1.5vw" class="text-light-blue-darken-4">Overall, you earned {{ scoreCount }} points. </v-card-text>
+          <v-img :src="imageWhite" :style="{width: '20vw', margin: '0 auto', display: 'block'}"></v-img>
+          <v-btn @click="restartGame" color="#35A2D5" :style="{width: '15vw', height: '7vh'}" style="font-size: 1.5vw">Play Again</v-btn>
+        </v-card>
+      </div>
+
+    </v-main>
+    </v-app>
+
+  </body>
+</div>    
+
+</html>
