@@ -20,18 +20,21 @@ const App = {
         const gameComplete = ref(false); // A boolean that controls when the game is done 
         const answeredQuestions = ref([]); // An array of all questions that have been answered and must subsequently get disabled 
 
-        // This if...else determines when the game should end (when all 20 questions have been answered)
-        if (answeredQuestions.value.length === 20) {
-            gameComplete.value = true;
-            backgroundColour.value = "#BBEDFF"; // Changes the background colour 
-        } else {
-            gameComplete.value = false;
+        function checkGameComplete() {
+            // This if...else determines when the game should end (when all 20 questions have been answered)
+            if (answeredQuestions.value.length === 20) {
+                gameComplete.value = true;
+                backgroundColour.value = "#BBEDFF"; // Changes the background colour 
+            } else {
+                gameComplete.value = false;
+            }
         }
 
         // This function is activated when the player presses a "Play Again" button. 
         function restartGame() {
-            answeredQuestions.value = false;
+            answeredQuestions.value = [];
             scoreCount.value = 0;
+            gameComplete.value = false;
             backgroundColour.value = "white"; // Changes the background colour 
         }
 
@@ -41,7 +44,11 @@ const App = {
                 scoreCount.value = scoreCount.value + Number(points);
                 answeredQuestions.value.push(buttonID); // Add the buttonID to the answered questions array
                 //after getting a question right, the question needs to disply a "correct!"
+
+                checkGameComplete(); // Check if the game is complete after answering each question
+
             } else {
+                
                 //need to display "incorrect, try again!" and not add points to the score.
             }
 
@@ -75,35 +82,56 @@ const App = {
                 button: "col1row1",
                 points: "200",
                 content: "question1",
-                correctAnswer: null
+                correctAnswer: "11a",
+                answerA: "11a",
+                answerB: "11b",
+                answerC: "11c",
+                answerD: "11d"
             },
             {
                 showCard: ref(false),
                 button: "col2row1",
                 points: "200",
                 content: "question2",
-                correctAnswer: null
+                correctAnswer: "12b",
+                answerA: "12a",
+                answerB: "12b",
+                answerC: "12c",
+                answerD: "12d"
             },
             {
                 showCard: ref(false),
                 button: "col3row1",
                 points: "200",
                 content: "question3",
-                correctAnswer: null
+                correctAnswer: "13c",
+                answerA: "13a",
+                answerB: "13b",
+                answerC: "13c",
+                answerD: "13d"
+
             },
             {
                 showCard: ref(false),
                 button: "col4row1",
                 points: "200",
                 content: "question4",
-                correctAnswer: null
+                correctAnswer: "14d",
+                answerA: "14a",
+                answerB: "14b",
+                answerC: "14c",
+                answerD: "14d"
             },
             {
                 showCard: ref(false),
                 button: "col5row1",
                 points: "200",
                 content: "question5",
-                correctAnswer: null
+                correctAnswer: "15d",
+                answerA: "15a",
+                answerB: "15b",
+                answerC: "15c",
+                answerD: "15d"
             }
         ]
         const mediumDiscomfortRow = [
@@ -114,35 +142,55 @@ const App = {
                 button: "col1row2",
                 points: "400",
                 content: "question6",
-                correctAnswer: null
+                correctAnswer: "15d",
+                answerA: "15a",
+                answerB: "15b",
+                answerC: "15c",
+                answerD: "15d"
             },
             {
                 showCard: ref(false),
                 button: "col2row2",
                 points: "400",
                 content: "question7",
-                correctAnswer: null
+                correctAnswer: "15d",
+                answerA: "15a",
+                answerB: "15b",
+                answerC: "15c",
+                answerD: "15d"
             },
             {
                 showCard: ref(false),
                 button: "col3row2",
                 points: "400",
                 content: "question8",
-                correctAnswer: null
+                correctAnswer: "15d",
+                answerA: "15a",
+                answerB: "15b",
+                answerC: "15c",
+                answerD: "15d"
             },
             {
                 showCard: ref(false),
                 button: "col4row2",
                 points: "400",
                 content: "question9",
-                correctAnswer: null
+                correctAnswer: "15d",
+                answerA: "15a",
+                answerB: "15b",
+                answerC: "15c",
+                answerD: "15d"
             },
             {
                 showCard: ref(false),
                 button: "col5row2",
                 points: "400",
                 content: "question10",
-                correctAnswer: null
+                correctAnswer: "15d",
+                answerA: "15a",
+                answerB: "15b",
+                answerC: "15c",
+                answerD: "15d"
             }
         ]
         const highDiscomfortRow = [
@@ -152,35 +200,55 @@ const App = {
                 button: "col1row3",
                 points: "600",
                 content: "question11",
-                correctAnswer: null
+                correctAnswer: "15d",
+                answerA: "15a",
+                answerB: "15b",
+                answerC: "15c",
+                answerD: "15d"
             },
             {
                 showCard: ref(false),
                 button: "col2row3",
                 points: "600",
                 content: "question12",
-                correctAnswer: null
+                correctAnswer: "15d",
+                answerA: "15a",
+                answerB: "15b",
+                answerC: "15c",
+                answerD: "15d"
             },
             {
                 showCard: ref(false),
                 button: "col3row3",
                 points: "600",
                 content: "question13",
-                correctAnswer: null
+                correctAnswer: "15d",
+                answerA: "15a",
+                answerB: "15b",
+                answerC: "15c",
+                answerD: "15d"
             },
             {
                 showCard: ref(false),
                 button: "col4row3",
                 points: "600",
                 content: "question14",
-                correctAnswer: null
+                correctAnswer: "15d",
+                answerA: "15a",
+                answerB: "15b",
+                answerC: "15c",
+                answerD: "15d"
             },
             {
                 showCard: ref(false),
                 button: "col5row3",
                 points: "600",
                 content: "question15",
-                correctAnswer: null
+                correctAnswer: "15d",
+                answerA: "15a",
+                answerB: "15b",
+                answerC: "15c",
+                answerD: "15d"
             }
         ]
         const extremeDiscomfortRow = [
@@ -190,35 +258,55 @@ const App = {
                 button: "col1row4",
                 points: "800",
                 content: "question16",
-                correctAnswer: null
+                correctAnswer: "15d",
+                answerA: "15a",
+                answerB: "15b",
+                answerC: "15c",
+                answerD: "15d"
             },
             {
                 showCard: ref(false),
                 button: "col2row4",
                 points: "800",
                 content: "question17",
-                correctAnswer: null
+                correctAnswer: "15d",
+                answerA: "15a",
+                answerB: "15b",
+                answerC: "15c",
+                answerD: "15d"
             },
             {
                 showCard: ref(false),
                 button: "col3row4",
                 points: "800",
                 content: "question18",
-                correctAnswer: null
+                correctAnswer: "15d",
+                answerA: "15a",
+                answerB: "15b",
+                answerC: "15c",
+                answerD: "15d"
             },
             {
                 showCard: ref(false),
                 button: "col4row4",
                 points: "800",
                 content: "question19",
-                correctAnswer: null
+                correctAnswer: "15d",
+                answerA: "15a",
+                answerB: "15b",
+                answerC: "15c",
+                answerD: "15d"
             },
             {
                 showCard: ref(false),
                 button: "col5row4",
                 points: "800",
                 content: "question20",
-                correctAnswer: null
+                correctAnswer: "15d",
+                answerA: "15a",
+                answerB: "15b",
+                answerC: "15c",
+                answerD: "15d"
             }
         ]
 

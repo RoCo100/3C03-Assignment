@@ -67,10 +67,11 @@
                 </v-card>
               </v-col>
 
-              <v-col v-for="item in lowDiscomfortRow" :key="item.button" class="d-flex justify-center mt-4">
+              <v-col v-for="item in lowDiscomfortRow" :key="item.button" class="d-flex justify-center mt-4" >
                 <!-- This loop generates the 200-point question buttons for the first row. Also, we need to add an if...else statement that disables questions that have already been answered so they cannot be selected twice. -->
                 
-                <v-btn @click="toggleCardOpenClose(item)" :style="{width: '11vw', height: '9vh'}" color="#35A2D5" size="x-large">{{item.points}}</v-btn>
+                <v-btn @click="toggleCardOpenClose(item)" :style="{width: '11vw', height: '9vh'}" size="x-large" :color="answeredQuestions.includes(item.button)? 'blue' : '#35A2D5'" :disabled="answeredQuestions.includes(item.button)">{{item.points}}</v-btn>
+                <!-- the color property is bound to whether or not the array of answeredQuestions include the button. :disabled disables the button if the answered Questions includes the item. this way user can see which questions they already got correct-->
 
                   <v-dialog v-model=item.showCard.value :style="{width: '85vw'}" align=center>
                       <v-card>
@@ -79,16 +80,17 @@
                           <v-row>
                               <v-col cols="6">
                                 <!--Each button is connected to the validateResult funtion. The button can only trigger the function once, so that the user cannot gain points over and over again by selecting the right answer. -->
-                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerA, item.correctAnswer, item.button, item.points)">Option A</v-btn> 
+                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerA, item.correctAnswer, item.button, item.points)" :disabled="answeredQuestions.includes(item.button)">Option A</v-btn>
+                                <!--the buttons are disabled once the correct answer is clicked on. the disabled property becomes true once the button object (the ID) is found in the list of answeredQuestions-->
                               </v-col>
                               <v-col cols="6">
-                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerB, item.correctAnswer, item.button, item.points)">Option B</v-btn>
+                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerB, item.correctAnswer, item.button, item.points)" :disabled="answeredQuestions.includes(item.button)">Option B</v-btn>
                               </v-col>
                               <v-col cols="6">
-                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerC, item.correctAnswer, item.button, item.points)">Option C</v-btn>
+                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerC, item.correctAnswer, item.button, item.points)" :disabled="answeredQuestions.includes(item.button)">Option C</v-btn>
                               </v-col>
                               <v-col cols="6">
-                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerD, item.correctAnswer, item.button, item.points)">Option D</v-btn>
+                                <v-btn :style="{width: '35vw', height: '4vh'}" @click.once="validateResult(item.answerD, item.correctAnswer, item.button, item.points)" :disabled="answeredQuestions.includes(item.button)">Option D</v-btn>
                               </v-col>
                           </v-row>
                             
@@ -105,7 +107,7 @@
               <v-col v-for="item in mediumDiscomfortRow" :key="item.button" align="center">
                   <v-btn @click="toggleCardOpenClose(item)" :style="{width: '11vw', height: '9vh'}" color="#35A2D5" size="x-large">{{item.points}}</v-btn>
 
-                  <v-dialog v-model=item.showCard.value :style="{width: '85vw'}" align=center>
+                  <v-dialog v-model="item.showCard.value" :style="{width: '85vw'}" align="center">
                       <v-card>
                         <v-card-title class="mt-4">{{item.content}}</v-card-title>
 
