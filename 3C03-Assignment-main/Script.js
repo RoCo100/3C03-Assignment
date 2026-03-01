@@ -6,8 +6,7 @@ const vuetify = createVuetify();
 const App = {
     setup() {
         const scoreCount = ref(0);
-        // Update this when a user answers a question correctly/incorrectly (requires click handlers + question logic).
-        // Add a function validateResult to check if the choice made is the correctAnswer string value in each array of the row of buttons. 
+        // Update this when a user answers a question correctly/incorrectly. scoreCount is updated using the validateResult function. 
 
         const backgroundColour = ref("white");
         // Sets the background for the main screen
@@ -16,6 +15,7 @@ const App = {
         const imageWhite = "imageNoBackground.png";
         // The 2 image filenames used. Need to keep these assets available in the same folder so the html can render it consistently.
 
+        const correctSelection = ref(null); // A boolean that tracks if the user has selected the correct answer to a question; will be used to determine what message (correct/incorrect) is displayed after they select a multiple choice answer.
 
         const gameComplete = ref(false); // A boolean that controls when the game is done 
         const answeredQuestions = ref([]); // An array of all questions that have been answered and must subsequently get disabled 
@@ -28,29 +28,30 @@ const App = {
             } else {
                 gameComplete.value = false;
             }
+
         }
 
         // This function is activated when the player presses a "Play Again" button. 
         function restartGame() {
-            answeredQuestions.value = [];
-            scoreCount.value = 0;
-            gameComplete.value = false;
+            correctSelection.value = null; // Resets the state of the correctSelection boolean. 
+            answeredQuestions.value = []; // Resets the answeredQuestions array to be empty. 
+            scoreCount.value = 0; // Resets score count to zero. 
+            gameComplete.value = false; // Resets the gameComplete boolean to be false. 
             backgroundColour.value = "white"; // Changes the background colour 
         }
 
         // This function is connected to multiple-choice answers. It checks if the user has selected the correct answer.
         function validateResult(input, correct, buttonID, points) {
             if (input == correct) {
-                scoreCount.value = scoreCount.value + Number(points);
-                answeredQuestions.value.push(buttonID); // Add the buttonID to the answered questions array
-                //after getting a question right, the question needs to disply a "correct!"
-
-                checkGameComplete(); // Check if the game is complete after answering each question
-
+                scoreCount.value = scoreCount.value + Number(points);  // Increases the score count by the number of points associated with the question. (i.e., 200, 400, 600, or 800.)              
+                correctSelection.value = true; //This boolean is linked to a <v-card-text> that informs the user they've selected the correct answer.
             } else {
-                
-                //need to display "incorrect, try again!" and not add points to the score.
+                correctSelection.value = false;  //This boolean is linked to a <v-card-text> that displays an "incorrect" message, along with an explanation of the correct answer. 
             }
+
+                answeredQuestions.value.push(buttonID); // Add the buttonID to the answered questions array
+                checkGameComplete(); // Check if the game is complete after answering each question
+            
 
         }
 
@@ -69,9 +70,12 @@ const App = {
                 button.showCard.value = true
             } else {
                 button.showCard.value = false
+                correctSelection.value = null; //This resets the "correctSelection" boolean to null in between questions. This way, the "correct" or "incorrect" message is not carried over from the previous question. 
+
             }
         }
 
+        //The arrays are categorized in rows, based on "uncomfortability level". This means that the questions are grouped together based on how much they challenge anthropocentrism and cause discomfort in the human user. 
         const lowDiscomfortRow = [
             // The 200-point row. Each object has:
             // - button: unique key for Vue rendering (used in :key)
@@ -86,7 +90,8 @@ const App = {
                 answerA: "11a",
                 answerB: "11b",
                 answerC: "11c",
-                answerD: "11d"
+                answerD: "11d",
+                explanation: "That is incorrect..."
             },
             {
                 showCard: ref(false),
@@ -97,7 +102,8 @@ const App = {
                 answerA: "12a",
                 answerB: "12b",
                 answerC: "12c",
-                answerD: "12d"
+                answerD: "12d",
+                explanation: "That is incorrect..."
             },
             {
                 showCard: ref(false),
@@ -108,7 +114,8 @@ const App = {
                 answerA: "13a",
                 answerB: "13b",
                 answerC: "13c",
-                answerD: "13d"
+                answerD: "13d",
+                explanation: "That is incorrect..."
 
             },
             {
@@ -120,7 +127,8 @@ const App = {
                 answerA: "14a",
                 answerB: "14b",
                 answerC: "14c",
-                answerD: "14d"
+                answerD: "14d",
+                explanation: "That is incorrect..."
             },
             {
                 showCard: ref(false),
@@ -131,7 +139,8 @@ const App = {
                 answerA: "15a",
                 answerB: "15b",
                 answerC: "15c",
-                answerD: "15d"
+                answerD: "15d",
+                explanation: "That is incorrect..."
             }
         ]
         const mediumDiscomfortRow = [
@@ -146,7 +155,8 @@ const App = {
                 answerA: "15a",
                 answerB: "15b",
                 answerC: "15c",
-                answerD: "15d"
+                answerD: "15d",
+                explanation: "That is incorrect..."
             },
             {
                 showCard: ref(false),
@@ -157,7 +167,8 @@ const App = {
                 answerA: "15a",
                 answerB: "15b",
                 answerC: "15c",
-                answerD: "15d"
+                answerD: "15d",
+                explanation: "That is incorrect..."
             },
             {
                 showCard: ref(false),
@@ -168,7 +179,8 @@ const App = {
                 answerA: "15a",
                 answerB: "15b",
                 answerC: "15c",
-                answerD: "15d"
+                answerD: "15d",
+                explanation: "That is incorrect..."
             },
             {
                 showCard: ref(false),
@@ -179,7 +191,8 @@ const App = {
                 answerA: "15a",
                 answerB: "15b",
                 answerC: "15c",
-                answerD: "15d"
+                answerD: "15d",
+                explanation: "That is incorrect..."
             },
             {
                 showCard: ref(false),
@@ -190,7 +203,8 @@ const App = {
                 answerA: "15a",
                 answerB: "15b",
                 answerC: "15c",
-                answerD: "15d"
+                answerD: "15d",
+                explanation: "That is incorrect..."
             }
         ]
         const highDiscomfortRow = [
@@ -204,7 +218,8 @@ const App = {
                 answerA: "15a",
                 answerB: "15b",
                 answerC: "15c",
-                answerD: "15d"
+                answerD: "15d",
+                explanation: "That is incorrect..."
             },
             {
                 showCard: ref(false),
@@ -215,7 +230,8 @@ const App = {
                 answerA: "15a",
                 answerB: "15b",
                 answerC: "15c",
-                answerD: "15d"
+                answerD: "15d",
+                explanation: "That is incorrect..."
             },
             {
                 showCard: ref(false),
@@ -226,7 +242,8 @@ const App = {
                 answerA: "15a",
                 answerB: "15b",
                 answerC: "15c",
-                answerD: "15d"
+                answerD: "15d",
+                explanation: "That is incorrect..."
             },
             {
                 showCard: ref(false),
@@ -237,7 +254,8 @@ const App = {
                 answerA: "15a",
                 answerB: "15b",
                 answerC: "15c",
-                answerD: "15d"
+                answerD: "15d",
+                explanation: "That is incorrect..."
             },
             {
                 showCard: ref(false),
@@ -248,7 +266,8 @@ const App = {
                 answerA: "15a",
                 answerB: "15b",
                 answerC: "15c",
-                answerD: "15d"
+                answerD: "15d",
+                explanation: "That is incorrect..."
             }
         ]
         const extremeDiscomfortRow = [
@@ -262,7 +281,8 @@ const App = {
                 answerA: "15a",
                 answerB: "15b",
                 answerC: "15c",
-                answerD: "15d"
+                answerD: "15d",
+                explanation: "That is incorrect..."
             },
             {
                 showCard: ref(false),
@@ -273,7 +293,8 @@ const App = {
                 answerA: "15a",
                 answerB: "15b",
                 answerC: "15c",
-                answerD: "15d"
+                answerD: "15d",
+                explanation: "That is incorrect..."
             },
             {
                 showCard: ref(false),
@@ -284,7 +305,8 @@ const App = {
                 answerA: "15a",
                 answerB: "15b",
                 answerC: "15c",
-                answerD: "15d"
+                answerD: "15d",
+                explanation: "That is incorrect..."
             },
             {
                 showCard: ref(false),
@@ -295,7 +317,8 @@ const App = {
                 answerA: "15a",
                 answerB: "15b",
                 answerC: "15c",
-                answerD: "15d"
+                answerD: "15d",
+                explanation: "That is incorrect..."
             },
             {
                 showCard: ref(false),
@@ -306,7 +329,8 @@ const App = {
                 answerA: "15a",
                 answerB: "15b",
                 answerC: "15c",
-                answerD: "15d"
+                answerD: "15d",
+                explanation: "That is incorrect..."
             }
         ]
 
@@ -330,6 +354,7 @@ const App = {
             backgroundColour,
             restartGame,
             validateResult,
+            correctSelection,
             toggleCardOpenClose
         }
 
