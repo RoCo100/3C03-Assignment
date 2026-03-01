@@ -38,6 +38,20 @@ const App = {
             scoreCount.value = 0; // Resets score count to zero. 
             gameComplete.value = false; // Resets the gameComplete boolean to be false. 
             backgroundColour.value = "white"; // Changes the background colour 
+            
+            // Reset all showCard values to make sure that the last question selected before the game ended is not still active. 
+            for (button of lowDiscomfortRow) {
+                button.showCard.value = false; 
+            }
+            for (button of mediumDiscomfortRow) {
+                button.showCard.value = false; 
+            }
+            for (button of highDiscomfortRow) {
+                button.showCard.value = false; 
+            }
+            for (button of extremeDiscomfortRow) {
+                button.showCard.value = false; 
+            }
         }
 
         // This function is connected to multiple-choice answers. It checks if the user has selected the correct answer.
@@ -48,11 +62,8 @@ const App = {
             } else {
                 correctSelection.value = false;  //This boolean is linked to a <v-card-text> that displays an "incorrect" message, along with an explanation of the correct answer. 
             }
-
                 answeredQuestions.value.push(buttonID); // Add the buttonID to the answered questions array
                 checkGameComplete(); // Check if the game is complete after answering each question
-            
-
         }
 
         const categories = [
