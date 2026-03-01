@@ -72,13 +72,13 @@
 
                   <v-dialog v-model=item.showCard.value style="width: 85vw;" align=center>
                       <v-card>
-                        <v-card-title class="mt-4">{{item.content}}</v-card-title>
+                        <v-card-title class="ma-8">{{item.content}}</v-card-title>
 
                           <v-row>
                               <v-col cols="6">
                                 <!--Each button is connected to the validateResult funtion. The button can only trigger the function once, so that the user cannot gain points over and over again by selecting the right answer. -->
                                 <v-btn style="width: 35vw; height: 4vh;" @click.once="validateResult(item.answerA, item.correctAnswer, item.button, item.points)" :disabled="answeredQuestions.includes(item.button)">Option A</v-btn>
-                                <!--the buttons are disabled once the correct answer is clicked on. the disabled property becomes true once the button object (the ID) is found in the list of answeredQuestions-->
+                                <!--the buttons are disabled once the correct answer is clicked on. The disabled property becomes true once the button object (the ID) is found in the list of answeredQuestions-->
                               </v-col>
                               <v-col cols="6">
                                 <v-btn style="width: 35vw; height: 4vh;" @click.once="validateResult(item.answerB, item.correctAnswer, item.button, item.points)" :disabled="answeredQuestions.includes(item.button)">Option B</v-btn>
@@ -90,7 +90,15 @@
                                 <v-btn style="width: 35vw; height: 4vh;" @click.once="validateResult(item.answerD, item.correctAnswer, item.button, item.points)" :disabled="answeredQuestions.includes(item.button)">Option D</v-btn>
                               </v-col>
                           </v-row>
-                            
+
+                          <v-card-text v-if="correctSelection == true" class="text-green font-weight-bold pa-8">
+                            That is correct! 
+                          </v-card-text>
+
+                          <v-card-text v-if="correctSelection == false" class="text-red font-weight-bold pa-8">
+                            {{ item.explanation }}  
+                          </v-card-text>
+                        
                           <div align=center class="pa-4"> 
                             <v-img :src="imageWhite" max-width="40%" class="mt-4"> </v-img>
                             <v-btn style="width: 15vw; height: 4vh;" @click="toggleCardOpenClose(item)">Exit</v-btn>
@@ -106,7 +114,7 @@
 
                   <v-dialog v-model="item.showCard.value" style="width: 85vw;" align="center">
                       <v-card>
-                        <v-card-title class="mt-4">{{item.content}}</v-card-title>
+                        <v-card-title class="ma-8">{{item.content}}</v-card-title>
 
                           <v-row>
                               <v-col cols="6">
@@ -123,6 +131,14 @@
                                 <v-btn style="width: 35vw; height: 4vh;" @click.once="validateResult(item.answerD, item.correctAnswer, item.button, item.points)">Option D</v-btn>
                               </v-col>
                           </v-row>
+
+                          <v-card-text v-if="correctSelection == true" class="text-green font-weight-bold pa-8">
+                            That is correct! 
+                          </v-card-text>
+
+                          <v-card-text v-if="correctSelection == false" class="text-red font-weight-bold pa-8">
+                            {{ item.explanation }}  
+                          </v-card-text>
                             
                           <div align=center class="pa-4"> 
                             <v-img :src="imageWhite" max-width="40%" class="mt-4"> </v-img>
@@ -139,7 +155,7 @@
 
                   <v-dialog v-model=item.showCard.value style="width: 85vw;" align=center>
                       <v-card>
-                        <v-card-title class="mt-4">{{item.content}}</v-card-title>
+                        <v-card-title class="ma-8">{{item.content}}</v-card-title>
 
                           <v-row>
                               <v-col cols="6">
@@ -156,7 +172,16 @@
                                 <v-btn style="width: 35vw; height: 4vh;" @click.once="validateResult(item.answerD, item.correctAnswer, item.button, item.points)">Option D</v-btn>
                               </v-col>
                           </v-row>
+
+                          <v-card-text v-if="correctSelection == true" class="text-green font-weight-bold pa-8">
+                            That is correct! 
+                          </v-card-text>
+
+                          <v-card-text v-if="correctSelection == false" class="text-red font-weight-bold pa-8">
+                            {{ item.explanation }}  
+                          </v-card-text>
                             
+                        
                           <div align=center class="pa-4"> 
                             <v-img :src="imageWhite" max-width="40%" class="mt-4"> </v-img>
                             <v-btn style="width: 15vw; height: 4vh;" @click="toggleCardOpenClose(item)" >Exit</v-btn>
@@ -172,7 +197,7 @@
 
                   <v-dialog v-model=item.showCard.value style="width: 85vw;" align=center>
                       <v-card>
-                        <v-card-title class="mt-4">{{item.content}}</v-card-title>
+                        <v-card-title class="ma-8">{{item.content}}</v-card-title>
 
                           <v-row>
                               <v-col cols="6">
@@ -189,7 +214,15 @@
                                 <v-btn style="width: 35vw; height: 4vh;" @click.once="validateResult(item.answerD, item.correctAnswer, item.button, item.points)">Option D</v-btn>
                               </v-col>
                           </v-row>
-                            
+
+                          <v-card-text v-if="correctSelection == true" class="text-green font-weight-bold pa-8">
+                            That is correct! 
+                          </v-card-text>
+
+                          <v-card-text v-if="correctSelection == false" class="text-red font-weight-bold pa-8">
+                            {{ item.explanation }}  
+                          </v-card-text>
+                        
                           <div align=center class="pa-4"> 
                             <v-img :src="imageWhite" max-width="40%" class="mt-4"> </v-img>
                             <v-btn style="width: 15vw; height: 4vh;" @click="toggleCardOpenClose(item)" >Exit</v-btn>
