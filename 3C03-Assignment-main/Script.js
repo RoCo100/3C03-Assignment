@@ -39,6 +39,8 @@ const App = {
             gameComplete.value = false; // Resets the gameComplete boolean to be false. 
             backgroundColour.value = "white"; // Changes the background colour 
             
+
+            /* consider deleting since now restarting game after exit button is clicked
             // Reset all showCard values to make sure that the last question selected before the game ended is not still active. 
             for (button of lowDiscomfortRow) {
                 button.showCard.value = false; 
@@ -51,7 +53,7 @@ const App = {
             }
             for (button of extremeDiscomfortRow) {
                 button.showCard.value = false; 
-            }
+            }*/
         }
 
         // This function is connected to multiple-choice answers. It checks if the user has selected the correct answer.
@@ -63,7 +65,7 @@ const App = {
                 correctSelection.value = false;  //This boolean is linked to a <v-card-text> that displays an "incorrect" message, along with an explanation of the correct answer. 
             }
                 answeredQuestions.value.push(buttonID); // Add the buttonID to the answered questions array
-                checkGameComplete(); // Check if the game is complete after answering each question
+                
         }
 
         const categories = [
@@ -79,10 +81,11 @@ const App = {
         function toggleCardOpenClose(button) {
             if (button.showCard.value == false) {
                 button.showCard.value = true
+                checkGameComplete(); // Check if the game each time the player presses the "exit" button
             } else {
                 button.showCard.value = false
                 correctSelection.value = null; //This resets the "correctSelection" boolean to null in between questions. This way, the "correct" or "incorrect" message is not carried over from the previous question. 
-
+                
             }
         }
 
