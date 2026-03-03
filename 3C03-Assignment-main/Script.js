@@ -94,42 +94,42 @@ const App = {
             // The 200-point row. Each object has:
             // - button: unique key for Vue rendering (used in :key)
             // - points: label shown on the tile (currently a String)
-            // - content: question placeholder (e.g., "question1") to link a click to a question in a future question bank
+            // - content: question which invokes the lowest level of uncomfortability. This question is scientific in nature. It seeks to establish the whale as an independent being with sophisticated capacities, physical abilities and anatomical structures. It does not yet tie their existence in relation to human activity. 
             {
                 showCard: ref(false),
                 button: "col1row1",
                 points: "200",
-                content: "question1",
-                correctAnswer: "11a",
-                answerA: "11a",
-                answerB: "11b",
-                answerC: "11c",
-                answerD: "11d",
-                explanation: "That is incorrect..."
+                content: "Weighing nearly 900 kg in a blue whale, this four-chambered organ circulates nutrients across an ocean-sized body, sustaining life.",
+                correctAnswer: "Heart",
+                answerA: "Liver",
+                answerB: "Heart",
+                answerC: "Blowhole sac",
+                answerD: "Baleen chamber",
+                explanation: "Whales have a heart that weighs around 900 kg. It sustains oxygen and nutrient circulation across an enormous body adapted for deep diving and long migration."
             },
             {
                 showCard: ref(false),
                 button: "col2row1",
                 points: "200",
-                content: "question2",
-                correctAnswer: "12b",
-                answerA: "12a",
-                answerB: "12b",
-                answerC: "12c",
-                answerD: "12d",
-                explanation: "That is incorrect..."
+                content: "This phenomenon occurs when noises in the environment overlap spectrally and temporally with whale calls, preventing a whale mother from locating her baby.",
+                correctAnswer: "Auditory masking",
+                answerA: "Echo distortion",
+                answerB: "Auditory masking",
+                answerC: "Acoustic drift",
+                answerD: "Frequency collapse",
+                explanation: "Auditory masking occurs when background noise overlaps spectrally or temporally with whale communication signals, interfering with signal detection and recognition."
             },
             {
                 showCard: ref(false),
                 button: "col3row1",
                 points: "200",
-                content: "question3",
-                correctAnswer: "13c",
-                answerA: "13a",
-                answerB: "13b",
-                answerC: "13c",
-                answerD: "13d",
-                explanation: "That is incorrect..."
+                content: "As background noise intensifies, whales often increase this vocal trait to maintain social bonds across distance.",
+                correctAnswer: "Call amplitude",
+                answerA: "Call amplitude",
+                answerB: "Silence duration",
+                answerC: "Fluke width",
+                answerD: "Dive depth",
+                explanation: "Whales increase the loudness (amplitude) of their calls to communicate with other whales across long distances and noisy backgrounds."
 
             },
             {
