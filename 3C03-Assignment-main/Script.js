@@ -70,11 +70,11 @@ const App = {
 
         const categories = [
             // These are category headers shown at the top of the board. Need to align the question bank so each column/category has matching questions.
-            { name: "Anatomy" },
-            { name: "Audition" },
-            { name: "Stress" },
-            { name: "Ships" },
-            { name: "Pollution" }
+            { name: "The Whale Body" },
+            { name: "Noise Disturbances" },
+            { name: "Stress & Survival" },
+            { name: "Physical Collisions" },
+            { name: "Chemical Harms" }
         ]
 
         //This function controls opening and closing a question button. It is activated once when the user seleects a question, and again when the user selects the "exit" button. 
@@ -89,7 +89,7 @@ const App = {
             }
         }
 
-        //The arrays are categorized in rows, based on "uncomfortability level". This means that the questions are grouped together based on how much they challenge anthropocentrism and cause discomfort in the human user. 
+        //The arrays are categorized in rows, based on "uncomfortability level". This means that the questions are grouped together based on how much they challenge anthropocentrism and cause discomfort in the human user. Instead of rewarding players with more points for selecting more difficult questions, unlike typical Jeopardy questions, we will reward players for choosing to confront increasingly uncomfortable topics of anthropocentric shipping, pollution, and extractive practices, and their impacts on whale health. 
         const lowDiscomfortRow = [
             // The 200-point row. Each object has:
             // - button: unique key for Vue rendering (used in :key)
