@@ -94,7 +94,8 @@ const App = {
             // The 200-point row. Each object has:
             // - button: unique key for Vue rendering (used in :key)
             // - points: label shown on the tile (currently a String)
-            // - content: question which invokes the lowest level of uncomfortability. This question is scientific in nature. It seeks to establish the whale as an independent being with sophisticated capacities, physical abilities and anatomical structures. It does not yet tie their existence in relation to human activity. 
+            // - content: question which invokes the lowest level of uncomfortability. 
+            // The questions of this level are primarily scientific. They seek to establish the whale as an independent being with sophisticated capacities, physical abilities and anatomical structures. These questions does not yet tie their existence in relation to human activity. 
             {
                 showCard: ref(false),
                 button: "col1row1",
@@ -112,6 +113,7 @@ const App = {
                 button: "col2row1",
                 points: "200",
                 content: "This phenomenon occurs when noises in the environment overlap spectrally and temporally with whale calls, preventing a whale mother from locating her baby.",
+                // 
                 correctAnswer: "Auditory masking",
                 answerA: "Echo distortion",
                 answerB: "Auditory masking",
@@ -136,30 +138,31 @@ const App = {
                 showCard: ref(false),
                 button: "col4row1",
                 points: "200",
-                content: "question4",
-                correctAnswer: "14d",
-                answerA: "14a",
-                answerB: "14b",
-                answerC: "14c",
-                answerD: "14d",
-                explanation: "That is incorrect..."
+                content: "This powerful, horizontally flattened structure, driven by massive muscles in the peduncle, propels whales and enables them to dive deep.",
+                correctAnswer: "Fluke",
+                answerA: "Dorsal fin",
+                answerB: "Pectoral flipper",
+                answerC: "Fluke",
+                answerD: "Blowhole",
+                explanation: "Whales use their fluke, or tail, to propel themselves with powerful, vertical strokes. The fluke accounts for a significant portion of their total body muscle mass. If the fluke were damaged, whales could not swim, forage, migrate, or escape as efficiently, making it far more difficult for them to survive."
             },
             {
                 showCard: ref(false),
                 button: "col5row1",
                 points: "200",
-                content: "question5",
-                correctAnswer: "15d",
-                answerA: "15a",
-                answerB: "15b",
-                answerC: "15c",
-                answerD: "15d",
-                explanation: "That is incorrect..."
+                content: "Many large whales have multiple compartments in this digestive organ, allowing them to efficiently process massive quantities of krill or fish every day.",
+                correctAnswer: "Stomach",
+                answerA: "Liver",
+                answerB: "Gallbladder",
+                answerC: "Pancreas",
+                answerD: "Stomach",
+                explanation: "Many whales, including baleen whales, have multi-chambered stomachs capable of mechanically and chemically processing thousands of kilograms of prey per day. Whales' ability to properly digest and metabolize food is central to their movement and survival."
             }
         ]
         const mediumDiscomfortRow = [
             // The 400-point row. Same schema as rowOneButtons.
             // Need to use item.content + item.points in click logic to open the correct question and score it once.
+            // 
             {
                 showCard: ref(false),
                 button: "col1row2",
