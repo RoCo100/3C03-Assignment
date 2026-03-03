@@ -95,8 +95,8 @@ const App = {
             // The 200-point row. Each object has:
             // - button: unique key for Vue rendering (used in :key)
             // - points: label shown on the tile (currently a String)
-            // - content: question which invokes the lowest level of uncomfortability. 
-            // The questions of this level are primarily scientific. They seek to establish the whale as an independent being with sophisticated capacities, physical abilities and anatomical structures. These questions does not yet tie their existence in relation to human activity. 
+            // - content: question which invokes the lowest level of uncomfortability
+            // The questions of this level seek to establish whales as independent beings with sophisticated capacities, physical abilities and anatomical structures. These questions does not yet tie their existence in relation to human activity and are more so scientific than political in nature. 
             {
                 showCard: ref(false),
                 button: "col1row1",
@@ -114,7 +114,7 @@ const App = {
                 button: "col2row1",
                 points: "200",
                 content: "This phenomenon occurs when noises in the environment overlap spectrally and temporally with whale calls, preventing a whale mother from locating her baby.",
-                    // The more scientific term for a developing baby is a "calf," yet they are referred to here as a "baby," for the intended purpose of familiarizing the audience with whale beings, recognizing their capacity to sustain meaningful, familial connections.
+                    // The scientific term for a developing baby is a "calf," yet, here, they are referred to as a "baby" for the intended purpose of familiarizing the user with whale beings and their meaningful capacity to sustain familial connections.
                 correctAnswer: "Auditory masking",
                 answerA: "Echo distortion",
                 answerB: "Auditory masking",
@@ -127,12 +127,13 @@ const App = {
                 button: "col3row1",
                 points: "200",
                 content: "As background noise intensifies, whales often increase this vocal trait to maintain social bonds across distance.",
+                    // Human activity is not yet explicitly defined as the focus remains on whales for the questions of this level. 
                 correctAnswer: "Call amplitude",
                 answerA: "Call amplitude",
                 answerB: "Silence duration",
                 answerC: "Fluke width",
                 answerD: "Dive depth",
-                explanation: "Whales increase the loudness (amplitude) of their calls to communicate with other whales across long distances and noisy backgrounds."
+                explanation: "Whales increase the loudness (amplitude) of their calls to communicate with other whales across long distances and loud background noises."
 
             },
             {
