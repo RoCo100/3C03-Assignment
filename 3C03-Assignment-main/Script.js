@@ -77,7 +77,7 @@ const App = {
             { name: "Chemical Harms" }
         ]
 
-        //This function controls opening and closing a question button. It is activated once when the user seleects a question, and again when the user selects the "exit" button. 
+        // This function controls opening and closing a question button. It is activated once when the user seleects a question, and again when the user selects the "exit" button. 
         function toggleCardOpenClose(button) {
             if (button.showCard.value == false) {
                 button.showCard.value = true
@@ -89,7 +89,8 @@ const App = {
             }
         }
 
-        //The arrays are categorized in rows, based on "uncomfortability level". This means that the questions are grouped together based on how much they challenge anthropocentrism and cause discomfort in the human user. Instead of rewarding players with more points for selecting more difficult questions, unlike typical Jeopardy questions, we will reward players for choosing to confront increasingly uncomfortable topics of anthropocentric shipping, pollution, and extractive practices, and their impacts on whale health. 
+        // The arrays are categorized in rows, based on "uncomfortability level". This means that the questions are grouped together based on how much they challenge anthropocentrism and cause discomfort in the human user. 
+        // Instead of rewarding players with more points for selecting more difficult questions, unlike typical Jeopardy questions, we will reward players for choosing to confront increasingly uncomfortable topics of anthropocentric shipping, pollution, and extractive practices, and their impacts on whale health. 
         const lowDiscomfortRow = [
             // The 200-point row. Each object has:
             // - button: unique key for Vue rendering (used in :key)
@@ -113,7 +114,7 @@ const App = {
                 button: "col2row1",
                 points: "200",
                 content: "This phenomenon occurs when noises in the environment overlap spectrally and temporally with whale calls, preventing a whale mother from locating her baby.",
-                // 
+                    // The more scientific term for a developing baby is a "calf," yet they are referred to here as a "baby," for the intended purpose of familiarizing the audience with whale beings, recognizing their capacity to sustain meaningful, familial connections.
                 correctAnswer: "Auditory masking",
                 answerA: "Echo distortion",
                 answerB: "Auditory masking",
