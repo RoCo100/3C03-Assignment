@@ -217,14 +217,14 @@ const App = {
                 showCard: ref(false),
                 button: "col4row2",
                 points: "400",
-                content: "Whales exposed to busy shipping lanes often reduce this essential survival behaviour.",
+                content: "Busy shipping lanes pose a danger to whales undergoing this essential behaviour.",
                 correctAnswer: "Migrating",
                 answerA: "Socializing",
                 answerB: "Migrating",
                 answerC: "Mating",
                 answerD: "Surfacing",
                 explanation: "Shipping lanes often overlap with long-distance migratory routes, increasing the risk of collision between whale beings and the homo sapiens' ships."
-                // 
+                // Group for Research and Education on Marine Mammals (n.d.). Threats to whales. https://baleinesendirect.org/en/discover/whales-future/threats/
             },
             {
                 showCard: ref(false),
@@ -237,7 +237,7 @@ const App = {
                 answerC: "Nitrates",
                 answerD: "Calcium carbonate",
                 explanation: "Polychlorinated biphenyls (PCBs) are organic pollutants that accumulate in blubber and disrupt immune and reproductive systems. They are difficult for whales to metabolize and disrupt their internal processes."
-                // 
+                // Whale and Dolphin Conservation. (n.d.). Their biggest threats. https://hval.whales.org/en/meet-the-whales/their-biggest-threats
             }
         ]
         const highDiscomfortRow = [
@@ -256,7 +256,8 @@ const App = {
                 answerC: "Muscle sheath",
                 answerD: "Keratin plates",
                 explanation: "Blubber is a thick, fibrous, energy-rich tissue that insulates whales and stores energy. It also accumulates fat-soluble toxins introduced by industrial homo sapiens activity."
-                // 
+                // National Oceanic and Atmospheric Administration. (n.d.). Whale anatomy. https://oceantoday.noaa.gov/whaleanatomy/
+                // Whale and Dolphin Conservation. (n.d.). Their biggest threats. https://hval.whales.org/en/meet-the-whales/their-biggest-threats
             },
             {
                 showCard: ref(false),
@@ -379,7 +380,7 @@ const App = {
                 answerC: "Amniotic fluid",
                 answerD: "Seawater",
                 explanation: "Fat-soluble toxins stored in blubber are transferred to calves through maternal milk. This is the reason why many firstborn whales don't survive their first year of life."
-                // 
+                // Whale and Dolphin Conservation. (n.d.). Their biggest threats. https://hval.whales.org/en/meet-the-whales/their-biggest-threats
             }
         ]
 
