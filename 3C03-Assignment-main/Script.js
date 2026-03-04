@@ -164,70 +164,73 @@ const App = {
         const mediumDiscomfortRow = [
             // The 400-point row. Same schema as rowOneButtons.
             // Need to use item.content + item.points in click logic to open the correct question and score it once.
-            // 
+            // Questions of subsequent levels will continue building upon the concepts and learning objectives of previous levels.
+            // The questions of this level begin to connect human industrial, tourism, and shipping activity and its detrimental consequences on whale health. The questions begin to solely refer to humans as homo sapiens in an effort to combat anthropocentrism, reminding the user that humans, too, are only a species.  
+            // In our Logic Implementation, we will italicize "homo sapiens" to emphasize the scientific nature of species labelling and resist dominant discourse valuing humans above other species. 
             {
                 showCard: ref(false),
                 button: "col1row2",
                 points: "400",
-                content: "question6",
-                correctAnswer: "15d",
-                answerA: "15a",
-                answerB: "15b",
-                answerC: "15c",
-                answerD: "15d",
-                explanation: "That is incorrect..."
+                content: "Through these paired openings, a baleen whale consciously surfaces to exchange up to 90% of their oxygen in a single breath before returning to depth.",
+                correctAnswer: "Blowholes",
+                answerA: "Gill slits",
+                answerB: "Frontal pores",
+                answerC: "Nasal vents",
+                answerD: "Blowholes",
+                explanation: "Baleen whales have two blowholes connected directly to their lungs. As they surface to breathe, they can exchange up to 80–90% of their oxygen in a single breath, far more efficiently than homo sapiens."
             },
             {
                 showCard: ref(false),
                 button: "col2row2",
                 points: "400",
-                content: "question7",
-                correctAnswer: "15d",
-                answerA: "15a",
-                answerB: "15b",
-                answerC: "15c",
-                answerD: "15d",
-                explanation: "That is incorrect..."
+                content: "Loud shipping noises can cause this to occur to a whale’s hearing threshold.",
+                correctAnswer: "Temporary Threshold Shift",
+                answerA: "Auditory paralysis",
+                answerB: "Auditory silencing",
+                answerC: "Permanent Threshold Shift",
+                answerD: "Temporary Threshold Shift",
+                explanation: "Temporary threshold shift (TTS) is a temporary elevation in hearing threshold following loud sound exposure. Whales may recover their hearing with time, but may still experience neural damage."
             },
             {
                 showCard: ref(false),
                 button: "col3row2",
                 points: "400",
-                content: "question8",
-                correctAnswer: "15d",
-                answerA: "15a",
-                answerB: "15b",
-                answerC: "15c",
-                answerD: "15d",
-                explanation: "That is incorrect..."
+                content: "Chronic low-frequency ship noise has been linked to this long-term health consequence in whales.",
+                correctAnswer: "Reduced fitness",
+                answerA: "Improved immunity",
+                answerB: "Reduced fitness",
+                answerC: "Increased fertility",
+                answerD: "Extended lifespan",
+                explanation: "Fitness describes the ability to reproduce and survive. Whales experiencing chronic stress from persistent noise face impaired reproductive success, immune function, and long-term survival."
             },
             {
                 showCard: ref(false),
                 button: "col4row2",
                 points: "400",
-                content: "question9",
-                correctAnswer: "15d",
-                answerA: "15a",
-                answerB: "15b",
-                answerC: "15c",
-                answerD: "15d",
-                explanation: "That is incorrect..."
+                content: "Whales exposed to busy shipping lanes often reduce this essential survival behaviour.",
+                correctAnswer: "Migrating",
+                answerA: "Socializing",
+                answerB: "Migrating",
+                answerC: "Mating",
+                answerD: "Surfacing",
+                explanation: "Shipping lanes often overlap with long-distance migratory routes, increasing the risk of collision between whale beings and the homo sapiens' ships."
             },
             {
                 showCard: ref(false),
                 button: "col5row2",
                 points: "400",
-                content: "question10",
-                correctAnswer: "15d",
-                answerA: "15a",
-                answerB: "15b",
-                answerC: "15c",
-                answerD: "15d",
-                explanation: "That is incorrect..."
+                content: "These industrial compounds accumulate in whale blubber, weakening immune systems and disrupting reproductive processes across generations.",
+                correctAnswer: "Polychlorinated biphenyls",
+                answerA: "Polychlorinated biphenyls",
+                answerB: "Chlorophyll",
+                answerC: "Nitrates",
+                answerD: "Calcium carbonate",
+                explanation: "Polychlorinated biphenyls (PCBs) are organic pollutants that accumulate in blubber and disrupt immune and reproductive systems. They are difficult for whales to metabolize and disrupt their internal processes."
             }
         ]
         const highDiscomfortRow = [
             // The 600-point row. Same schema as rowOneButtons.
+            // 
             {
                 showCard: ref(false),
                 button: "col1row3",
@@ -291,6 +294,7 @@ const App = {
         ]
         const extremeDiscomfortRow = [
             // The 800-point row. Same schema as rowOneButtons.
+            // 
             {
                 showCard: ref(false),
                 button: "col1row4",
