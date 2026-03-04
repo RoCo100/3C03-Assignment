@@ -296,7 +296,7 @@ const App = {
                 answerC: "Rudder",
                 answerD: "Hull fin",
                 explanation: "Propeller strikes from small homo sapiens ships can result in deep lacerations and even fatal injuries in whales."
-                // 
+                // Whale and Dolphin Conservation. (n.d.). Their biggest threats. https://hval.whales.org/en/meet-the-whales/their-biggest-threats
             },
             {
                 showCard: ref(false),
