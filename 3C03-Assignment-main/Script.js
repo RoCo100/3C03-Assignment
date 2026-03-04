@@ -230,130 +230,134 @@ const App = {
         ]
         const highDiscomfortRow = [
             // The 600-point row. Same schema as rowOneButtons.
-            // 
+            // The questions of this level reinforce a causal relation between homo sapiens activity and its detrimental consequences on whale health. The consequences listed are more adverse and specific in comparison to the those from previous levels. 
+            // Harmful chemicals, ships or other materials associated with homo sapiens activity are directly attributed to homo sapiens activity and even described with the "homo sapiens" adjective modifier.  
+            // The explicit wording of these questions and explanations seek to emphasize the insidious harms of anthropocentrism on whale beings. 
             {
                 showCard: ref(false),
                 button: "col1row3",
                 points: "600",
-                content: "question11",
-                correctAnswer: "15d",
-                answerA: "15a",
-                answerB: "15b",
-                answerC: "15c",
-                answerD: "15d",
-                explanation: "That is incorrect..."
+                content: "This thick, energy-rich tissue both sustains whales during migration and stores the toxic byproducts of industrial homo sapiens activity.",
+                correctAnswer: "Blubber",
+                answerA: "Cartilage",
+                answerB: "Blubber",
+                answerC: "Muscle sheath",
+                answerD: "Keratin plates",
+                explanation: "Blubber is a thick, fibrous, energy-rich tissue that insulates whales and stores energy. It also accumulates fat-soluble toxins introduced by industrial homo sapiens activity."
             },
             {
                 showCard: ref(false),
                 button: "col2row3",
                 points: "600",
-                content: "question12",
-                correctAnswer: "15d",
-                answerA: "15a",
-                answerB: "15b",
-                answerC: "15c",
-                answerD: "15d",
-                explanation: "That is incorrect..."
+                content: "When the hearing threshold remains permanently elevated, this irreversible injury occurs to whales, reducing their sensitivity to vital navigational and social cues.",
+                correctAnswer: "Permanent Threshold Shift",
+                answerA: "Permanent Threshold Shift",
+                answerB: "Temporary Threshold Shift",
+                answerC: "Auditory paralysis",
+                answerD: "Auditory silencing",
+                explanation: "Permanent threshold shift (PTS) occurs when hearing thresholds remain permanently elevated due to irreversible damage to whales' sensory hair cells or neural pathways."
             },
             {
                 showCard: ref(false),
                 button: "col3row3",
                 points: "600",
-                content: "question13",
-                correctAnswer: "15d",
-                answerA: "15a",
-                answerB: "15b",
-                answerC: "15c",
-                answerD: "15d",
-                explanation: "That is incorrect..."
+                content: "Exposure to persistent noise from homo sapiens in the surrounding environment elevates this hormone in whales.",
+                correctAnswer: "Cortisol",
+                answerA: "Melatonin",
+                answerB: "Cholecystokinin",
+                answerC: "Insulin",
+                answerD: "Cortisol",
+                explanation: "Loud, homo sapiens noise has been linked to increased cortisol levels, revealing a strong, physiological stress response in whales."
             },
             {
                 showCard: ref(false),
                 button: "col4row3",
                 points: "600",
-                content: "question14",
-                correctAnswer: "15d",
-                answerA: "15a",
-                answerB: "15b",
-                answerC: "15c",
-                answerD: "15d",
-                explanation: "That is incorrect..."
+                content: "Even smaller recreational boats can severely injure whales when this rotating mechanical structure strikes their bodies.",
+                correctAnswer: "Propeller",
+                answerA: "Anchor",
+                answerB: "Propeller",
+                answerC: "Rudder",
+                answerD: "Hull fin",
+                explanation: "Propeller strikes from small homo sapiens ships can result in deep lacerations and even fatal injuries in whales."
             },
             {
                 showCard: ref(false),
                 button: "col5row3",
                 points: "600",
-                content: "question15",
-                correctAnswer: "15d",
-                answerA: "15a",
-                answerB: "15b",
-                answerC: "15c",
-                answerD: "15d",
-                explanation: "That is incorrect..."
+                content: "Beluga whales living in the St. Lawrence Estuary carry toxin levels up to four times higher than their Arctic relatives, contributing to unusually high rates of this disease.",
+                correctAnswer: "Infections and cancer",
+                answerA: "Cardiomyopathy",
+                answerB: "Infections and cancer",
+                answerC: "Bone density loss",
+                answerD: "Thermal stress disorder",
+                explanation: "St. Lawrence belugas are heavily contaminated with industrial pollutants such as heavy metals. These toxins impair immune function and are associated with elevated cancer rates and increased vulnerability to infection. St. Lawrence belugas cannot even migrate to escape chronic exposure to homo sapiens pollutants."
             }
         ]
         const extremeDiscomfortRow = [
             // The 800-point row. Same schema as rowOneButtons.
-            // 
+            // The questions of this level describe homo sapiens activity as life-changing, or even fatal, to whale beings. They are designed to induce the highest level of uncomfortability in homo sapiens users as the users are forced to internalize themselves as a source of whale fatalities. 
+            // The questions reframe whale health not as an isolated environmental tragedy but as a consequence of widespread and harmful anthropocentrism. 
             {
                 showCard: ref(false),
                 button: "col1row4",
                 points: "800",
-                content: "question16",
-                correctAnswer: "15d",
-                answerA: "15a",
-                answerB: "15b",
-                answerC: "15c",
-                answerD: "15d",
-                explanation: "That is incorrect..."
+                content: "These microscopic inner-ear structures allow whales to perceive distant family members across hundreds of kilometers and are permanently destroyed by intense sounds of homo sapiens ships.",
+                correctAnswer: "Sensory hair cells",
+                answerA: "Tubercles",
+                answerB: "Sensory hair cells",
+                answerC: "Gill filaments",
+                answerD: "Spiral valves",
+                explanation: "These tiny structures in the cochlea convert sound vibrations into neural signals. Intense homo sapiens sound can permanently destroy them, leading to irreversible hearing loss and impeding whales from properly navigating the world."
             },
             {
                 showCard: ref(false),
                 button: "col2row4",
                 points: "800",
-                content: "question17",
-                correctAnswer: "15d",
-                answerA: "15a",
-                answerB: "15b",
-                answerC: "15c",
-                answerD: "15d",
-                explanation: "That is incorrect..."
+                content: "When deep-diving beaked whales hear naval sonars from homo sapiens ships, they rapidly ascend to the surface, leading to this condition involving gas bubbles in organs and tissues.",
+                correctAnswer: "Gas-bubble disease",
+                answerA: "Thermal shock",
+                answerB: "Hypoxic seizure",
+                answerC: "Gas-bubble disease",
+                answerD: "Blubber rupture",
+                explanation: "Rapid surfacing due to sonar exposure has been linked to tissue damage in deep-diving beaked whales. Gas-bubble disease is also known as decompression sickness."
             },
             {
                 showCard: ref(false),
                 button: "col3row4",
                 points: "800",
-                content: "question18",
-                correctAnswer: "15d",
-                answerA: "15a",
-                answerB: "15b",
-                answerC: "15c",
-                answerD: "15d",
-                explanation: "That is incorrect..."
+                content: "When surrounded by more than three whale-watching vessels, whales frequently abandon this essential behavior, sacrificing nourishment to escape collisions.",
+                correctAnswer: "Foraging",
+                answerA: "Breathing",
+                answerB: "Foraging",
+                answerC: "Sleeping",
+                answerD: "Surfacing",
+                explanation: "Whales are more hesitant to seek food when they are surrounded by dangerous ship vessels. Reduced feeding lowers energy intake, impairing whales' reproduction and survival."
             },
             {
                 showCard: ref(false),
                 button: "col4row4",
                 points: "800",
-                content: "question19",
-                correctAnswer: "15d",
-                answerA: "15a",
-                answerB: "15b",
-                answerC: "15c",
-                answerD: "15d",
-                explanation: "That is incorrect..."
+                content: "One population of North Atlantic whales has declined to roughly 366 individuals, making every ship collision devastating to their survival.",
+                correctAnswer: "North Atlantic right whales",
+                answerA: "Blue whales",
+                answerB: "North Atlantic right whales",
+                answerC: "Sperm whales",
+                answerD: "Beluga whales",
+                explanation: "This family of whales has declined to roughly 366 individuals. With such low numbers, each death significantly impacts the survival of this community of whales."
+                    // Technically, this particular "family of whales" can be referred to as a "species," but we intentionally adapted the wording to resist any assumed homo sapiens superiority and facilitate empathetic engagement between the homo sapiens user and the dire circumstances faced by whale beings.
             },
             {
                 showCard: ref(false),
                 button: "col5row4",
                 points: "800",
-                content: "question20",
-                correctAnswer: "15d",
-                answerA: "15a",
-                answerB: "15b",
-                answerC: "15c",
-                answerD: "15d",
-                explanation: "That is incorrect..."
+                content: "Firstborn, developing whales often die within their first year of life because toxins from homo sapiens activity are transferred through this substance from their mother.",
+                correctAnswer: "Milk",
+                answerA: "Blubber",
+                answerB: "Milk",
+                answerC: "Amniotic fluid",
+                answerD: "Seawater",
+                explanation: "Fat-soluble toxins stored in blubber are transferred to calves through maternal milk, often contributing to high first-year mortality."
             }
         ]
 
