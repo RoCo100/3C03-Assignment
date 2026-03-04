@@ -73,11 +73,11 @@ const App = {
 
         const categories = [
             // These are category headers shown at the top of the board. Need to align the question bank so each column/category has matching questions.
-            { name: "The Whale Body" },
-            { name: "Noise Disturbances" },
-            { name: "Stress & Survival" },
-            { name: "Physical Collisions" },
-            { name: "Chemical Harms" }
+            { name: "Anatomy" },
+            { name: "Noise" },
+            { name: "Stress" },
+            { name: "Collisions" },
+            { name: "Toxins" }
         ]
 
         // This function controls opening and closing a question button. It is activated once when the user seleects a question, and again when the user selects the "exit" button. 
