@@ -1,7 +1,6 @@
 // Critical Lens: Countless ecological crises, including threats to whale health, are attributed to anthropocentrism. Drawing upon Katherine Hayles’ integrated cognitive framework (ICF), we contest anthropocentrism by “humanizing” whales as independent actors in relation to humans. Hayles also argues that “cognitive assemblages,” or decision-making collectives of humans, nonhumans, and computational media, determine the choices that humans make (2025). Humans are actually not as self-determining as anthropocentrism would like them to believe (Hayles, 2025). Their assumptions are formed and mediated by computational media (Hayles, 2025). As a game that has been traditionally framed as the intellectual pursuit of objective truths, Jeopardy is an example of a cognitive assemblage that impacts human decision-making. By playing our Jeopardy game on whale health, human users confront their “dehumanization” and simultaneous “humanization” of whales, re-learning cognition as something that is possessed by all species. The language of our Jeopardy questions will solely refer to humans by their species name, *homo sapiens*, and explore “humane” aspects of whale health, migration, habitats, families, and communities. Additionally, instead of rewarding players with more points for selecting more difficult questions, we will reward players for choosing to confront increasingly uncomfortable topics of anthropocentric shipping, pollution, and extractive practices, and their impacts on whale health. By employing Jeopardy’s epistemic authority and the anti-anthropocentric ICF, our Jeopardy module reframes whale health not as an isolated environmental tragedy but as a consequence of widespread and harmful anthropocentrism.
 // Reference: Hayles, N. K. (2025). Bacteria to AI: Human futures with our nonhuman symbionts. University of Chicago Press. ProQuest Ebook Central. http://ebookcentral.proquest.com/lib/mcmu/detail.action?docID=31887642
 
-
 const { createApp, ref } = Vue;
 const { createVuetify } = Vuetify;
 const vuetify = createVuetify();
@@ -12,16 +11,16 @@ const App = {
         // Update this when a user answers a question correctly/incorrectly. scoreCount is updated using the validateResult function. 
 
         const backgroundColour = ref("white");
-        // Sets the background for the main screen
+        // Sets the background for the main screen. The background colour is changed when the user finishes the game. 
 
         const imageBlue = "whale.png";
         const imageWhite = "imageNoBackground.png";
-        // The 2 image filenames used. Need to keep these assets available in the same folder so the html can render it consistently.
+        // The 2 image filenames used to display stylized whales. Need to keep these assets available in the same folder so the html can render it consistently.
 
         const correctSelection = ref(null); // A boolean that tracks if the user has selected the correct answer to a question; will be used to determine what message (correct/incorrect) is displayed after they select a multiple choice answer.
 
         const gameComplete = ref(false); // A boolean that controls when the game is done 
-        const answeredQuestions = ref([]); // An array of all questions that have been answered and must subsequently get disabled 
+        const answeredQuestions = ref([]); // An array of all questions that have been answered and must subsequently have their buttons disabled 
 
         function checkGameComplete() {
             // This if...else determines when the game should end (when all 20 questions have been answered)
@@ -47,11 +46,11 @@ const App = {
         function validateResult(input, correct, buttonID, points) {
             if (input == correct) {
                 scoreCount.value = scoreCount.value + Number(points);  // Increases the score count by the number of points associated with the question. (i.e., 200, 400, 600, or 800.)              
-                correctSelection.value = true; //This boolean is linked to a <v-card-text> that informs the user they've selected the correct answer.
+                correctSelection.value = true; //This boolean state (true) is linked to a <v-card-text> that informs the user they've selected the correct answer.
             } else {
-                correctSelection.value = false;  //This boolean is linked to a <v-card-text> that displays an "incorrect" message, along with an explanation of the correct answer. 
+                correctSelection.value = false;  //This boolean state (false) is linked to a <v-card-text> that displays an "incorrect" message, along with an explanation of the correct answer. 
             }
-                answeredQuestions.value.push(buttonID); // Add the buttonID to the answered questions array
+                answeredQuestions.value.push(buttonID); // Adds the buttonID to the answeredQuestions array
                 
         }
 
@@ -72,7 +71,7 @@ const App = {
             } else {
                 button.showCard.value = false
                 correctSelection.value = null; //This resets the "correctSelection" boolean to null in between questions. This way, the "correct" or "incorrect" message is not carried over from the previous question. 
-                checkGameComplete(); // Check if the game each time the player presses the "exit" button
+                checkGameComplete(); // Check if the game is complete each time the player presses the "Exit" button
             }
         }
 
@@ -406,6 +405,11 @@ const App = {
             getTileColor
         }
     }
+
+    //Future components to implement: 
+    //- A tutorial page that the user can access by selecting a "Game Tutorial" button. This tutorial will explain how to play the game and the game's thematic purpose. This is where some of the app's anthropocentrism-related features will be made more explicit; we will draw attention to our use of humanizing language to discuss whales and dehumanizing language to discuss humans. The user can access the tutorial to refresh their memory at any point during the game. 
+    //- A "Learn more here" button that is present on each question's pop-up dialogue. This button will redirect the user to an external source that provides more information on the specific topic that the question is focused on. We will have to ensure that when the user clicks the link, it opens in a new tab. This is likely something that we will go to office hours to learn the implementation. 
+    
 }
 
 
