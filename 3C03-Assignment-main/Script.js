@@ -407,7 +407,7 @@ const App = {
     }
 
     //Future components to implement: 
-    //- A tutorial page that the user can access by selecting a "Game Tutorial" button. This tutorial will explain how to play the game and the game's thematic purpose. This is where some of the app's anthropocentrism-related features will be made more explicit; we will draw attention to our use of humanizing language to discuss whales and dehumanizing language to discuss humans. The user can access the tutorial to refresh their memory at any point during the game. 
+    //- A tutorial page that the user watches before they begin playing the game. They can also access the tutorial at any time during gameplay by selecting a "Game Tutorial" button. This tutorial will explain how to play the game using a <v-carousel> component that slides through still images accompanied by written explanations. This is also where some of the app's anthropocentrism-related features will be made more explicit; we will draw attention to our use of humanizing language to discuss whales and dehumanizing language to discuss humans.
     //- A "Learn more here" button that is present on each question's pop-up dialogue. This button will redirect the user to an external source that provides more information on the specific topic that the question is focused on. We will have to ensure that when the user clicks the link, it opens in a new tab. This is likely something that we will go to office hours to learn the implementation. 
     
 }
