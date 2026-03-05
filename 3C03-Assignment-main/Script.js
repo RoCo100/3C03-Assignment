@@ -43,22 +43,6 @@ const App = {
             backgroundColour.value = "white"; // Changes the background colour 
             
 
-            /* consider deleting since now restarting game after exit button is clicked
-            // Reset all showCard values to make sure that the last question selected before the game ended is not still active. 
-            for (button of lowDiscomfortRow) {
-                button.showCard.value = false; 
-            }
-            for (button of mediumDiscomfortRow) {
-                button.showCard.value = false; 
-            }
-            for (button of highDiscomfortRow) {
-                button.showCard.value = false; 
-            }
-            for (button of extremeDiscomfortRow) {
-                button.showCard.value = false; 
-            }*/
-        }
-
         // This function is connected to multiple-choice answers. It checks if the user has selected the correct answer.
         function validateResult(input, correct, buttonID, points) {
             if (input == correct) {
@@ -112,7 +96,10 @@ const App = {
             // The 200-point row. Each object has:
             // - button: unique key for Vue rendering (used in :key)
             // - points: label shown on the tile (currently a String)
-            // - content: question which invokes the lowest level of uncomfortability
+            // - answerA, answerB, etc.: the multiple choice answer options 
+            // - correctAnswer: the correct multiple choice option, equal to one of answerA, answerB, answerC, or answerD.
+            // - content: question that the user attempts to answer
+            // - explanation: an explanation of the correct answer, that will show up if the user selects the wrong answer. 
             // The questions of this level seek to establish whales as independent beings with sophisticated capacities, physical abilities and anatomical structures. These questions does not yet tie their existence in relation to human activity and are more so scientific than political in nature. 
             {
                 showCard: ref(false),
@@ -183,8 +170,7 @@ const App = {
             }
         ]
         const mediumDiscomfortRow = [
-            // The 400-point row. Same schema as rowOneButtons.
-            // Need to use item.content + item.points in click logic to open the correct question and score it once.
+            // The 400-point row.  
             // Questions of subsequent levels will continue building upon the concepts and learning objectives of previous levels.
             // The questions of this level begin to connect human industrial, tourism, and shipping activity and its detrimental consequences on whale health. The questions begin to solely refer to humans as homo sapiens in an effort to combat anthropocentrism, reminding the user that humans, too, are only a species.  
             // In our Logic Implementation, we will italicize "homo sapiens" to emphasize the scientific nature of species labelling and resist dominant discourse valuing humans above other species. 
@@ -255,7 +241,7 @@ const App = {
             }
         ]
         const highDiscomfortRow = [
-            // The 600-point row. Same schema as rowOneButtons.
+            // The 600-point row.  
             // The questions of this level reinforce a causal relation between homo sapiens activity and its detrimental consequences on whale health. The consequences listed are more adverse and specific in comparison to the those from previous levels. 
             // Harmful chemicals, ships or other materials associated with homo sapiens activity are directly attributed to homo sapiens activity and even described with the "homo sapiens" adjective modifier.  
             // The explicit wording of these questions and explanations seek to emphasize the insidious harms of anthropocentrism on whale beings. 
@@ -327,7 +313,7 @@ const App = {
             }
         ]
         const extremeDiscomfortRow = [
-            // The 800-point row. Same schema as rowOneButtons.
+            // The 800-point row. 
             // The questions of this level describe homo sapiens activity as life-changing, or even fatal, to whale beings. They are designed to induce the highest level of uncomfortability in homo sapiens users as the users are forced to internalize themselves as a source of whale fatalities. 
             // The questions reframe whale health not as an isolated environmental tragedy but as a consequence of widespread and harmful anthropocentrism. 
             {
@@ -400,10 +386,6 @@ const App = {
 
         return {
             // Everything returned here becomes available to index.html for bindings (like {{scoreCount}}, v-for loops, etc).
-            // When gameplay is implemented, we will also need to return additional states such as selectedAnswer, validateResults, and answeredQuestions
-            // selectedAnswer: a string that can be equal to answerA, answerB, answerC, or answerD. It records the answer that the user selected for a particular question. 
-            // validateResults: a function that checks if selectedAnswer = correctAnswer, and increases the user's score accordingly. 
-            // answeredQuestions: an array that keeps track of which questions have already been answered and disables the corresponding buttons. 
 
             scoreCount,
             lowDiscomfortRow,
