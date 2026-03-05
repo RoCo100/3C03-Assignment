@@ -84,13 +84,27 @@ const App = {
         function toggleCardOpenClose(button) {
             if (button.showCard.value == false) {
                 button.showCard.value = true
-                checkGameComplete(); // Check if the game each time the player presses the "exit" button
+                
             } else {
                 button.showCard.value = false
                 correctSelection.value = null; //This resets the "correctSelection" boolean to null in between questions. This way, the "correct" or "incorrect" message is not carried over from the previous question. 
-                
+                checkGameComplete(); // Check if the game each time the player presses the "exit" button
             }
         }
+
+        function isAnswered(buttonID) {
+            // This function checks if a question has already been answered by seeing if its buttonID is in the answeredQuestions array. If it is, then the question button gets disabled. 
+            return answeredQuestions.value.includes(buttonID);
+        }
+
+        function getTileColor(buttonID) {
+            // This function checks if a question has already been answered by seeing if its buttonID is in the answeredQuestions array. If it is, then the question tile turns light blue. 
+            if (answeredQuestions.value.includes(buttonID)) {
+                return "blue";
+            } else {
+                return "#35A2D5"; // This is the original tile colour.
+            }
+            }
 
         // The arrays are categorized in rows, based on "uncomfortability level". This means that the questions are grouped together based on how much they challenge anthropocentrism and cause discomfort in the human user. 
         // Instead of rewarding players with more points for selecting more difficult questions, unlike typical Jeopardy questions, we will reward players for choosing to confront increasingly uncomfortable topics of anthropocentric shipping, pollution, and extractive practices, and their impacts on whale health. 
@@ -405,7 +419,9 @@ const App = {
             restartGame,
             validateResult,
             correctSelection,
-            toggleCardOpenClose
+            toggleCardOpenClose,
+            isAnswered,
+            getTileColor
         }
 
     }
