@@ -41,7 +41,7 @@ const App = {
             scoreCount.value = 0; // Resets score count to zero. 
             gameComplete.value = false; // Resets the gameComplete boolean to be false. 
             backgroundColour.value = "white"; // Changes the background colour 
-            
+        }
 
         // This function is connected to multiple-choice answers. It checks if the user has selected the correct answer.
         function validateResult(input, correct, buttonID, points) {
@@ -405,8 +405,8 @@ const App = {
             isAnswered,
             getTileColor
         }
-
     }
 }
+
 
 createApp(App).use(vuetify).mount('#app');
