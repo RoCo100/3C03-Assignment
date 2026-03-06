@@ -71,6 +71,7 @@ const App = {
             } else {
                 button.showCard.value = false
                 correctSelection.value = null; //This resets the "correctSelection" boolean to null in between questions. This way, the "correct" or "incorrect" message is not carried over from the previous question. 
+                    // Potential bug: once when we loaded the game, a bug occurred where the correct/incorrect message carried over from a previous question to the next. However, this has only happened once, and no code was changed when this happened. Since then, it has not re-occurred. 
                 checkGameComplete(); // Check if the game is complete each time the player presses the "Exit" button
             }
         }
