@@ -10,11 +10,11 @@ const App = {
         const scoreCount = ref(0);
         // Update this when a user answers a question correctly/incorrectly. scoreCount is updated using the validateResult function. 
 
-        const backgroundColour = ref("white");
+        const backgroundColour = ref("#EDF7BD");
         // Sets the background for the main screen. The background colour is changed when the user finishes the game. 
 
-        const imageBlue = "whale.png";
-        const imageWhite = "imageNoBackground.png";
+        const imageBlue = "whale colourized.png";
+        const imageWhite = "whale colourized.png";
         // The 2 image filenames used to display stylized whales. Need to keep these assets available in the same folder so the html can render it consistently.
 
         const correctSelection = ref(null); // A boolean that tracks if the user has selected the correct answer to a question; will be used to determine what message (correct/incorrect) is displayed after they select a multiple choice answer.
@@ -26,7 +26,7 @@ const App = {
             // This if...else determines when the game should end (when all 20 questions have been answered)
             if (answeredQuestions.value.length === 20) {
                 gameComplete.value = true;
-                backgroundColour.value = "#BBEDFF"; // Changes the background colour 
+                backgroundColour.value = "#EDF7BD"; // Changes the background colour 
             } else {
                 gameComplete.value = false;
             }
@@ -39,7 +39,7 @@ const App = {
             answeredQuestions.value = []; // Resets the answeredQuestions array to be empty. 
             scoreCount.value = 0; // Resets score count to zero. 
             gameComplete.value = false; // Resets the gameComplete boolean to be false. 
-            backgroundColour.value = "white"; // Changes the background colour 
+            backgroundColour.value = "#EDF7BD"; // Changes the background colour 
         }
 
         // This function is connected to multiple-choice answers. It checks if the user has selected the correct answer.
@@ -84,9 +84,9 @@ const App = {
         function getTileColor(buttonID) {
             // This function checks if a question has already been answered by seeing if its buttonID is in the answeredQuestions array. If it is, then the question tile turns light blue. 
             if (answeredQuestions.value.includes(buttonID)) {
-                return "blue";
+                return "#EDF7BD"; // This is the green colour that the tile turns when a question has been answered.
             } else {
-                return "#35A2D5"; // This is the original tile colour.
+                return "#85C79A"; // This is the original tile colour.
             }
             }
 
