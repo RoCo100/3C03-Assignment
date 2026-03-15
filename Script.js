@@ -37,7 +37,7 @@ const App = {
             // This if...else determines when the game should end (when all 20 questions have been answered)
             if (answeredQuestions.value.length === 20) {
                 gameComplete.value = true;
-                backgroundColour.value = "#4E8D9C"; // Changes the background colour 
+                backgroundColour.value = "#85C79A"; // Changes the background colour 
             } else {
                 gameComplete.value = false;
             }
