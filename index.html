@@ -50,30 +50,21 @@
     <v-app :style="{ backgroundColor: backgroundColour }">
       <v-main>
       <template v-if="!gameComplete">
-        <v-card variant="flat" style="position:absolute; z-index:1; left: 2%; top:65%; width: 20vw; height: 30vh;" color="#281C59" >
+        <v-card variant="flat" style="position:absolute; z-index:1; left: 2%; top:40%; width: 20vw; height: 30vh;" color="#85C79A" >
           <!-- This is the score panel. It displays the current score and a thematic whale image. Add gameplay controls here later (eg. Reset Game button) if needed -->
           <!-- scoreCount should change when a user answers a question (correct/incorrect conditions). -->
           <v-card-title style="font-family: Poppins Bold; font-size: 1.5vw; color:white;" class="pb-0" > Score </v-card-title>
           <v-card-text style="font-family: Poppins; font-size: 1.5vw; color:white;" class="pb-0"> {{scoreCount}} </v-card-text>
           <div align="center">
-            <v-img :src="imageBlue" style="width: 13vw; height: 8vw;"></v-img>
-            <!-- This is the blue whale image used for the menu. Keep this image available in the same folder so Vuetify can load it-->
+            <v-img :src="imageScoreCard" style="width: 13vw; height: 10vw;"></v-img>
+            <!-- This is the whale image used for the menu. Keep this image available in the same folder so Vuetify can load it-->
           
           </div>
         </v-card>
 
-        <v-card variant="flat" color="#281C59" style="position:absolute; z-index:1; left: 2%; top:2%; width: 20vw; height: 60vh;">
-          <v-card-title class="text-pre-wrap" style="font-family: Poppins Bold; font-size: 1.5vw; color:white;">Are you aware of the long-term threats that face
-            whales?</v-card-title>
-            <!-- Module topic is whale health + long-term threats (like shipping impacts and pollution). This card explains rules and sets user expectations (that the game is Jeopardy-style; 4 multiple-choice options per question). -->
-          <v-card-text style="font-family: Poppins Italic; font-size: 1vw; color:white;">
-            Shipping does not simply impact whales through collisions and immediate death. The side effects of shipping
-            activity (e.g., chemical and physical pollution) can have long-term harmful impacts on whales’ health and
-            reproductive abilities.
-            Test your knowledge – or learn as you go – through this Jeopardy-style trivia game! Each question has four
-            multiple choice options.
-          </v-card-text>
-        </v-card>
+        <v-btn style="position:absolute; z-index:1; left: 2%; top:2%; font-family: Poppins; width: 20vw; height: 12vh; font-size: 1.25vw; color:white;" color="#85C79A">Tutorial Walkthrough</v-btn>
+
+        <v-btn style="position:absolute; z-index:1; left: 2%; top:17%; font-family: Poppins; width: 20vw; height: 12vh; font-size: 1.5vw; color:white;" color="#85C79A">Learn More</v-btn>
 
         <div class="position-absolute right-0 pa-2">
           <v-card variant="flat" style="width: 71vw;" color="#281C59"
@@ -123,12 +114,12 @@
                             That is correct! {{ item.explanation }} 
                           </v-card-text>
 
-                          <v-card-text v-if="correctSelection == false" style="font-family: Poppins; color: #281C59;" class="font-weight-bold pa-8">
+                          <v-card-text v-if="correctSelection == false" style="font-family: Poppins; color: #4E8D9C;" class="font-weight-bold pa-8">
                             That is incorrect. {{ item.explanation }}  
                           </v-card-text>
                         
                           <div align=center class="pa-4"> 
-                            <v-img :src="imageWhite" max-width="40%" class="mt-4"> </v-img>
+                            <v-img :src="imageQuestionCard" max-width="40%" class="ma-4"> </v-img>
                             <v-btn color="#85C79A" style="font-family: Poppins; width: 15vw; height: 4vh; color: #281C59;" @click="toggleCardOpenClose(item)">Exit</v-btn>
                           </div>
 
@@ -164,12 +155,12 @@
                             That is correct! {{ item.explanation }}  
                           </v-card-text>
 
-                          <v-card-text v-if="correctSelection == false" style="font-family: Poppins; color: #281C59;" class="font-weight-bold pa-8">
+                          <v-card-text v-if="correctSelection == false" style="font-family: Poppins; color: #4E8D9C;" class="font-weight-bold pa-8">
                             That is incorrect. {{ item.explanation }}  
                           </v-card-text>
                             
                           <div align=center class="pa-4"> 
-                            <v-img :src="imageWhite" max-width="40%" class="mt-4"> </v-img>
+                            <v-img :src="imageQuestionCard" max-width="40%" class="ma-4"> </v-img>
                             <v-btn color="#85C79A" style="font-family: Poppins; width: 15vw; height: 4vh; color: #281C59;" @click="toggleCardOpenClose(item)" >Exit</v-btn>
                           </div>
 
@@ -205,13 +196,13 @@
                             That is correct! {{ item.explanation }} 
                           </v-card-text>
 
-                          <v-card-text v-if="correctSelection == false" style="font-family: Poppins; color: #281C59;" class="font-weight-bold pa-8">
+                          <v-card-text v-if="correctSelection == false" style="font-family: Poppins; color: #4E8D9C;" class="font-weight-bold pa-8">
                             That is incorrect. {{ item.explanation }}  
                           </v-card-text>
                             
                         
                           <div align=center class="pa-4"> 
-                            <v-img :src="imageWhite" max-width="40%" class="mt-4"> </v-img>
+                            <v-img :src="imageQuestionCard" max-width="40%" class="ma-4"> </v-img>
                             <v-btn color="#85C79A" style="font-family: Poppins; width: 15vw; height: 4vh; color: #281C59;" @click="toggleCardOpenClose(item)" >Exit</v-btn>
                           </div>
 
@@ -247,12 +238,12 @@
                             That is correct! {{ item.explanation }} 
                           </v-card-text>
 
-                          <v-card-text v-if="correctSelection == false" style="font-family: Poppins; color: #281C59;" class="font-weight-bold pa-8">
+                          <v-card-text v-if="correctSelection == false" style="font-family: Poppins; color: #4E8D9C;" class="font-weight-bold pa-8">
                             That is incorrect. {{ item.explanation }}  
                           </v-card-text>
                         
                           <div align=center class="pa-4"> 
-                            <v-img :src="imageWhite" max-width="40%" class="mt-4"> </v-img>
+                            <v-img :src="imageQuestionCard" max-width="40%" class="ma-4"> </v-img>
                             <v-btn color="#85C79A" style="font-family: Poppins; width: 15vw; height: 4vh; color: #281C59;" @click="toggleCardOpenClose(item)" >Exit</v-btn>
                           </div>
 
@@ -270,8 +261,8 @@
         <v-card v-if="gameComplete" style="width: 85vw; height: 70vh;" class="text-center">
           <v-card-title style="font-family: Poppins; font-size: 2.5vw; color: #4E8D9C;">Experience Completed!</v-card-title>
           <v-card-subtitle style="font-family: Poppins; font-size: 2vw; color: #281C59;">Well done. You're one step closer to unlearning anthropocentrism.</v-card-subtitle>
-          <v-card-text style="font-family: Poppins; font-size: 1.5vw; color: #4E8D9C;">Overall, you earned {{ scoreCount }} points. </v-card-text>
-          <v-img :src="imageWhite" style="width: 20vw; margin: 0 auto; display: block;"></v-img>
+          <v-card-text style="font-family: Poppins; font-size: 1.5vw; color: #281C59;">Overall, you earned {{ scoreCount }} points. </v-card-text>
+          <v-img :src="imageQuestionCard" style="width: 20vw; margin: 0 auto; display: block;"></v-img>
           <v-btn @click="restartGame" color="#85C79A" style="font-family: Poppins; width: 15vw; height: 7vh; font-size: 1.5vw; color: white;">Play Again</v-btn>
         </v-card>
       </div>
