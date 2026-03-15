@@ -13,8 +13,8 @@ const App = {
         const backgroundColour = ref("white");
         // Sets the background for the main screen. The background colour is changed when the user finishes the game. 
 
-        const imageBlue = "whale colourized.png";
-        const imageWhite = "whale colourized.png";
+        const imageScoreCard = "Score Whale.png";
+        const imageQuestionCard = "Question Whale.png";
         // The 2 image filenames used to display stylized whales. Need to keep these assets available in the same folder so the html can render it consistently.
 
         const correctSelection = ref(null); // A boolean that tracks if the user has selected the correct answer to a question; will be used to determine what message (correct/incorrect) is displayed after they select a multiple choice answer.
@@ -84,7 +84,7 @@ const App = {
         function getTileColor(buttonID) {
             // This function checks if a question has already been answered by seeing if its buttonID is in the answeredQuestions array. If it is, then the question tile turns light blue. 
             if (answeredQuestions.value.includes(buttonID)) {
-                return "#85C79A"; // This is the green colour that the tile turns when a question has been answered.
+                return "#4c8cccff"; // This is the green colour that the tile turns when a question has been answered.
             } else {
                 return "#4E8D9C"; // This is the original tile colour.
             }
@@ -393,8 +393,8 @@ const App = {
             highDiscomfortRow,
             extremeDiscomfortRow,
             categories,
-            imageBlue,
-            imageWhite,
+            imageScoreCard,
+            imageQuestionCard,
             gameComplete,
             answeredQuestions,
             backgroundColour,
