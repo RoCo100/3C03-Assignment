@@ -22,6 +22,17 @@ const App = {
         const gameComplete = ref(false); // A boolean that controls when the game is done 
         const answeredQuestions = ref([]); // An array of all questions that have been answered and must subsequently have their buttons disabled 
 
+        const navDrawerOpen = ref(false); // A boolean that controls whether the navigation drawer is open or closed. 
+
+        function openNavDrawer() { // This function operates identically to the toggleCardOpenClose function that we've used in in-class labs. It is linked to an @click on the app bar. 
+            if (navDrawerOpen.value == false) {
+                navDrawerOpen.value = true;
+            }
+            else {
+                navDrawerOpen.value = false;
+            }
+        }
+
         function checkGameComplete() {
             // This if...else determines when the game should end (when all 20 questions have been answered)
             if (answeredQuestions.value.length === 20) {
@@ -403,7 +414,9 @@ const App = {
             correctSelection,
             toggleCardOpenClose,
             isAnswered,
-            getTileColor
+            getTileColor,
+            openNavDrawer,
+            navDrawerOpen
         }
     }
 
