@@ -10,7 +10,7 @@ const App = {
         const scoreCount = ref(0);
         // Update this when a user answers a question correctly/incorrectly. scoreCount is updated using the validateResult function. 
 
-        const backgroundColour = ref("#EDF7BD");
+        const backgroundColour = ref("white");
         // Sets the background for the main screen. The background colour is changed when the user finishes the game. 
 
         const imageBlue = "whale colourized.png";
@@ -26,7 +26,7 @@ const App = {
             // This if...else determines when the game should end (when all 20 questions have been answered)
             if (answeredQuestions.value.length === 20) {
                 gameComplete.value = true;
-                backgroundColour.value = "#EDF7BD"; // Changes the background colour 
+                backgroundColour.value = "#4E8D9C"; // Changes the background colour 
             } else {
                 gameComplete.value = false;
             }
@@ -39,7 +39,7 @@ const App = {
             answeredQuestions.value = []; // Resets the answeredQuestions array to be empty. 
             scoreCount.value = 0; // Resets score count to zero. 
             gameComplete.value = false; // Resets the gameComplete boolean to be false. 
-            backgroundColour.value = "#EDF7BD"; // Changes the background colour 
+            backgroundColour.value = "white"; // Changes the background colour 
         }
 
         // This function is connected to multiple-choice answers. It checks if the user has selected the correct answer.
@@ -84,9 +84,9 @@ const App = {
         function getTileColor(buttonID) {
             // This function checks if a question has already been answered by seeing if its buttonID is in the answeredQuestions array. If it is, then the question tile turns light blue. 
             if (answeredQuestions.value.includes(buttonID)) {
-                return "#EDF7BD"; // This is the green colour that the tile turns when a question has been answered.
+                return "#85C79A"; // This is the green colour that the tile turns when a question has been answered.
             } else {
-                return "#85C79A"; // This is the original tile colour.
+                return "#4E8D9C"; // This is the original tile colour.
             }
             }
 
