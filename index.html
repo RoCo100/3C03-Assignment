@@ -56,7 +56,7 @@
         <v-app-bar-title style="font-family: Poppins;">Collective App: Maritime Commerce and Whale Risks</v-app-bar-title>
       </v-app-bar>
 
-      <v-navigation-drawer v-if="navDrawerOpen" color="#4E8D9C" style="font-family: Poppins;"> <!-- If the boolean "navDrawerOpen" is true, the navigation bar will pop open. From here, the user can click on links that take them to each of the app modules. -->
+      <v-navigation-drawer v-model="navDrawerOpen" color="#4E8D9C" style="font-family: Poppins;"> <!-- v-model achieves something similar to a v-if, but it does not completely destroy the navigation bar when the boolean "navDrawerOpen" is false. If "navDrawerOpen" is true, the navigation bar will pop open. From here, the user can click on links that take them to each of the app modules. -->
         <v-list-item style="font-family: Poppins Bold;" href="https://artssci.github.io/Maritime-Commerce-and-Whale-Risks-Collective-App/" title="Home"></v-list-item>
         <v-divider></v-divider>
         <v-list-item href="https://ameliag116.github.io/Ocean-Route-Explorer/" title="Ocean Route Explorer"></v-list-item> <!-- "href" is a keyword that is used when a link is external.-->
