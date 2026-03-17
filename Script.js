@@ -23,13 +23,24 @@ const App = {
         const answeredQuestions = ref([]); // An array of all questions that have been answered and must subsequently have their buttons disabled 
 
         const navDrawerOpen = ref(false); // A boolean that controls whether the navigation drawer is open or closed. 
+        const learnMoreOpen = ref(false); // A boolean that controls whether the Learn More button is activated 
 
+        
         function openNavDrawer() { // This function operates identically to the toggleCardOpenClose function that we've used in in-class labs. It is linked to an @click on the app bar. 
             if (navDrawerOpen.value == false) {
                 navDrawerOpen.value = true;
             }
             else {
                 navDrawerOpen.value = false;
+            }
+        }
+
+        function toggleLearnMoreOpenClosed() {
+            if (learnMoreOpen.value == false) {
+                learnMoreOpen.value = true;
+            }
+            else {
+                learnMoreOpen.value = false;
             }
         }
 
@@ -439,7 +450,10 @@ const App = {
             getTileColor,
             openNavDrawer,
             navDrawerOpen,
-            modules
+            modules,
+            learnMoreOpen,
+            toggleLearnMoreOpenClosed
+            
         }
     }
 
