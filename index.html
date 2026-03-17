@@ -82,12 +82,24 @@
           </div>
         </v-card>
 
-        <v-btn style="position:absolute; z-index:1; left: 5%; top:10%; font-family: Poppins; width: 20vw; height: 12vh; font-size: 1.25vw; color:white;" color="#85C79A">Tutorial Walkthrough</v-btn>
-          <!-- This button will allow the user to re-access the walkthrough whenever they need a refresher. Add an @click to give it functionality. -->
+        <v-btn @click="toggleTutorialOpenClosed()" style="position:absolute; z-index:1; left: 5%; top:10.5%; font-family: Poppins; width: 20vw; height: 12vh; font-size: 1.5vw; color:white;" color="#85C79A">Learn More</v-btn>
+          
+        <v-dialog persistent v-model=tutorialOpen style="width: 85vw; height: 60vw;"> 
+          <v-card color="white" align="center">
+            <v-card-title style="font-family: Poppins;" class="ma-6">Annotated Bibliography</v-card-title>
+            <v-card-text style="font-family: Poppins;">(Insert entries here)</v-card-text>
 
-        <v-btn style="position:absolute; z-index:1; left: 5%; top:25%; font-family: Poppins; width: 20vw; height: 12vh; font-size: 1.5vw; color:white;" color="#85C79A">Learn More</v-btn>
+            <div class="d-flex justify-center ma-6">
+            <v-btn @click="toggleTutorialOpenClosed()" color="#85C79A" style="font-family: Poppins; width: 10vw; height: 4vh; color: white;">Exit</v-btn>
+            </div>  
+            
+          </v-card>
+        </v-dialog>
+
+        <v-btn style="position:absolute; z-index:1; left: 5%; top:25%; font-family: Poppins; width: 20vw; height: 12vh; font-size: 1.25vw; color:white;" color="#85C79A">Tutorial Walkthrough</v-btn>
           <!-- This button provides the user with access to a comprehensive bibliography. Add an @click to give it functionality. -->
 
+        
         <div class="position-absolute right-0 pa-2">
           <v-card variant="flat" style="width: 71vw;" color="#281C59"
             class="mx-auto text-center ma-3 text-pre-wrap">
