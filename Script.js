@@ -65,6 +65,31 @@ const App = {
                 
         }
 
+
+        const modules = [ //This array contains the information for the navigation drawer.
+            { name: "Home",
+                 url: "https://artssci.github.io/Maritime-Commerce-and-Whale-Risks-Collective-App/"
+            },
+            { name: "Ocean Route Explorer",
+                url: "https://ameliag116.github.io/Ocean-Route-Explorer/"
+            },
+            { name: "Temporal Tides",
+                url: "https://nkkkkkkkkkkk.github.io/Temporal-Tides/"
+            },
+            { name: "Ocean Commotion",
+                url: "https://madsb04.github.io/Ocean-Commotion-/"
+            },
+            { name: "Indigenous Perspectives in Reducing Whale Harm",
+                url: "https://genevawhite.github.io/genevacoding/"
+            },
+            { name: "Untitled",
+                url: "https://alipanju12.github.io/Traditional-Ecological-Knowledge-connection-to-Whales/"
+            },
+            { name: "Dive Into the World of Whales",
+                url: "safiya-fs.github.io/Whale-Anatomy-Module/"
+            }   
+        ]
+        
         const categories = [
             // These are category headers shown at the top of the board. Need to align the question bank so each column/category has matching questions.
             { name: "Anatomy" },
@@ -122,7 +147,7 @@ const App = {
                 answerB: "Heart",
                 answerC: "Blowhole sac",
                 answerD: "Baleen chamber",
-                explanation: "Whales have a <p>heart</p> that weighs around 900 kg. It sustains oxygen and nutrient circulation across an enormous body adapted for deep diving and long migration."
+                explanation: "Whales have a heart that weighs around 900 kg. It sustains oxygen and nutrient circulation across an enormous body adapted for deep diving and long migration."
                 // Connor, S. (n.d.). The anatomy of a whale. BBC Earth. https://www.bbcearth.com/news/the-anatomy-of-a-whale
             },
             {
