@@ -131,12 +131,10 @@
                               </v-col>
                           </v-row>
 
-                          <v-card-text v-if="correctSelection == true" style="font-family: Poppins; color: #85C79A;" class="font-weight-bold pa-8">
-                            That is correct! {{ item.explanation }} 
+                          <v-card-text v-if="correctSelection == true" style="font-family: Poppins; color: #85C79A;" class="font-weight-bold pa-8" v-html="item.explanation">
                           </v-card-text>
 
-                          <v-card-text v-if="correctSelection == false" style="font-family: Poppins; color: #4E8D9C;" class="font-weight-bold pa-8">
-                            That is incorrect. {{ item.explanation }}  
+                          <v-card-text v-if="correctSelection == false" style="font-family: Poppins; color: #4E8D9C;" class="font-weight-bold pa-8" v-html="item.explanation">
                           </v-card-text>
                         
                           <div align=center class="pa-4"> 
