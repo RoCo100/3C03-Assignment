@@ -441,7 +441,8 @@ const App = {
             isAnswered,
             getTileColor,
             openNavDrawer,
-            navDrawerOpen
+            navDrawerOpen,
+            modules
         }
     }
 
