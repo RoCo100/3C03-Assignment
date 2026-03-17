@@ -86,7 +86,7 @@ const App = {
                 url: "https://alipanju12.github.io/Traditional-Ecological-Knowledge-connection-to-Whales/"
             },
             { name: "Dive Into the World of Whales",
-                url: "safiya-fs.github.io/Whale-Anatomy-Module/"
+                url: "https://safiya-fs.github.io/Whale-Anatomy-Module/"
             }   
         ]
         
