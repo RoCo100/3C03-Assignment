@@ -67,9 +67,6 @@ const App = {
 
 
         const modules = [ //This array contains the information for the navigation drawer.
-            { name: "Home",
-                 url: "https://artssci.github.io/Maritime-Commerce-and-Whale-Risks-Collective-App/"
-            },
             { name: "Ocean Route Explorer",
                 url: "https://ameliag116.github.io/Ocean-Route-Explorer/"
             },
