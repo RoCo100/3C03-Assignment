@@ -54,18 +54,14 @@
         <v-app-bar-nav-icon variant="text" @click="openNavDrawer()"></v-app-bar-nav-icon> 
           <!-- When the user clicks this app bar icon, it triggers the "openNavDrawer" function, which toggles the navigation bar open and closed.-->
         <v-app-bar-title style="font-family: Poppins;">Collective App: Maritime Commerce and Whale Risks</v-app-bar-title>
-      </v-app-bar>
+      </v-app-bar>    
 
-      <v-navigation-drawer v-model="navDrawerOpen" color="#4E8D9C" style="font-family: Poppins;"> <!-- v-model achieves something similar to a v-if, but it does not completely destroy the navigation bar when the boolean "navDrawerOpen" is false. If "navDrawerOpen" is true, the navigation bar will pop open. From here, the user can click on links that take them to each of the app modules. -->
-        <v-list-item style="font-family: Poppins Bold;" href="https://artssci.github.io/Maritime-Commerce-and-Whale-Risks-Collective-App/" title="Home"></v-list-item>
-        <v-divider></v-divider>
-        <v-list-item href="https://ameliag116.github.io/Ocean-Route-Explorer/" title="Ocean Route Explorer"></v-list-item> <!-- "href" is a keyword that is used when a link is external.-->
-        <v-list-item href="https://nkkkkkkkkkkk.github.io/Temporal-Tides/" title="Temporal Tides"></v-list-item>
-        <v-list-item href="https://madsb04.github.io/Ocean-Commotion-/" title="Ocean Commotion"></v-list-item>
-        <v-list-item href="https://genevawhite.github.io/genevacoding/" title="Indigenous Perspectives"></v-list-item>
-        <v-list-item href="https://safiya-fs.github.io/Whale-Anatomy-Module/" title="Dive Into the World of Whales"></v-list-item>
-        <v-list-item href="https://alipanju12.github.io/Traditional-Ecological-Knowledge-connection-to-Whales/" title="Untitled"></v-list-item>
-      </v-navigation-drawer>      
+      <v-navigation-drawer v-model="navDrawerOpen" color="#4E8D9C" style="font-family: Poppins;">
+        <!-- If "navDrawerOpen" is true, the navigation bar will pop open. From here, the user can click on links that take them to each of the app modules. -->
+        <v-list-item v-for="item in modules" :key="item.name" :href="item.url">
+          {{ item.title }}
+        </v-list-item>
+      </v-navigation-drawer>
 
       <template v-if="!gameComplete">
         <v-card variant="flat" style="position:absolute; z-index:1; left: 5%; top:40%; width: 20vw; height: 30vh;" color="#85C79A" >
