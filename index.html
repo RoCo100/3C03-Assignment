@@ -14,290 +14,380 @@
   <!-- This script loads the Vue and Vuetify app logic -->
 </head>
 
-<style> 
+<style>
   /* Here we used the CSS @font-face structure to upload three different Poppins fonts to our project: regular, bold, and italics. 
   It is important that the .ttf files (downloaded from Google Fonts) which contain the font information are located with the rest of our coding files. 
   Once the fonts are made avialable in this <style> block, they can be accessed in our main HTML code using style="font-family: _____;" */
 
   @font-face {
-  font-family: "Poppins";  
-  src: url("Poppins-Regular.ttf") format("truetype");  
-  font-weight: normal;
-  font-style: normal;
+    font-family: "Poppins";
+    src: url("Poppins-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
   }
-  
+
   @font-face {
-  font-family: "Poppins Bold";  
-  src: url("Poppins-Bold.ttf") format("truetype");  
-  font-weight: bold;
-  font-style: normal;
+    font-family: "Poppins Bold";
+    src: url("Poppins-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
   }
-  
+
   @font-face {
-  font-family: "Poppins Italic";  
-  src: url("Poppins-Italic.ttf") format("truetype");  
-  font-weight: normal;
-  font-style: italic;
+    font-family: "Poppins Italic";
+    src: url("Poppins-Italic.ttf") format("truetype");
+    font-weight: normal;
+    font-style: italic;
   }
-  
 </style>
-  
-<!-- Throughout this code, we use vw (viewport width) and vh (viewport height) to size various components. We use this format because it allows components to shrink or grow if the display screen is maximized/minimized by the user. --> 
-  
+
+<!-- Throughout this code, we use vw (viewport width) and vh (viewport height) to size various components. We use this format because it allows components to shrink or grow if the display screen is maximized/minimized by the user. -->
+
 <div id="app">
 
   <body>
     <v-app :style="{ backgroundColor: backgroundColour }">
       <v-main>
 
-      <v-app-bar color="#4E8D9C">
-        <v-app-bar-nav-icon variant="text" @click="openNavDrawer()"></v-app-bar-nav-icon> 
+        <v-app-bar color="#4E8D9C">
+          <v-app-bar-nav-icon variant="text" @click="openNavDrawer()"></v-app-bar-nav-icon>
           <!-- When the user clicks this app bar icon, it triggers the "openNavDrawer" function, which toggles the navigation bar open and closed.-->
-        <v-app-bar-title style="font-family: Poppins;">Collective App: Maritime Commerce and Whale Risks</v-app-bar-title>
-      </v-app-bar>    
+          <v-app-bar-title style="font-family: Poppins;">Collective App: Maritime Commerce and Whale
+            Risks</v-app-bar-title>
+        </v-app-bar>
 
-      <v-navigation-drawer v-model="navDrawerOpen" color="#4E8D9C" style="font-family: Poppins;">
-        <!-- If "navDrawerOpen" is true, the navigation bar will pop open. From here, the user can click on links that take them to each of the app modules. -->
-        <v-list>
-          <v-list-item href="https://artssci.github.io/Maritime-Commerce-and-Whale-Risks-Collective-App/">
-            <v-list-item-title class="font-weight-bold">Home</v-list-item-title>
-          </v-list-item>
-          <divider></divider>
-          <v-list-item v-for="item in modules" :key="item.name" :href="item.url">
-            <v-list-item-title>{{ item.name }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-navigation-drawer>
+        <v-navigation-drawer v-model="navDrawerOpen" color="#4E8D9C" style="font-family: Poppins;">
+          <!-- If "navDrawerOpen" is true, the navigation bar will pop open. From here, the user can click on links that take them to each of the app modules. -->
+          <v-list>
+            <v-list-item href="https://artssci.github.io/Maritime-Commerce-and-Whale-Risks-Collective-App/">
+              <v-list-item-title class="font-weight-bold">Home</v-list-item-title>
+            </v-list-item>
+            <divider></divider>
+            <v-list-item v-for="item in modules" :key="item.name" :href="item.url">
+              <v-list-item-title>{{ item.name }}</v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-navigation-drawer>
 
-      <template v-if="!gameComplete">
-        <v-card variant="flat" style="position:absolute; z-index:1; left: 5%; top:40%; width: 20vw; height: 30vh;" color="#85C79A" >
-          <!-- This is the score panel. It displays the current score and a thematic whale image. Add gameplay controls here later (eg. Reset Game button) if needed -->
-          <!-- scoreCount should change when a user answers a question (correct/incorrect conditions). -->
-          <v-card-title style="font-family: Poppins Bold; font-size: 1.5vw; color:white;" class="pb-0" > Score </v-card-title>
-          <v-card-text style="font-family: Poppins; font-size: 1.5vw; color:white;" class="pb-0"> {{scoreCount}} </v-card-text>
-          <div align="center">
-            <v-img :src="imageScoreCard" style="height: 9vw;"></v-img>
-            <!-- This is the whale image used for the menu. Keep this image available in the same folder so Vuetify can load it-->
-          
-          </div>
-        </v-card>
+        <template v-if="!gameComplete">
+          <v-card variant="flat" style="position:absolute; z-index:1; left: 5%; top:40%; width: 20vw; height: 30vh;"
+            color="#85C79A">
+            <!-- This is the score panel. It displays the current score and a thematic whale image. Add gameplay controls here later (eg. Reset Game button) if needed -->
+            <!-- scoreCount should change when a user answers a question (correct/incorrect conditions). -->
+            <v-card-title style="font-family: Poppins Bold; font-size: 1.5vw; color:white;" class="pb-0"> Score
+            </v-card-title>
+            <v-card-text style="font-family: Poppins; font-size: 1.5vw; color:white;" class="pb-0"> {{scoreCount}}
+            </v-card-text>
+            <div align="center">
+              <v-img :src="imageScoreCard" style="height: 9vw;"></v-img>
+              <!-- This is the whale image used for the menu. Keep this image available in the same folder so Vuetify can load it-->
 
-        <v-btn @click="toggleLearnMoreOpenClosed()" style="position:absolute; z-index:1; left: 5%; top:10.5%; font-family: Poppins; width: 20vw; height: 12vh; font-size: 1.5vw; color:white;" color="#85C79A">Learn More</v-btn>
-          
-        <v-dialog persistent v-model=learnMoreOpen style="width: 85vw; height: 60vw;"> 
-          <v-card color="white" align="center">
-            <v-card-title style="font-family: Poppins;" class="ma-6">Annotated Bibliography</v-card-title>
-            <v-card-text style="font-family: Poppins;">(Insert entries here)</v-card-text>
-
-            <div class="d-flex justify-center ma-6">
-            <v-btn @click="toggleLearnMoreOpenClosed()" color="#85C79A" style="font-family: Poppins; width: 10vw; height: 4vh; color: white;">Exit</v-btn>
-            </div>  
-            
-          </v-card>
-        </v-dialog>
-
-        <v-btn style="position:absolute; z-index:1; left: 5%; top:25%; font-family: Poppins; width: 20vw; height: 12vh; font-size: 1.25vw; color:white;" color="#85C79A">Tutorial Walkthrough</v-btn>
-          <!-- This button provides the user with access to a comprehensive bibliography. Add an @click to give it functionality. -->
-
-        
-        <div class="position-absolute right-0 pa-2">
-          <v-card variant="flat" style="width: 71vw;" color="#281C59"
-            class="mx-auto text-center ma-3 text-pre-wrap">
-            <v-card-title style="font-family: Poppins Bold; font-size: 1.75vw; color:white;">The Impact of Human Activity on Whales' Longterm Wellbeing</v-card-title>
-            <v-card-subtitle class="mb-2" style="font-family: Poppins; font-size: 1.5vw; color:white;">Jeopardy: Whale Health Edition</v-card-subtitle>
-            <!-- This is the board title / header. This is the main identity label for the module, aligned with the theme in the instruction card -->
+            </div>
           </v-card>
 
-          <v-container align="center" class="mt-6">
-            <v-row align="center" style="width: 73vw;">
-              <v-col v-for="item in categories" :key="item.name" align="center">
-                <!-- Here, categories are generated from the JS categories array. We need to ensure that the question bank aligns with these categories (each column corresponds to a category)-->
-                
-                <v-card variant="flat" color="#281C59" style="width: 11vw;">
-                  <v-card-title style="font-family: Poppins; font-size: 1.5vw; color:white;">{{item.name}}</v-card-title>
-                </v-card>
-              </v-col>
+          <v-btn @click="toggleLearnMoreOpenClosed()"
+            style="position:absolute; z-index:1; left: 5%; top:10.5%; font-family: Poppins; width: 20vw; height: 12vh; font-size: 1.5vw; color:white;"
+            color="#85C79A">Learn More</v-btn>
 
-              <v-col v-for="item in lowDiscomfortRow" :key="item.button" class="d-flex justify-center mt-4" >
-                <!-- This loop generates the 200-point question buttons for the first row. -->
-                
-                <v-btn @click="toggleCardOpenClose(item)" style="font-family: Poppins; width: 11vw; height: 9vh; color: white;" size="x-large" :color="getTileColor(item.button)" :disabled="isAnswered(item.button)">{{item.points}}</v-btn>
-                <!-- color is decided by the getTileColor function and the isAnswered function -->
+          <v-dialog persistent v-model=learnMoreOpen style="width: 85vw; height: 60vw;">
+            <v-card color="white" align="center">
+              <v-card-title style="font-family: Poppins;" class="ma-6">Annotated Bibliography</v-card-title>
+              <v-card-text style="font-family: Poppins;">(Insert entries here)</v-card-text>
+
+              <div class="d-flex justify-center ma-6">
+                <v-btn @click="toggleLearnMoreOpenClosed()" color="#85C79A"
+                  style="font-family: Poppins; width: 10vw; height: 4vh; color: white;">Exit</v-btn>
+              </div>
+
+            </v-card>
+          </v-dialog>
+
+
+
+
+          <v-btn @click="toggleTutorialOpenClosed()"
+            style="position:absolute; z-index:1; left: 5%; top:25%; font-family: Poppins; width: 20vw; height: 12vh; font-size: 1.75vw; color:white;"
+            color="#85C79A">Tutorial</v-btn>
+
+          <v-dialog persistent v-model=tutorialOpen style="width: 85vw; height: 60vw;">
+            <v-card color="white" align="left">
+              <v-card-title style="font-family: Poppins;" class="ma-6">Tutorial</v-card-title>
+              <v-card-text style="font-family: Poppins;">    1. Welcome to Jeopardy! Click on the buttons to answer question to earn their respective points. Each question can only be answered once, so be careful! <br> <br>
+                    2. The questions are categorized into four sections: "Whale Biology and Behavior", "Human Impacts on Whales", "Conservation Efforts", and "Whales in Culture". Each section has 5 questions, with increasing point values (200, 400, 600, 800, 1000) that correspond to increasing uncomfortability in challenging anthropocentrism. <br> <br>
+                    3. If you select the correct answer, you'll earn the points associated with that question. If you select an incorrect answer, you won't earn any points for that question. <br> <br>
+                    4. Once you've answered all 20 questions, the game will end and your total score will be displayed. Good luck! (scroll and click on exit button below)
+              </v-card-text>
+
+              <div class="d-flex justify-center ma-6">
+                <v-btn @click="toggleTutorialOpenClosed()" color="#85C79A"
+                  style="font-family: Poppins; width: 10vw; height: 4vh; color: white;">Exit</v-btn>
+              </div>
+
+            </v-card>
+          </v-dialog>
+
+
+
+          <div class="position-absolute right-0 pa-2">
+            <v-card variant="flat" style="width: 71vw;" color="#281C59" class="mx-auto text-center ma-3 text-pre-wrap">
+              <v-card-title style="font-family: Poppins Bold; font-size: 1.75vw; color:white;">The Impact of Human
+                Activity on Whales' Longterm Wellbeing</v-card-title>
+              <v-card-subtitle class="mb-2" style="font-family: Poppins; font-size: 1.5vw; color:white;">Jeopardy: Whale
+                Health Edition</v-card-subtitle>
+              <!-- This is the board title / header. This is the main identity label for the module, aligned with the theme in the instruction card -->
+            </v-card>
+
+            <v-container align="center" class="mt-6">
+              <v-row align="center" style="width: 73vw;">
+                <v-col v-for="item in categories" :key="item.name" align="center">
+                  <!-- Here, categories are generated from the JS categories array. We need to ensure that the question bank aligns with these categories (each column corresponds to a category)-->
+
+                  <v-card variant="flat" color="#281C59" style="width: 11vw;">
+                    <v-card-title
+                      style="font-family: Poppins; font-size: 1.5vw; color:white;">{{item.name}}</v-card-title>
+                  </v-card>
+                </v-col>
+
+                <v-col v-for="item in lowDiscomfortRow" :key="item.button" class="d-flex justify-center mt-4">
+                  <!-- This loop generates the 200-point question buttons for the first row. -->
+
+                  <v-btn @click="toggleCardOpenClose(item)"
+                    style="font-family: Poppins; width: 11vw; height: 9vh; color: white;" size="x-large"
+                    :color="getTileColor(item.button)" :disabled="isAnswered(item.button)">{{item.points}}</v-btn>
+                  <!-- color is decided by the getTileColor function and the isAnswered function -->
 
                   <v-dialog persistent v-model=item.showCard.value style="width: 85vw;" align=center>
-                      <v-card color="white">
-                        <v-card-title style="font-family: Poppins; color: #281C59;" class="text-pre-wrap ma-6">{{item.content}}</v-card-title>
+                    <v-card color="white">
+                      <v-card-title style="font-family: Poppins; color: #281C59;"
+                        class="text-pre-wrap ma-6">{{item.content}}</v-card-title>
 
-                          <v-row>
-                              <v-col cols="6">
-                                <!--Each button is connected to the validateResult funtion. The button can only trigger the function once, so that the user cannot gain points over and over again by selecting the right answer. -->
-                                <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;" @click.once="validateResult(item.answerA, item.correctAnswer, item.button, item.points)" :disabled="isAnswered(item.button)">{{item.answerA}}</v-btn>
-                                <!--the buttons are disabled once the correct answer is clicked on. The disabled property becomes true once the button object (the ID) is found in the list of answeredQuestions-->
-                              </v-col>
-                              <v-col cols="6">
-                                <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;" @click.once="validateResult(item.answerB, item.correctAnswer, item.button, item.points)" :disabled="isAnswered(item.button)">{{item.answerB}}</v-btn>
-                              </v-col>
-                              <v-col cols="6">
-                                <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;" @click.once="validateResult(item.answerC, item.correctAnswer, item.button, item.points)" :disabled="isAnswered(item.button)">{{item.answerC}}</v-btn>
-                              </v-col>
-                              <v-col cols="6">
-                                <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;" @click.once="validateResult(item.answerD, item.correctAnswer, item.button, item.points)" :disabled="isAnswered(item.button)">{{item.answerD}}</v-btn>
-                              </v-col>
-                          </v-row>
+                      <v-row>
+                        <v-col cols="6">
+                          <!--Each button is connected to the validateResult funtion. The button can only trigger the function once, so that the user cannot gain points over and over again by selecting the right answer. -->
+                          <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;"
+                            @click.once="validateResult(item.answerA, item.correctAnswer, item.button, item.points)"
+                            :disabled="isAnswered(item.button)">{{item.answerA}}</v-btn>
+                          <!--the buttons are disabled once the correct answer is clicked on. The disabled property becomes true once the button object (the ID) is found in the list of answeredQuestions-->
+                        </v-col>
+                        <v-col cols="6">
+                          <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;"
+                            @click.once="validateResult(item.answerB, item.correctAnswer, item.button, item.points)"
+                            :disabled="isAnswered(item.button)">{{item.answerB}}</v-btn>
+                        </v-col>
+                        <v-col cols="6">
+                          <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;"
+                            @click.once="validateResult(item.answerC, item.correctAnswer, item.button, item.points)"
+                            :disabled="isAnswered(item.button)">{{item.answerC}}</v-btn>
+                        </v-col>
+                        <v-col cols="6">
+                          <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;"
+                            @click.once="validateResult(item.answerD, item.correctAnswer, item.button, item.points)"
+                            :disabled="isAnswered(item.button)">{{item.answerD}}</v-btn>
+                        </v-col>
+                      </v-row>
 
-                          <v-card-text v-if="correctSelection == true" style="font-family: Poppins; color: #85C79A;" class="pa-8" v-html="item.explanation">
-                          </v-card-text>
+                      <v-card-text v-if="correctSelection == true" style="font-family: Poppins; color: #85C79A;"
+                        class="pa-8" v-html="item.explanation">
+                      </v-card-text>
 
-                          <v-card-text v-if="correctSelection == false" style="font-family: Poppins; color: #4E8D9C;" class="pa-8" v-html="item.explanation">
-                          </v-card-text>
-                        
-                          <div align=center class="pa-4"> 
-                            <v-img :src="imageQuestionCard" max-width="35%" class="ma-4"> </v-img>
-                            <v-btn color="#85C79A" style="font-family: Poppins; width: 10vw; height: 4vh; color: white;" @click="toggleCardOpenClose(item)">Exit</v-btn>
-                          </div>
+                      <v-card-text v-if="correctSelection == false" style="font-family: Poppins; color: #4E8D9C;"
+                        class="pa-8" v-html="item.explanation">
+                      </v-card-text>
 
-                      </v-card>
+                      <div align=center class="pa-4">
+                        <v-img :src="imageQuestionCard" max-width="35%" class="ma-4"> </v-img>
+                        <v-btn color="#85C79A" style="font-family: Poppins; width: 10vw; height: 4vh; color: white;"
+                          @click="toggleCardOpenClose(item)">Exit</v-btn>
+                      </div>
+
+                    </v-card>
                   </v-dialog>
-              </v-col>
+                </v-col>
 
-              <!-- This is the same as previously, but for the second row of buttons. -->
-              <v-col v-for="item in mediumDiscomfortRow" :key="item.button" align="center">
-                  <v-btn @click="toggleCardOpenClose(item)" style="font-family: Poppins; width: 11vw; height: 9vh; color: white;" size="x-large" :color="getTileColor(item.button)" :disabled="isAnswered(item.button)">{{item.points}}</v-btn>
+                <!-- This is the same as previously, but for the second row of buttons. -->
+                <v-col v-for="item in mediumDiscomfortRow" :key="item.button" align="center">
+                  <v-btn @click="toggleCardOpenClose(item)"
+                    style="font-family: Poppins; width: 11vw; height: 9vh; color: white;" size="x-large"
+                    :color="getTileColor(item.button)" :disabled="isAnswered(item.button)">{{item.points}}</v-btn>
 
                   <v-dialog persistent v-model="item.showCard.value" style="width: 85vw;" align="center">
-                      <v-card color="white">
-                        <v-card-title style="font-family: Poppins; color: #281C59;" class="text-pre-wrap ma-6">{{item.content}}</v-card-title>
+                    <v-card color="white">
+                      <v-card-title style="font-family: Poppins; color: #281C59;"
+                        class="text-pre-wrap ma-6">{{item.content}}</v-card-title>
 
-                          <v-row>
-                              <v-col cols="6">
-                                <!--Each button is connected to the validateResult function. The button can only trigger the function once, so that the user cannot gain points over and over again by selecting the right answer. -->
-                                <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;" @click.once="validateResult(item.answerA, item.correctAnswer, item.button, item.points)" :disabled="isAnswered(item.button)">{{item.answerA}}</v-btn> 
-                              </v-col>
-                              <v-col cols="6">
-                                <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;" @click.once="validateResult(item.answerB, item.correctAnswer, item.button, item.points)" :disabled="isAnswered(item.button)">{{item.answerB}}</v-btn>
-                              </v-col>
-                              <v-col cols="6">
-                                <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;" @click.once="validateResult(item.answerC, item.correctAnswer, item.button, item.points)" :disabled="isAnswered(item.button)">{{item.answerC}}</v-btn>
-                              </v-col>
-                              <v-col cols="6">
-                                <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;" @click.once="validateResult(item.answerD, item.correctAnswer, item.button, item.points)" :disabled="isAnswered(item.button)">{{item.answerD}}</v-btn>
-                              </v-col>
-                          </v-row>
+                      <v-row>
+                        <v-col cols="6">
+                          <!--Each button is connected to the validateResult function. The button can only trigger the function once, so that the user cannot gain points over and over again by selecting the right answer. -->
+                          <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;"
+                            @click.once="validateResult(item.answerA, item.correctAnswer, item.button, item.points)"
+                            :disabled="isAnswered(item.button)">{{item.answerA}}</v-btn>
+                        </v-col>
+                        <v-col cols="6">
+                          <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;"
+                            @click.once="validateResult(item.answerB, item.correctAnswer, item.button, item.points)"
+                            :disabled="isAnswered(item.button)">{{item.answerB}}</v-btn>
+                        </v-col>
+                        <v-col cols="6">
+                          <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;"
+                            @click.once="validateResult(item.answerC, item.correctAnswer, item.button, item.points)"
+                            :disabled="isAnswered(item.button)">{{item.answerC}}</v-btn>
+                        </v-col>
+                        <v-col cols="6">
+                          <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;"
+                            @click.once="validateResult(item.answerD, item.correctAnswer, item.button, item.points)"
+                            :disabled="isAnswered(item.button)">{{item.answerD}}</v-btn>
+                        </v-col>
+                      </v-row>
 
-                          <v-card-text v-if="correctSelection == true" style="font-family: Poppins; color: #85C79A;" class="pa-8" v-html="item.explanation">
-                          </v-card-text>
+                      <v-card-text v-if="correctSelection == true" style="font-family: Poppins; color: #85C79A;"
+                        class="pa-8" v-html="item.explanation">
+                      </v-card-text>
 
-                          <v-card-text v-if="correctSelection == false" style="font-family: Poppins; color: #4E8D9C;" class="pa-8" v-html="item.explanation">
-                          </v-card-text>
-                            
-                          <div align=center class="pa-4"> 
-                            <v-img :src="imageQuestionCard" max-width="35%" class="ma-4"> </v-img>
-                            <v-btn color="#85C79A" style="font-family: Poppins; width: 10vw; height: 4vh; color: white;" @click="toggleCardOpenClose(item)" >Exit</v-btn>
-                          </div>
+                      <v-card-text v-if="correctSelection == false" style="font-family: Poppins; color: #4E8D9C;"
+                        class="pa-8" v-html="item.explanation">
+                      </v-card-text>
 
-                      </v-card>
+                      <div align=center class="pa-4">
+                        <v-img :src="imageQuestionCard" max-width="35%" class="ma-4"> </v-img>
+                        <v-btn color="#85C79A" style="font-family: Poppins; width: 10vw; height: 4vh; color: white;"
+                          @click="toggleCardOpenClose(item)">Exit</v-btn>
+                      </div>
+
+                    </v-card>
                   </v-dialog>
-              </v-col>
+                </v-col>
 
-              <!-- This is the same as previously, but for the third row of buttons. -->
-              <v-col v-for="item in highDiscomfortRow" :key="item.button" align="center">
-                  <v-btn @click="toggleCardOpenClose(item)" style="font-family: Poppins; width: 11vw; height: 9vh; color: white;" size="x-large" :color="getTileColor(item.button)" :disabled="isAnswered(item.button)">{{item.points}}</v-btn>
+                <!-- This is the same as previously, but for the third row of buttons. -->
+                <v-col v-for="item in highDiscomfortRow" :key="item.button" align="center">
+                  <v-btn @click="toggleCardOpenClose(item)"
+                    style="font-family: Poppins; width: 11vw; height: 9vh; color: white;" size="x-large"
+                    :color="getTileColor(item.button)" :disabled="isAnswered(item.button)">{{item.points}}</v-btn>
 
                   <v-dialog persistent v-model=item.showCard.value style="width: 85vw;" align=center>
-                      <v-card color="white">
-                        <v-card-title style="font-family: Poppins; color: #281C59;" class="text-pre-wrap ma-6">{{item.content}}</v-card-title>
+                    <v-card color="white">
+                      <v-card-title style="font-family: Poppins; color: #281C59;"
+                        class="text-pre-wrap ma-6">{{item.content}}</v-card-title>
 
-                          <v-row>
-                              <v-col cols="6">
-                                <!--Each button is connected to the validateResult funtion. The button can only trigger the function once, so that the user cannot gain points over and over again by selecting the right answer. -->
-                                <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;" @click.once="validateResult(item.answerA, item.correctAnswer, item.button, item.points)" :disabled="isAnswered(item.button)">{{item.answerA}}</v-btn> 
-                              </v-col>
-                              <v-col cols="6">
-                                <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;" @click.once="validateResult(item.answerB, item.correctAnswer, item.button, item.points)" :disabled="isAnswered(item.button)">{{item.answerB}}</v-btn>
-                              </v-col>
-                              <v-col cols="6">
-                                <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;" @click.once="validateResult(item.answerC, item.correctAnswer, item.button, item.points)" :disabled="isAnswered(item.button)">{{item.answerC}}</v-btn>
-                              </v-col>
-                              <v-col cols="6">
-                                <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;" @click.once="validateResult(item.answerD, item.correctAnswer, item.button, item.points)" :disabled="isAnswered(item.button)">{{item.answerD}}</v-btn>
-                              </v-col>
-                          </v-row>
+                      <v-row>
+                        <v-col cols="6">
+                          <!--Each button is connected to the validateResult funtion. The button can only trigger the function once, so that the user cannot gain points over and over again by selecting the right answer. -->
+                          <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;"
+                            @click.once="validateResult(item.answerA, item.correctAnswer, item.button, item.points)"
+                            :disabled="isAnswered(item.button)">{{item.answerA}}</v-btn>
+                        </v-col>
+                        <v-col cols="6">
+                          <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;"
+                            @click.once="validateResult(item.answerB, item.correctAnswer, item.button, item.points)"
+                            :disabled="isAnswered(item.button)">{{item.answerB}}</v-btn>
+                        </v-col>
+                        <v-col cols="6">
+                          <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;"
+                            @click.once="validateResult(item.answerC, item.correctAnswer, item.button, item.points)"
+                            :disabled="isAnswered(item.button)">{{item.answerC}}</v-btn>
+                        </v-col>
+                        <v-col cols="6">
+                          <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;"
+                            @click.once="validateResult(item.answerD, item.correctAnswer, item.button, item.points)"
+                            :disabled="isAnswered(item.button)">{{item.answerD}}</v-btn>
+                        </v-col>
+                      </v-row>
 
-                          <v-card-text v-if="correctSelection == true" style="font-family: Poppins; color: #85C79A;" class="pa-8" v-html="item.explanation">
-                          </v-card-text>
+                      <v-card-text v-if="correctSelection == true" style="font-family: Poppins; color: #85C79A;"
+                        class="pa-8" v-html="item.explanation">
+                      </v-card-text>
 
-                          <v-card-text v-if="correctSelection == false" style="font-family: Poppins; color: #4E8D9C;" class="pa-8" v-html="item.explanation">
-                          </v-card-text>
-                            
-                        
-                          <div align=center class="pa-4"> 
-                            <v-img :src="imageQuestionCard" max-width="35%" class="ma-4"> </v-img>
-                            <v-btn color="#85C79A" style="font-family: Poppins; width: 10vw; height: 4vh; color: white;" @click="toggleCardOpenClose(item)">Exit</v-btn>
-                          </div>
+                      <v-card-text v-if="correctSelection == false" style="font-family: Poppins; color: #4E8D9C;"
+                        class="pa-8" v-html="item.explanation">
+                      </v-card-text>
 
-                      </v-card>
+
+                      <div align=center class="pa-4">
+                        <v-img :src="imageQuestionCard" max-width="35%" class="ma-4"> </v-img>
+                        <v-btn color="#85C79A" style="font-family: Poppins; width: 10vw; height: 4vh; color: white;"
+                          @click="toggleCardOpenClose(item)">Exit</v-btn>
+                      </div>
+
+                    </v-card>
                   </v-dialog>
-              </v-col>
+                </v-col>
 
-              <!-- This is the same as previously, but for the fourth row of buttons. -->
-              <v-col v-for="item in extremeDiscomfortRow" :key="item.button" align="center">
-                  <v-btn @click="toggleCardOpenClose(item)" style="font-family: Poppins; width: 11vw; height: 9vh; color: white;" size="x-large" :color="getTileColor(item.button)" :disabled="isAnswered(item.button)">{{item.points}}</v-btn>
+                <!-- This is the same as previously, but for the fourth row of buttons. -->
+                <v-col v-for="item in extremeDiscomfortRow" :key="item.button" align="center">
+                  <v-btn @click="toggleCardOpenClose(item)"
+                    style="font-family: Poppins; width: 11vw; height: 9vh; color: white;" size="x-large"
+                    :color="getTileColor(item.button)" :disabled="isAnswered(item.button)">{{item.points}}</v-btn>
 
                   <v-dialog persistent v-model=item.showCard.value style="width: 85vw;" align=center>
-                      <v-card color="white">
-                        <v-card-title style="font-family: Poppins;" class="text-pre-wrap ma-6">{{item.content}}</v-card-title>
+                    <v-card color="white">
+                      <v-card-title style="font-family: Poppins;"
+                        class="text-pre-wrap ma-6">{{item.content}}</v-card-title>
 
-                          <v-row>
-                              <v-col cols="6">
-                                <!--Each button is connected to the validateResult funtion. The button can only trigger the function once, so that the user cannot gain points over and over again by selecting the right answer. -->
-                                <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;" @click.once="validateResult(item.answerA, item.correctAnswer, item.button, item.points)" :disabled="isAnswered(item.button)">{{item.answerA}}</v-btn> 
-                              </v-col>
-                              <v-col cols="6">
-                                <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;" @click.once="validateResult(item.answerB, item.correctAnswer, item.button, item.points)" :disabled="isAnswered(item.button)">{{item.answerB}}</v-btn>
-                              </v-col>
-                              <v-col cols="6">
-                                <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;" @click.once="validateResult(item.answerC, item.correctAnswer, item.button, item.points)" :disabled="isAnswered(item.button)">{{item.answerC}}</v-btn>
-                              </v-col>
-                              <v-col cols="6">
-                                <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;" @click.once="validateResult(item.answerD, item.correctAnswer, item.button, item.points)" :disabled="isAnswered(item.button)">{{item.answerD}}</v-btn>
-                              </v-col>
-                          </v-row>
+                      <v-row>
+                        <v-col cols="6">
+                          <!--Each button is connected to the validateResult funtion. The button can only trigger the function once, so that the user cannot gain points over and over again by selecting the right answer. -->
+                          <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;"
+                            @click.once="validateResult(item.answerA, item.correctAnswer, item.button, item.points)"
+                            :disabled="isAnswered(item.button)">{{item.answerA}}</v-btn>
+                        </v-col>
+                        <v-col cols="6">
+                          <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;"
+                            @click.once="validateResult(item.answerB, item.correctAnswer, item.button, item.points)"
+                            :disabled="isAnswered(item.button)">{{item.answerB}}</v-btn>
+                        </v-col>
+                        <v-col cols="6">
+                          <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;"
+                            @click.once="validateResult(item.answerC, item.correctAnswer, item.button, item.points)"
+                            :disabled="isAnswered(item.button)">{{item.answerC}}</v-btn>
+                        </v-col>
+                        <v-col cols="6">
+                          <v-btn color="#4E8D9C" style="font-family: Poppins; width: 35vw; height: 4vh; color: white;"
+                            @click.once="validateResult(item.answerD, item.correctAnswer, item.button, item.points)"
+                            :disabled="isAnswered(item.button)">{{item.answerD}}</v-btn>
+                        </v-col>
+                      </v-row>
 
-                          <v-card-text v-if="correctSelection == true" style="font-family: Poppins; color: #85C79A;" class="pa-8" v-html="item.explanation">
-                          </v-card-text>
+                      <v-card-text v-if="correctSelection == true" style="font-family: Poppins; color: #85C79A;"
+                        class="pa-8" v-html="item.explanation">
+                      </v-card-text>
 
-                          <v-card-text v-if="correctSelection == false" style="font-family: Poppins; color: #4E8D9C;" class="pa-8" v-html="item.explanation">
-                          </v-card-text>
-                        
-                          <div align=center class="pa-4"> 
-                            <v-img :src="imageQuestionCard" max-width="35%" class="ma-4"> </v-img>
-                            <v-btn color="#85C79A" style="font-family: Poppins; width: 10vw; height: 4vh; color: white;" @click="toggleCardOpenClose(item)" >Exit</v-btn>
-                          </div>
+                      <v-card-text v-if="correctSelection == false" style="font-family: Poppins; color: #4E8D9C;"
+                        class="pa-8" v-html="item.explanation">
+                      </v-card-text>
 
-                      </v-card>
+                      <div align=center class="pa-4">
+                        <v-img :src="imageQuestionCard" max-width="35%" class="ma-4"> </v-img>
+                        <v-btn color="#85C79A" style="font-family: Poppins; width: 10vw; height: 4vh; color: white;"
+                          @click="toggleCardOpenClose(item)">Exit</v-btn>
+                      </div>
+
+                    </v-card>
                   </v-dialog>
-              </v-col>
-            </v-row>
+                </v-col>
+              </v-row>
 
-          </v-container>
+            </v-container>
+          </div>
+
+        </template>
+
+        <div class="d-flex justify-center align-center" style="min-height: 100vh;">
+          <v-card v-if="gameComplete" style="width: 85vw; height: 70vh;" class="text-center">
+            <v-card-title style="font-family: Poppins; font-size: 2.5vw; color: #4E8D9C;">Experience
+              Completed!</v-card-title>
+            <v-card-text style="font-family: Poppins; font-size: 2vw; color: #281C59;">Well done. You're one step closer
+              to unlearning anthropocentrism.</v-card-text>
+            <v-card-text style="font-family: Poppins; font-size: 1.5vw; color: #281C59;">Overall, you earned {{
+              scoreCount }} points. </v-card-text>
+            <v-img :src="imageQuestionCard" style="width: 20vw; margin: 0 auto; display: block;"></v-img>
+            <v-btn @click="restartGame" color="#85C79A"
+              style="font-family: Poppins; width: 15vw; height: 7vh; font-size: 1.5vw; color: white;">Play Again</v-btn>
+          </v-card>
         </div>
-        
-      </template>
 
-      <div class="d-flex justify-center align-center" style="min-height: 100vh;">
-        <v-card v-if="gameComplete" style="width: 85vw; height: 70vh;" class="text-center">
-          <v-card-title style="font-family: Poppins; font-size: 2.5vw; color: #4E8D9C;">Experience Completed!</v-card-title>
-          <v-card-text style="font-family: Poppins; font-size: 2vw; color: #281C59;">Well done. You're one step closer to unlearning anthropocentrism.</v-card-text>
-          <v-card-text style="font-family: Poppins; font-size: 1.5vw; color: #281C59;">Overall, you earned {{ scoreCount }} points. </v-card-text>
-          <v-img :src="imageQuestionCard" style="width: 20vw; margin: 0 auto; display: block;"></v-img>
-          <v-btn @click="restartGame" color="#85C79A" style="font-family: Poppins; width: 15vw; height: 7vh; font-size: 1.5vw; color: white;">Play Again</v-btn>
-        </v-card>
-      </div>
-
-    </v-main>
+      </v-main>
     </v-app>
 
   </body>
-</div>    
+</div>
 
 </html>

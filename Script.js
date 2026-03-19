@@ -24,6 +24,7 @@ const App = {
 
         const navDrawerOpen = ref(false); // A boolean that controls whether the navigation drawer is open or closed. 
         const learnMoreOpen = ref(false); // A boolean that controls whether the Learn More button is activated 
+        const tutorialOpen = ref(true); // A boolean that controls whether the Tutorial button is activated 
 
         
         function openNavDrawer() { // This function operates identically to the toggleCardOpenClose function that we've used in in-class labs. It is linked to an @click on the app bar. 
@@ -41,6 +42,15 @@ const App = {
             }
             else {
                 learnMoreOpen.value = false;
+            }
+        }
+
+        function toggleTutorialOpenClosed() {
+            if (tutorialOpen.value == false) {
+                tutorialOpen.value = true;
+            }
+            else {
+                tutorialOpen.value = false;
             }
         }
 
@@ -452,7 +462,9 @@ const App = {
             navDrawerOpen,
             modules,
             learnMoreOpen,
-            toggleLearnMoreOpenClosed
+            toggleLearnMoreOpenClosed,
+            tutorialOpen,
+            toggleTutorialOpenClosed
             
         }
     }
