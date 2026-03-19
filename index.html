@@ -15,9 +15,9 @@
 </head>
 
 <style>
-  /* Here we used the CSS @font-face structure to upload three different Poppins fonts to our project: regular, bold, and italics. 
+  /* Here we used the CSS @font-face structure to upload two different Poppins fonts to our project: regular and bold.
   It is important that the .ttf files (downloaded from Google Fonts) which contain the font information are located with the rest of our coding files. 
-  Once the fonts are made avialable in this <style> block, they can be accessed in our main HTML code using style="font-family: _____;" */
+  Once the fonts are made available in this <style> block, they can be accessed in our main HTML code using style="font-family: _____;" */
 
   @font-face {
     font-family: "Poppins";
@@ -31,13 +31,6 @@
     src: url("Poppins-Bold.ttf") format("truetype");
     font-weight: bold;
     font-style: normal;
-  }
-
-  @font-face {
-    font-family: "Poppins Italic";
-    src: url("Poppins-Italic.ttf") format("truetype");
-    font-weight: normal;
-    font-style: italic;
   }
 </style>
 
@@ -65,6 +58,7 @@
             <v-list-item v-for="item in modules" :key="item.name" :href="item.url">
               <!-- This v-for cycles through the modules array, which contains the name and url of each team's sub-app. -->
               <v-list-item-title class="text-pre-wrap"> {{ item.name }}</v-list-item-title>
+              <!-- class="text-pre-warp" ensures that long module names won't be cut off in the navigation bar --> 
             </v-list-item>
           </v-list>
         </v-navigation-drawer>
@@ -94,10 +88,10 @@
                 </v-card>
               </v-dialog>
     
-              <v-btn @click="toggleLearnMoreOpenClosed()"
-                style="font-family: Poppins; width: 20vw; height: 12vh; font-size: 1.5vw; color:white;" color="#85C79A" class="mt-6 ml-8">About Game</v-btn>
+              <v-btn @click="toggleLearnMoreOpenClosed()" style="font-family: Poppins; width: 20vw; height: 12vh; font-size: 1.5vw; color:white;" color="#85C79A" class="mt-6 ml-8">About Game</v-btn>
     
               <v-dialog persistent v-model=learnMoreOpen style="width: 85vw; height: 60vw;">
+                <!-- Persistent keyword ensures that the dialog doesn't close if the user clicks somewhere else on the page. It only closes if they use the "Exit" button. -->
                 <v-card color="white">
                   <v-card-title align="center" style="font-family: Poppins Bold;" class="ma-4">Theme & Critical Lense</v-card-title>
                   <v-card-text style="font-family: Poppins; text-indent: 50px;"> <!-- "text-indent: 50px" causes each paragraph to start with an indentation. -->
@@ -127,9 +121,7 @@
                 <v-card-text style="font-family: Poppins; font-size: 1.5vw; color:white;" class="pb-0"> {{scoreCount}}
                 </v-card-text>
                 <div align="center">
-                  <v-img :src="imageScoreCard" style="height: 9vw;"></v-img>
-                  <!-- This is the whale image used for the menu. Keep this image available in the same folder so Vuetify can load it-->
-    
+                  <v-img :src="imageScoreCard" style="height: 9vw;"></v-img>    
                 </div>
               </v-card>
   
@@ -139,17 +131,15 @@
 
           <div class="position-absolute right-0 pa-2">
             <v-card variant="flat" style="width: 71vw;" color="#281C59" class="mx-auto text-center ma-3 text-pre-wrap">
-              <v-card-title style="font-family: Poppins Bold; font-size: 1.75vw; color:white;">The Impact of Human
-                Activity on Whales' Longterm Wellbeing</v-card-title>
-              <v-card-subtitle class="mb-2" style="font-family: Poppins; font-size: 1.5vw; color:white;">Jeopardy: Whale
-                Health Edition</v-card-subtitle>
-              <!-- This is the board title / header. This is the main identity label for the module, aligned with the theme in the instruction card -->
+              <v-card-title style="font-family: Poppins Bold; font-size: 1.75vw; color:white;">The Impact of Human Activity on Whales' Longterm Wellbeing</v-card-title>
+              <v-card-subtitle class="mb-2" style="font-family: Poppins; font-size: 1.5vw; color:white;">Jeopardy: Whale  Health Edition</v-card-subtitle>
+              <!-- This is the board title / header. This is the main identity label for the module, aligned with the theme in the About Game blurb. -->
             </v-card>
 
             <v-container align="center" class="mt-6">
               <v-row align="center" style="width: 73vw;">
                 <v-col v-for="item in categories" :key="item.name" align="center">
-                  <!-- Here, categories are generated from the JS categories array. We need to ensure that the question bank aligns with these categories (each column corresponds to a category)-->
+                  <!-- Here, categories are generated from the JS categories array.-->
 
                   <v-card variant="flat" color="#281C59" style="width: 11vw;">
                     <v-card-title
@@ -195,22 +185,21 @@
                         </v-col>
                       </v-row>
 
+                      <!-- The v-card-text below display a "correct" message and an explanation of the correct answer -->
                       <v-card-text v-if="correctSelection == true" style="font-family: Poppins; color: #85C79A;"
                         class="pt-6 pb-0 mb-0">That is correct!</v-card-text>
                       <v-card-text v-if="correctSelection == true" style="font-family: Poppins; color: #85C79A;"
                         class="pb-6 pt-0 mt-0" v-html="item.explanation">
                       </v-card-text>
 
-                      <v-card-text v-if="correctSelection == false" style="font-family: Poppins; color: #4E8D9C;"
-                        class="pt-6 pb-0 mb-0">That is incorrect.</v-card-text>
-                      <v-card-text v-if="correctSelection == false" style="font-family: Poppins; color: #4E8D9C;"
-                        class="pb-6 pt-0 mt-0" v-html="item.explanation">
+                      <!-- The v-card-text below display an "incorrect" message and an explanation of the correct answer -->
+                      <v-card-text v-if="correctSelection == false" style="font-family: Poppins; color: #4E8D9C;" class="pt-6 pb-0 mb-0">That is incorrect.</v-card-text>
+                      <v-card-text v-if="correctSelection == false" style="font-family: Poppins; color: #4E8D9C;" class="pb-6 pt-0 mt-0" v-html="item.explanation">
                       </v-card-text>
 
                       <div align=center class="pa-4">
                         <v-img :src="imageQuestionCard" max-width="35%" class="ma-4"> </v-img>
-                        <v-btn color="#85C79A" style="font-family: Poppins; width: 10vw; height: 4vh; color: white;"
-                          @click="toggleCardOpenClose(item)">Exit</v-btn>
+                        <v-btn color="#85C79A" style="font-family: Poppins; width: 10vw; height: 4vh; color: white;" @click="toggleCardOpenClose(item)">Exit</v-btn>
                       </div>
 
                     </v-card>
@@ -394,6 +383,7 @@
           </div>
 
           <v-expansion-panels class="position-fixed bottom-0 left-0 pa-4" style="max-height: 50vh; overflow-y: auto;" color="#EDF7BD">
+            <!-- This expansion panel is anchored to the bottom left of the page. It contains a comprehensive list of all of the resources that were used to create the Jeopardy questions. -->
             <v-expansion-panel bg-color="#fbffeb"> 
             <v-expansion-panel-title style="font-family: Poppins Bold;">Sources</v-expansion-panel-title>
             <v-expansion-panel-text style="font-family: Poppins;">
@@ -409,13 +399,13 @@
                 Rolland, R. M., Parks, S. E., Hunt, K. E., Castellote, M., Corkeron, P. J., Nowacek, D. P., Wasser, S. K., & Kraus, S. D. (2012). Evidence that ship noise increases stress in right whales. Proceedings of the Royal Society B: Biological Sciences, 279(1737), 2363–2368. <br><br> 
                 Washington State Academy of Sciences. (2020). Summary of key research findings about underwater noise and vessel disturbance. https://wdfw.wa.gov/sites/default/files/2020-09/reportwsas_srkw_summary.pdf <br><br> 
                 Whale and Dolphin Conservation. (n.d.). Their biggest threats. https://hval.whales.org/en/meet-the-whales/their-biggest-threats <br><br> 
-                
             </v-expansion-panel-text>
             </v-expansion-panel>
           </v-expansion-panels>
           
         </template>
 
+        <!-- This content is rendered when the game is complete and all 20 question have been answered.-->
         <div class="d-flex justify-center align-center" style="min-height: 100vh;">
           <v-card v-if="gameComplete" style="width: 80vw; height: 80vh;" class="text-center">
             <v-card-title class="mx-auto mt-4" style="font-family: Poppins; font-size: 2.5vw; color: #4E8D9C;">Experience Completed!</v-card-title>
@@ -423,9 +413,9 @@
             <v-card-text class="mx-auto" style="font-family: Poppins; font-size: 1.5vw; color: #281C59;">Overall, you earned {{ scoreCount }} points. </v-card-text>
             <v-img :src="imageQuestionCard" class="mx-auto ma-6" style="width: 20vw;"></v-img>
             <v-btn @click="restartGame" class="mx-auto ma-6" color="#85C79A" style="font-family: Poppins; width: 15vw; height: 7vh; font-size: 1.5vw; color: white;">Play Again</v-btn>
+              <!-- This button is linked to the restartGame() function in the JS file. -->
           </v-card>
         </div>
-
 
       </v-main>
     </v-app>
