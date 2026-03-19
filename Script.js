@@ -100,7 +100,7 @@ const App = {
             { name: "Indigenous Perspectives in Reducing Whale Harm",
                 url: "https://genevawhite.github.io/genevacoding/"
             },
-            { name: "Untitled",
+            { name: "Relationship Between Indigenous Knowledge, Whale Protection, and Maritime Commerce",
                 url: "https://alipanju12.github.io/Traditional-Ecological-Knowledge-connection-to-Whales/"
             },
             { name: "Dive Into the World of Whales",
