@@ -63,18 +63,20 @@
               <v-list-item-title class="font-weight-bold">Home</v-list-item-title>
             </v-list-item>
             <v-list-item v-for="item in modules" :key="item.name" :href="item.url">
+              <!-- This v-for cycles through the modules array, which contains the name and url of each team's sub-app. -->
               <v-list-item-title>{{ item.name }}</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-navigation-drawer>
 
         <template v-if="!gameComplete">
+
           <container class="position-absolute left-0">
+          <!--This container is used to format the "Tutorial" button, "About Game" button, and Score card. These three components are arranged into one column, aligned to the left of the page.-->
+
           <v-row>
             <v-col cols="6">
-              <v-btn @click="toggleTutorialOpenClosed()"
-                style="font-family: Poppins; width: 20vw; height: 12vh; font-size: 1.75vw; color:white;"
-                color="#85C79A" class="mt-6 ml-8">Tutorial</v-btn>
+              <v-btn @click="toggleTutorialOpenClosed()" style="font-family: Poppins; width: 20vw; height: 12vh; font-size: 1.75vw; color:white;" color="#85C79A" class="mt-6 ml-8">Tutorial</v-btn>
     
               <v-dialog persistent v-model=tutorialOpen style="width: 85vw; height: 60vw;">
                 <v-card color="white">
@@ -87,21 +89,19 @@
                   </v-card-text>
     
                   <div class="d-flex justify-center ma-6">
-                    <v-btn @click="toggleTutorialOpenClosed()" color="#85C79A"
-                      style="font-family: Poppins; width: 10vw; height: 4vh; color: white;">Exit</v-btn>
+                    <v-btn @click="toggleTutorialOpenClosed()" color="#85C79A" style="font-family: Poppins; width: 10vw; height: 4vh; color: white;">Exit</v-btn>
                   </div>
     
                 </v-card>
               </v-dialog>
     
               <v-btn @click="toggleLearnMoreOpenClosed()"
-                style="font-family: Poppins; width: 20vw; height: 12vh; font-size: 1.5vw; color:white;"
-                color="#85C79A" class="mt-6 ml-8">About Game</v-btn>
+                style="font-family: Poppins; width: 20vw; height: 12vh; font-size: 1.5vw; color:white;" color="#85C79A" class="mt-6 ml-8">About Game</v-btn>
     
               <v-dialog persistent v-model=learnMoreOpen style="width: 85vw; height: 60vw;">
                 <v-card color="white">
                   <v-card-title align="center" style="font-family: Poppins;" class="ma-4">Theme & Critical Lense</v-card-title>
-                  <v-card-text style="font-family: Poppins; text-indent: 50px;">
+                  <v-card-text style="font-family: Poppins; text-indent: 50px;"> <!-- "text-indent: 50px" causes each paragraph to start with an indentation. -->
                     This module builds on the larger website theme of whale life by exploring whale health and wellbeing. In particular, our module is focused on the role that anthropocentrism plays in perpetuating human activity that is harmful to whales. Anthropocentrism, broadly speaking, refers to the viewpoint that human life is more valuable and significant than other life forms. This viewpoint fuels extractivist and exploitative behaviour that harms the environment and animal life. 
                   </v-card-text>
                   <v-card-text style="font-family: Poppins; text-indent: 50px;">
@@ -119,10 +119,10 @@
                 </v-card>
               </v-dialog>
     
-              <v-card variant="flat" style="width: 20vw; height: 30vh;"
+              <v-card variant="flat" style="width: 20vw; height: 35vh;"
                 color="#85C79A" class="mt-6 ml-8">
-                <!-- This is the score panel. It displays the current score and a thematic whale image. Add gameplay controls here later (eg. Reset Game button) if needed -->
-                <!-- scoreCount should change when a user answers a question (correct/incorrect conditions). -->
+                <!-- This is the score panel. It displays the current score and a thematic whale image. -->
+                <!-- scoreCount changes when a user answers a question correctly. This is linked to the function validateResults() in the JS file. -->
                 <v-card-title style="font-family: Poppins Bold; font-size: 1.5vw; color:white;" class="pb-0"> Score
                 </v-card-title>
                 <v-card-text style="font-family: Poppins; font-size: 1.5vw; color:white;" class="pb-0"> {{scoreCount}}
