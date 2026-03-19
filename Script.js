@@ -4,15 +4,13 @@ const vuetify = createVuetify();
 
 const App = {
     setup() {
-        const scoreCount = ref(0);
-        // Update this when a user answers a question correctly/incorrectly. scoreCount is updated using the validateResult function. 
+        const scoreCount = ref(0); // Update this when a user answers a question correctly/incorrectly. scoreCount is updated using the validateResult() function. 
 
-        const backgroundColour = ref("white");
-        // Sets the background for the main screen. The background colour is changed when the user finishes the game. 
+        const backgroundColour = ref("white"); // Sets the background for the main screen. The background colour is changed to green when the user finishes the game. 
 
         const imageScoreCard = "Score Whale.png";
         const imageQuestionCard = "Question Whale.png";
-        // The 2 image filenames used to display stylized whales. Need to keep these assets available in the same folder so the html can render it consistently.
+        // The 2 image filenames used to display stylized whales, on the score card and question cards respectively. 
 
         const correctSelection = ref(null); // A boolean that tracks if the user has selected the correct answer to a question; will be used to determine what message (correct/incorrect) is displayed after they select a multiple choice answer.
 
@@ -23,8 +21,9 @@ const App = {
         const learnMoreOpen = ref(false); // A boolean that controls whether the Learn More button is activated 
         const tutorialOpen = ref(true); // A boolean that controls whether the Tutorial button is activated 
 
-        
-        function openNavDrawer() { // This function operates identically to the toggleCardOpenClose function that we've used in in-class labs. It is linked to an @click on the app bar. 
+
+        // These three functions (openNavDrawer, toggleLearnMoreOpenClosed and toggleTutorialOpenClosed) operate identically to the toggleCardOpenClose function that we've used in in-class labs. They are each linked to an @click in the HTML file. 
+        function openNavDrawer() { 
             if (navDrawerOpen.value == false) {
                 navDrawerOpen.value = true;
             }
@@ -33,7 +32,7 @@ const App = {
             }
         }
 
-        function toggleLearnMoreOpenClosed() {
+        function toggleLearnMoreOpenClosed() { 
             if (learnMoreOpen.value == false) {
                 learnMoreOpen.value = true;
             }
@@ -51,13 +50,12 @@ const App = {
             }
         }
 
-        function checkGameComplete() {
-            // This if...else determines when the game should end (when all 20 questions have been answered)
-            if (answeredQuestions.value.length === 20) {
+        function checkGameComplete() { // This if...else determines when the game should end 
+            if (answeredQuestions.value.length === 20) { //The game ends when all 20 questions have been answered
                 gameComplete.value = true;
-                backgroundColour.value = "#85C79A"; // Changes the background colour 
-            } else {
-                gameComplete.value = false;
+                backgroundColour.value = "#85C79A"; // Changes the background colour to green 
+            } else { //The game continues as long as less than 20 questions have been answered 
+                gameComplete.value = false; 
             }
 
         }
@@ -94,19 +92,18 @@ const App = {
             { name: "Ocean Commotion",
                 url: "https://madsb04.github.io/Ocean-Commotion-/"
             },
-            { name: "Indigenous Perspectives in Reducing Whale Harm",
+            { name: "Indigenous Perspectives in Reducing Whale Harm in Shipping Practices",
                 url: "https://genevawhite.github.io/genevacoding/"
+            },
+            { name: "Dive Into the World of Whales!",
+                url: "https://safiya-fs.github.io/Whale-Anatomy-Module/"
             },
             { name: "Relationship Between Indigenous Knowledge, Whale Protection, and Maritime Commerce",
                 url: "https://alipanju12.github.io/Traditional-Ecological-Knowledge-connection-to-Whales/"
-            },
-            { name: "Dive Into the World of Whales",
-                url: "https://safiya-fs.github.io/Whale-Anatomy-Module/"
-            }   
+            }
         ]
         
-        const categories = [
-            // These are category headers shown at the top of the board. Need to align the question bank so each column/category has matching questions.
+        const categories = [ // These are the five category headers shown at the top of the Jeopardy board.  
             { name: "Anatomy" },
             { name: "Noise" },
             { name: "Stress" },
@@ -122,7 +119,6 @@ const App = {
             } else {
                 button.showCard.value = false
                 correctSelection.value = null; //This resets the "correctSelection" boolean to null in between questions. This way, the "correct" or "incorrect" message is not carried over from the previous question. 
-                    // Potential bug: Usually, resetting the "correctSelection" boolean to null works as intended. However, one singular time when we loaded the game, a bug occurred where the correct/incorrect message carried over from a previous question to the next. Since then, it has not re-occurred. Given that the bug was one-off, we think it is possible that the issue arose during the compiling process, rather than originating in our code. In the next stage of our app development we will have several friends/peers test the website, to verify that there isn't a recurring bug in our code.  
                 checkGameComplete(); // Check if the game is complete each time the player presses the "Exit" button
             }
         }
@@ -135,22 +131,21 @@ const App = {
         function getTileColor(buttonID) {
             // This function checks if a question has already been answered by seeing if its buttonID is in the answeredQuestions array. If it is, then the question tile turns light blue. 
             if (answeredQuestions.value.includes(buttonID)) {
-                return "#4c8cccff"; // This is the green colour that the tile turns when a question has been answered.
+                return "#4c8cccff"; // This is the colour that the tile turns when a question has been answered.
             } else {
                 return "#4E8D9C"; // This is the original tile colour.
             }
             }
 
         // The arrays are categorized in rows, based on "uncomfortability level". This means that the questions are grouped together based on how much they challenge anthropocentrism and cause discomfort in the human user. 
-        // Instead of rewarding players with more points for selecting more difficult questions, unlike typical Jeopardy questions, we will reward players for choosing to confront increasingly uncomfortable topics of anthropocentric shipping, pollution, and extractive practices, and their impacts on whale health. 
         const lowDiscomfortRow = [
             // The 200-point row. Each object has:
             // - button: unique key for Vue rendering (used in :key)
-            // - points: label shown on the tile (currently a String)
+            // - points: label, such as 200, 400, 600, or 800, that is displayed on the question tile  
             // - answerA, answerB, etc.: the multiple choice answer options 
             // - correctAnswer: the correct multiple choice option, equal to one of answerA, answerB, answerC, or answerD.
             // - content: question that the user attempts to answer
-            // - explanation: an explanation of the correct answer, that will show up if the user selects the wrong answer. 
+            // - explanation: an explanation of the correct answer  
             // The questions of this level seek to establish whales as independent beings with sophisticated capacities, physical abilities and anatomical structures. These questions does not yet tie their existence in relation to human activity and are more so scientific than political in nature. 
             {
                 showCard: ref(false),
@@ -186,9 +181,9 @@ const App = {
                 content: "As background noise intensifies, whales often increase this vocal trait to maintain social bonds across distance.",
                     // Human activity is not yet explicitly defined as the focus remains on whales for the questions of this level. 
                 correctAnswer: "Call amplitude",
-                answerA: "Call amplitude",
+                answerA: "Fluke width",
                 answerB: "Silence duration",
-                answerC: "Fluke width",
+                answerC: "Call amplitude",
                 answerD: "Dive depth",
                 explanation: 'Whales increase the loudness (amplitude) of their calls to communicate with other whales across long distances and loud background noises. <a href="https://wdfw.wa.gov/sites/default/files/2020-09/reportwsas_srkw_summary.pdf" target="_blank">(Washington State Academy of Sciences, 2020)</a>'
                 // Washington State Academy of Sciences. (2020). Summary of key research findings about underwater noise and vessel disturbance. https://wdfw.wa.gov/sites/default/files/2020-09/reportwsas_srkw_summary.pdf
