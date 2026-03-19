@@ -1,6 +1,3 @@
-// Critical Lens: Countless ecological crises, including threats to whale health, are attributed to anthropocentrism. Drawing upon Katherine Hayles’ integrated cognitive framework (ICF), we contest anthropocentrism by “humanizing” whales as independent actors in relation to humans. Hayles also argues that “cognitive assemblages,” or decision-making collectives of humans, nonhumans, and computational media, determine the choices that humans make (2025). Humans are actually not as self-determining as anthropocentrism would like them to believe (Hayles, 2025). Their assumptions are formed and mediated by computational media (Hayles, 2025). As a game that has been traditionally framed as the intellectual pursuit of objective truths, Jeopardy is an example of a cognitive assemblage that impacts human decision-making. By playing our Jeopardy game on whale health, human users confront their “dehumanization” and simultaneous “humanization” of whales, re-learning cognition as something that is possessed by all species. The language of our Jeopardy questions will solely refer to humans by their species name, *homo sapiens*, and explore “humane” aspects of whale health, migration, habitats, families, and communities. Additionally, instead of rewarding players with more points for selecting more difficult questions, we will reward players for choosing to confront increasingly uncomfortable topics of anthropocentric shipping, pollution, and extractive practices, and their impacts on whale health. By employing Jeopardy’s epistemic authority and the anti-anthropocentric ICF, our Jeopardy module reframes whale health not as an isolated environmental tragedy but as a consequence of widespread and harmful anthropocentrism.
-// Reference: Hayles, N. K. (2025). Bacteria to AI: Human futures with our nonhuman symbionts. University of Chicago Press. ProQuest Ebook Central. http://ebookcentral.proquest.com/lib/mcmu/detail.action?docID=31887642
-
 const { createApp, ref } = Vue;
 const { createVuetify } = Vuetify;
 const vuetify = createVuetify();
@@ -161,8 +158,8 @@ const App = {
                 points: "200",
                 content: "Weighing nearly 900 kg in a blue whale, this four-chambered organ circulates nutrients across an ocean-sized body, sustaining life.",
                 correctAnswer: "Heart",
-                answerA: "Liver",
-                answerB: "Heart",
+                answerA: "Heart",
+                answerB: "Liver",
                 answerC: "Blowhole sac",
                 answerD: "Baleen chamber",
                 explanation: 'Whales have a heart that weighs around 900 kg. It sustains oxygen and nutrient circulation across an enormous body adapted for deep diving and long migration. <a href="https://www.bbcearth.com/news/the-anatomy-of-a-whale" target="_blank">(Connor, n.d.)</a>'
@@ -272,8 +269,8 @@ const App = {
                 points: "400",
                 content: "Busy shipping lanes pose a danger to whales undergoing this essential behaviour.",
                 correctAnswer: "Migrating",
-                answerA: "Socializing",
-                answerB: "Migrating",
+                answerA: "Migrating",
+                answerB: "Socializing",
                 answerC: "Mating",
                 answerD: "Surfacing",
                 explanation: 'Shipping lanes often overlap with long-distance migratory routes, increasing the risk of collision between whale beings and the ships of <i>Homo sapiens</i>. <a href="https://baleinesendirect.org/en/discover/whales-future/threats/" target="_blank">(Group for Research and Education on Marine Mammals, n.d.)</a>'
@@ -297,13 +294,13 @@ const App = {
         const highDiscomfortRow = [
             // The 600-point row.  
             // The questions of this level reinforce a causal relation between Homo sapiens activity and its detrimental consequences on whale health. The consequences listed are more adverse and specific in comparison to the those from previous levels. 
-            // Harmful chemicals, ships or other materials associated with homo sapiens activity are directly attributed to Homo sapiens activity and even described with the "Homo sapiens" adjective modifier.  
+            // Harmful chemicals, ships or other materials associated with Homo sapiens activity are directly attributed to Homo sapiens activity and even described with the "Homo sapiens" adjective modifier.  
             // The explicit wording of these questions and explanations seek to emphasize the insidious harms of anthropocentrism on whale beings. 
             {
                 showCard: ref(false),
                 button: "col1row3",
                 points: "600",
-                content: "This thick, energy-rich tissue both sustains whales during migration and stores the toxic byproducts of industrial homo sapiens activity.",
+                content: "This thick, energy-rich tissue both sustains whales during migration and stores the toxic byproducts of industrial <i>Homo sapiens</i> activity.",
                 correctAnswer: "Blubber",
                 answerA: "Cartilage",
                 answerB: "Blubber",
@@ -336,7 +333,7 @@ const App = {
                 answerB: "Cholecystokinin",
                 answerC: "Insulin",
                 answerD: "Cortisol",
-                explanation: 'Loud, homo sapiens noise has been linked to increased cortisol levels, revealing a strong, physiological stress response in whales. <a href="https://doi.org/10.1016/j.watbs.2023.100141" target="_blank">(Guan & Brookens, 2023)</a>'
+                explanation: 'Loud, <i>Homo sapiens</i> noise has been linked to increased cortisol levels, revealing a strong, physiological stress response in whales. <a href="https://doi.org/10.1016/j.watbs.2023.100141" target="_blank">(Guan & Brookens, 2023)</a>'
                 // Guan, Y. & Brookens, T. (2023). An overview of research efforts to understand the effects of underwater sound on cetaceans. Water Biology and Security, 2(2), 100141. https://doi.org/10.1016/j.watbs.2023.100141
             },
             {
@@ -359,8 +356,8 @@ const App = {
                 content: "Beluga whales living in the St. Lawrence Estuary carry toxin levels up to four times higher than their Arctic relatives, contributing to unusually high rates of this disease.",
                 correctAnswer: "Infections and cancer",
                 answerA: "Cardiomyopathy",
-                answerB: "Infections and cancer",
-                answerC: "Bone density loss",
+                answerB: "Bone density loss",
+                answerC: "Infections and cancer",
                 answerD: "Thermal stress disorder",
                 explanation: 'St. Lawrence belugas are heavily contaminated with industrial pollutants such as heavy metals. These toxins impair immune function and are associated with elevated cancer rates and increased vulnerability to infection. St. Lawrence belugas cannot even migrate to escape chronic exposure to <i>Homo sapiens</i> pollutants. <a href="https://baleinesendirect.org/en/discover/whales-future/threats/" target="_blank">(Group for Research and Education on Marine Mammals, n.d.)</a>'
                 // Group for Research and Education on Marine Mammals (n.d.). Threats to whales. https://baleinesendirect.org/en/discover/whales-future/threats/
@@ -376,8 +373,8 @@ const App = {
                 points: "800",
                 content: "These microscopic inner-ear structures allow whales to perceive distant family members across hundreds of kilometers and are permanently destroyed by intense sounds of <i>Homo sapiens</i> ships.",
                 correctAnswer: "Sensory hair cells",
-                answerA: "Tubercles",
-                answerB: "Sensory hair cells",
+                answerA: "Sensory hair cells",
+                answerB: "Tubercles",
                 answerC: "Gill filaments",
                 answerD: "Spiral valves",
                 explanation: 'These tiny structures in the cochlea convert sound vibrations into neural signals. Intense <i>Homo sapiens</i> sound can permanently destroy them, leading to irreversible hearing loss and impeding whales from properly navigating the world. <a href="https://doi.org/10.1007/978-1-4939-8574-6_10" target="_blank">(Erbe et al., 2018)</a>'
@@ -391,8 +388,8 @@ const App = {
                 correctAnswer: "Gas-bubble disease",
                 answerA: "Thermal shock",
                 answerB: "Hypoxic seizure",
-                answerC: "Gas-bubble disease",
-                answerD: "Blubber rupture",
+                answerC: "Blubber rupture",
+                answerD: "Gas-bubble disease",
                 explanation: 'Rapid surfacing due to sonar exposure has been linked to tissue damage in deep-diving beaked whales. Gas-bubble disease is also known as decompression sickness. <a href="https://doi.org/10.1016/j.watbs.2023.100141" target="_blank">(Guan & Brookens, 2023)</a>'
                 // Guan, Y. & Brookens, T. (2023). An overview of research efforts to understand the effects of underwater sound on cetaceans. Water Biology and Security, 2(2), 100141. https://doi.org/10.1016/j.watbs.2023.100141
             },
@@ -416,9 +413,9 @@ const App = {
                 content: "One population of North Atlantic whales has declined to roughly 366 individuals, making every <i>Homo sapiens</i> ship collision devastating to their survival.",
                 correctAnswer: "North Atlantic right whales",
                 answerA: "Blue whales",
-                answerB: "North Atlantic right whales",
+                answerB: "Beluga whales",
                 answerC: "Sperm whales",
-                answerD: "Beluga whales",
+                answerD: "North Atlantic right whales",
                 explanation: 'This family of whales has declined to roughly 366 individuals. With such low numbers, each death significantly impacts the survival of this community of whales. <a href="http://wwfwhales.org/news-stories/whales-on-the-move" target="_blank">(Johnson, n.d.)</a>'
                 // Technically, this particular "family of whales" can be referred to as a "species," but we intentionally adapted the wording to resist any assumed homo sapiens superiority and facilitate empathetic engagement between the homo sapiens user and the dire circumstances faced by whale beings.
                 // Johnson, C. (n.d.). Whales on the move - mapping threats and solutions for our ocean giants. World Wildlife Fund. http://wwfwhales.org/news-stories/whales-on-the-move
@@ -468,11 +465,6 @@ const App = {
             
         }
     }
-
-    //Future components to implement: 
-    //- A "Learn More" button that is present on each question's pop-up dialogue. This button will redirect the user to an external source that provides more information on the specific topic that the question is focused on. We will have to ensure that when the user clicks the link, it opens in a new tab. This is likely something that we will discuss during office hours to learn the implementation. 
-    //- A tutorial page that the user clicks through before they begin playing the game. The user can also access the tutorial to refresh their memory at any point during the game by selecting a “Game Tutorial” button. The tutorial provides an overview of how to play our Jeopardy-inspired game. This tutorial uses a <v-carousel> component that slides through still images accompanied by written explanations. These explanations will draw attention to some of the features of the game designed to resist anthropocentrism. We will emphasize our use of humanizing language to discuss whales and dehumanizing language to discuss humans.
-    //- A "Resources" button which opens a pop-up dialogue in the form of a card. This card contains an easy-to-access, annotated bibliography of resources informing the content of our game. By creating opportunities for the user to become further invested in the lives and well-being of whales, our goal is to motivate the user to voluntarily confront the uncomfortability of anthropocentrism. The “Resources” button grants the user the chance to take their education and capacity for advocacy into their own hands.
 }
 
 
