@@ -165,7 +165,7 @@ const App = {
                 answerB: "Heart",
                 answerC: "Blowhole sac",
                 answerD: "Baleen chamber",
-                explanation: "Whales have a heart that weighs around 900 kg. It sustains oxygen and nutrient circulation across an enormous body adapted for deep diving and long migration."
+                explanation: "Whales have a heart that weighs around 900 kg. It sustains oxygen and nutrient circulation across an enormous body adapted for deep diving and long migration. <a href="https://www.bbcearth.com/news/the-anatomy-of-a-whale" target="_blank">(Connor, n.d.)</a>"
                 // Connor, S. (n.d.). The anatomy of a whale. BBC Earth. https://www.bbcearth.com/news/the-anatomy-of-a-whale
             },
             {
