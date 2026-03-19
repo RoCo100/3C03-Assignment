@@ -64,7 +64,7 @@
             </v-list-item>
             <v-list-item v-for="item in modules" :key="item.name" :href="item.url">
               <!-- This v-for cycles through the modules array, which contains the name and url of each team's sub-app. -->
-              <v-list-item-title>{{ item.name }}</v-list-item-title>
+              <v-list-item-title class="text-pre-wrap"> {{ item.name }}</v-list-item-title>
             </v-list-item>
           </v-list>
         </v-navigation-drawer>
@@ -100,7 +100,7 @@
     
               <v-dialog persistent v-model=learnMoreOpen style="width: 85vw; height: 60vw;">
                 <v-card color="white">
-                  <v-card-title align="center" style="font-family: Poppins;" class="ma-4">Theme & Critical Lense</v-card-title>
+                  <v-card-title align="center" style="font-family: Poppins Bold;" class="ma-4">Theme & Critical Lense</v-card-title>
                   <v-card-text style="font-family: Poppins; text-indent: 50px;"> <!-- "text-indent: 50px" causes each paragraph to start with an indentation. -->
                     This module builds on the larger website theme of whale life by exploring whale health and wellbeing. In particular, our module is focused on the role that anthropocentrism plays in perpetuating human activity that is harmful to whales. Anthropocentrism, broadly speaking, refers to the viewpoint that human life is more valuable and significant than other life forms. This viewpoint fuels extractivist and exploitative behaviour that harms the environment and animal life. 
                   </v-card-text>
@@ -418,18 +418,15 @@
         </template>
 
         <div class="d-flex justify-center align-center" style="min-height: 100vh;">
-          <v-card v-if="gameComplete" style="width: 85vw; height: 70vh;" class="text-center">
-            <v-card-title style="font-family: Poppins; font-size: 2.5vw; color: #4E8D9C;">Experience
-              Completed!</v-card-title>
-            <v-card-text style="font-family: Poppins; font-size: 2vw; color: #281C59;">Well done. You're one step closer
-              to unlearning anthropocentrism.</v-card-text>
-            <v-card-text style="font-family: Poppins; font-size: 1.5vw; color: #281C59;">Overall, you earned {{
-              scoreCount }} points. </v-card-text>
-            <v-img :src="imageQuestionCard" style="width: 20vw; margin: 0 auto; display: block;"></v-img>
-            <v-btn @click="restartGame" color="#85C79A"
-              style="font-family: Poppins; width: 15vw; height: 7vh; font-size: 1.5vw; color: white;">Play Again</v-btn>
+          <v-card v-if="gameComplete" style="width: 80vw; height: 80vh;" class="text-center">
+            <v-card-title class="mx-auto mt-4" style="font-family: Poppins; font-size: 2.5vw; color: #4E8D9C;">Experience Completed!</v-card-title>
+            <v-card-text class="mx-auto mt-4" style="font-family: Poppins; font-size: 2vw; color: #281C59;">Well done. You're one step closer to unlearning anthropocentrism.</v-card-text>
+            <v-card-text class="mx-auto" style="font-family: Poppins; font-size: 1.5vw; color: #281C59;">Overall, you earned {{ scoreCount }} points. </v-card-text>
+            <v-img :src="imageQuestionCard" class="mx-auto ma-6" style="width: 20vw;"></v-img>
+            <v-btn @click="restartGame" class="mx-auto ma-6" color="#85C79A" style="font-family: Poppins; width: 15vw; height: 7vh; font-size: 1.5vw; color: white;">Play Again</v-btn>
           </v-card>
         </div>
+
 
       </v-main>
     </v-app>
