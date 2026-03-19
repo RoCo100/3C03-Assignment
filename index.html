@@ -62,7 +62,6 @@
             <v-list-item href="https://artssci.github.io/Maritime-Commerce-and-Whale-Risks-Collective-App/">
               <v-list-item-title class="font-weight-bold">Home</v-list-item-title>
             </v-list-item>
-            <divider></divider>
             <v-list-item v-for="item in modules" :key="item.name" :href="item.url">
               <v-list-item-title>{{ item.name }}</v-list-item-title>
             </v-list-item>
@@ -87,12 +86,20 @@
 
           <v-btn @click="toggleLearnMoreOpenClosed()"
             style="position:absolute; z-index:1; left: 5%; top:10.5%; font-family: Poppins; width: 20vw; height: 12vh; font-size: 1.5vw; color:white;"
-            color="#85C79A">Learn More</v-btn>
+            color="#85C79A">About Game</v-btn>
 
           <v-dialog persistent v-model=learnMoreOpen style="width: 85vw; height: 60vw;">
-            <v-card color="white" align="center">
-              <v-card-title style="font-family: Poppins;" class="ma-6">Annotated Bibliography</v-card-title>
-              <v-card-text style="font-family: Poppins;">(Insert entries here)</v-card-text>
+            <v-card color="white">
+              <v-card-title align="center" style="font-family: Poppins;" class="ma-6">Theme & Critical Lense</v-card-title>
+              <v-card-text style="font-family: Poppins;">
+                This module builds on the larger website theme of whale life by exploring whale health and wellbeing. In particular, our module is focused on the role that anthropocentrism plays in perpetuating human activity that is harmful to whales. Anthropocentrism, broadly speaking, refers to the viewpoint that human life is more valuable and significant than other life forms. This viewpoint fuels extractivist and exploitative behaviour that harms the environment and animal life. 
+
+                Drawing upon Katherine Hayles’ integrated cognitive framework (ICF), we challenge anthropocentrism by “humanizing” whales as independent actors in relation to humans. Our Jeopardy game on whale health causes users to confront the “dehumanization” of humans and simultaneous “humanization” of whales. Accordingly, users will re-learn cognition as something that is possessed by non-human species, including whales. To achieve this, the language of our Jeopardy questions will solely refer to humans by their species name, *homo sapiens*, and emphasize the “humane” character of whale health, migration, habitats, families, and communities. Additionally, instead of rewarding players with more points for selecting more difficult questions, we will reward players for choosing to confront increasingly uncomfortable topics. As questions increase in uncomfortability, the user is forced to confront topics that challenge their anthropocentric views. These questions look at shipping, pollution, and other human practices, and their impacts on whale health.
+
+                Hayles also argues that “cognitive assemblages,” or decision-making collectives of humans, nonhumans, and computational media, determine the choices that humans make (2025). Humans are actually not as self-determining as anthropocentrism would like them to believe (Hayles, 2025). Their assumptions are formed and mediated by computational media (Hayles, 2025). As a game that has been traditionally framed as the intellectual pursuit of objective truths, Jeopardy is an example of a cognitive assemblage that impacts human decision-making. By employing Jeopardy’s epistemic authority and the anti-anthropocentric ICF, our Jeopardy module reframes whale health not as an isolated environmental tragedy but as a consequence of widespread and harmful anthropocentrism. 
+
+                <a href="http://ebookcentral.proquest.com/lib/mcmu/detail.action?docID=31887642" target="_blank">(Hayles, 2025)</a>
+              </v-card-text>
 
               <div class="d-flex justify-center ma-6">
                 <v-btn @click="toggleLearnMoreOpenClosed()" color="#85C79A"
@@ -101,8 +108,6 @@
 
             </v-card>
           </v-dialog>
-
-
 
 
           <v-btn @click="toggleTutorialOpenClosed()"
