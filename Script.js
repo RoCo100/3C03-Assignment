@@ -157,7 +157,7 @@ const App = {
                 answerB: "Liver",
                 answerC: "Blowhole sac",
                 answerD: "Baleen chamber",
-                explanation: 'Whales have a heart that weighs around 900 kg. It sustains oxygen and nutrient circulation across an enormous body adapted for deep diving and long migration. <a href="https://www.bbcearth.com/news/the-anatomy-of-a-whale" target="_blank">(Connor, n.d.)</a>'
+                explanation: 'Whales have a heart that weighs around 900 kg. It sustains oxygen and nutrient circulation across an enormous body adapted for deep diving and long migration <a href="https://www.bbcearth.com/news/the-anatomy-of-a-whale" target="_blank">(Connor, n.d.).</a>'
                 // Connor, S. (n.d.). The anatomy of a whale. BBC Earth. https://www.bbcearth.com/news/the-anatomy-of-a-whale
             },
             {
@@ -171,7 +171,7 @@ const App = {
                 answerB: "Auditory masking",
                 answerC: "Acoustic drift",
                 answerD: "Frequency collapse",
-                explanation: 'Auditory masking occurs when background noise overlaps spectrally or temporally with whale communication signals, interfering with signal detection and recognition. <a href="https://doi.org/10.1016/j.watbs.2023.100141" target="_blank">(Guan & Brookens, 2023)</a>'
+                explanation: 'Auditory masking occurs when background noise overlaps spectrally or temporally with whale communication signals, interfering with signal detection and recognition <a href="https://doi.org/10.1016/j.watbs.2023.100141" target="_blank">(Guan & Brookens, 2023).</a>'
                 // Guan, Y. & Brookens, T. (2023). An overview of research efforts to understand the effects of underwater sound on cetaceans. Water Biology and Security, 2(2), 100141. https://doi.org/10.1016/j.watbs.2023.100141
             },
             {
@@ -185,7 +185,7 @@ const App = {
                 answerB: "Silence duration",
                 answerC: "Call amplitude",
                 answerD: "Dive depth",
-                explanation: 'Whales increase the loudness (amplitude) of their calls to communicate with other whales across long distances and loud background noises. <a href="https://wdfw.wa.gov/sites/default/files/2020-09/reportwsas_srkw_summary.pdf" target="_blank">(Washington State Academy of Sciences, 2020)</a>'
+                explanation: 'Whales increase the loudness (amplitude) of their calls to communicate with other whales across long distances and loud background noises <a href="https://wdfw.wa.gov/sites/default/files/2020-09/reportwsas_srkw_summary.pdf" target="_blank">(Washington State Academy of Sciences, 2020).</a>'
                 // Washington State Academy of Sciences. (2020). Summary of key research findings about underwater noise and vessel disturbance. https://wdfw.wa.gov/sites/default/files/2020-09/reportwsas_srkw_summary.pdf
             },
             {
@@ -198,7 +198,7 @@ const App = {
                 answerB: "Pectoral flipper",
                 answerC: "Fluke",
                 answerD: "Blowhole",
-                explanation: 'Whales use their fluke, or tail, to propel themselves with powerful, vertical strokes. The fluke accounts for a significant portion of their total body muscle mass. If the fluke were damaged, whales could not swim, forage, migrate, or escape as efficiently, making it far more difficult for them to survive. <a href="https://oceantoday.noaa.gov/whaleanatomy/" target="_blank">(National Oceanic and Atmospheric Administration, n.d.)</a>'
+                explanation: 'Whales use their fluke, or tail, to propel themselves with powerful, vertical strokes. The fluke accounts for a significant portion of their total body muscle mass. If the fluke were damaged, whales could not swim, forage, migrate, or escape as efficiently, making it far more difficult for them to survive <a href="https://oceantoday.noaa.gov/whaleanatomy/" target="_blank">(National Oceanic and Atmospheric Administration, n.d.).</a>'
                 // National Oceanic and Atmospheric Administration. (n.d.). Whale anatomy. https://oceantoday.noaa.gov/whaleanatomy/
             },
             {
@@ -211,7 +211,7 @@ const App = {
                 answerB: "Gallbladder",
                 answerC: "Pancreas",
                 answerD: "Stomach",
-                explanation: 'Many whales, including baleen whales, have multi-chambered stomachs capable of mechanically and chemically processing thousands of kilograms of prey per day. Their ability to properly digest and metabolize food is central to their movement and survival. <a href="https://www.bbcearth.com/news/the-anatomy-of-a-whale" target="_blank">(Connor, n.d.)</a>'
+                explanation: 'Many whales, including baleen whales, have multi-chambered stomachs capable of mechanically and chemically processing thousands of kilograms of prey per day. Their ability to properly digest and metabolize food is central to their movement and survival <a href="https://www.bbcearth.com/news/the-anatomy-of-a-whale" target="_blank">(Connor, n.d.).</a>'
                 // Connor, S. (n.d.). The anatomy of a whale. BBC Earth. https://www.bbcearth.com/news/the-anatomy-of-a-whale
             }
         ]
@@ -229,7 +229,7 @@ const App = {
                 answerB: "Frontal pores",
                 answerC: "Nasal vents",
                 answerD: "Blowholes",
-                explanation: 'Baleen whales have two blowholes connected directly to their lungs. As they surface to breathe, they can exchange up to 80–90% of their oxygen in a single breath, far more efficiently than <i>Homo sapiens</i>. <a href="https://www.bbcearth.com/news/the-anatomy-of-a-whale" target="_blank">(Connor, n.d.)</a>'
+                explanation: 'Baleen whales have two blowholes connected directly to their lungs. As they surface to breathe, they can exchange up to 80–90% of their oxygen in a single breath, far more efficiently than <i>Homo sapiens</i> <a href="https://www.bbcearth.com/news/the-anatomy-of-a-whale" target="_blank">(Connor, n.d.).</a>'
                 // Connor, S. (n.d.). The anatomy of a whale. BBC Earth. https://www.bbcearth.com/news/the-anatomy-of-a-whale
             },
             {
@@ -242,7 +242,7 @@ const App = {
                 answerB: "Auditory silencing",
                 answerC: "Permanent Threshold Shift",
                 answerD: "Temporary Threshold Shift",
-                explanation: 'Temporary threshold shift (TTS) is a temporary elevation in hearing threshold following loud sound exposure. Whales may recover their hearing with time, but may still experience neural damage. <a href="https://doi.org/10.1007/978-1-4939-8574-6_10" target="_blank">(Erbe et al., 2018)</a>'
+                explanation: 'Temporary threshold shift (TTS) is a temporary elevation in hearing threshold following loud sound exposure. Whales may recover their hearing with time, but may still experience neural damage <a href="https://doi.org/10.1007/978-1-4939-8574-6_10" target="_blank">(Erbe et al., 2018).</a>'
                 // Erbe, C., Dunlop, R. A., & Dolman, S. J. (2018). Effects of noise on marine mammals. In H. Slabbekoorn, R. J. Dooling, A. N. Popper, & R. R. Fay (Eds.), Effects of anthropogenic noise on animals (pp. 277–309). Springer. https://doi.org/10.1007/978-1-4939-8574-6_10
             },
             {
@@ -255,7 +255,7 @@ const App = {
                 answerB: "Reduced fitness",
                 answerC: "Increased fertility",
                 answerD: "Extended lifespan",
-                explanation: 'Fitness describes the ability to reproduce and survive. Whales experiencing chronic stress from persistent noise face impaired reproductive success, immune function, and long-term survival. <a href="https://wdfw.wa.gov/sites/default/files/2020-09/reportwsas_srkw_summary.pdf" target="_blank">(Washington State Academy of Sciences, 2020)</a>'
+                explanation: 'Fitness describes the ability to reproduce and survive. Whales experiencing chronic stress from persistent noise face impaired reproductive success, immune function, and long-term survival <a href="https://wdfw.wa.gov/sites/default/files/2020-09/reportwsas_srkw_summary.pdf" target="_blank">(Washington State Academy of Sciences, 2020).</a>'
                 // Washington State Academy of Sciences. (2020). Summary of key research findings about underwater noise and vessel disturbance. https://wdfw.wa.gov/sites/default/files/2020-09/reportwsas_srkw_summary.pdf
             },
             {
@@ -268,7 +268,7 @@ const App = {
                 answerB: "Socializing",
                 answerC: "Mating",
                 answerD: "Surfacing",
-                explanation: 'Shipping lanes often overlap with long-distance migratory routes, increasing the risk of collision between whale beings and the ships of <i>Homo sapiens</i>. <a href="https://baleinesendirect.org/en/discover/whales-future/threats/" target="_blank">(Group for Research and Education on Marine Mammals, n.d.)</a>'
+                explanation: 'Shipping lanes often overlap with long-distance migratory routes, increasing the risk of collision between whale beings and the ships of <i>Homo sapiens</i> <a href="https://baleinesendirect.org/en/discover/whales-future/threats/" target="_blank">(Group for Research and Education on Marine Mammals, n.d.).</a>'
                 // Group for Research and Education on Marine Mammals (n.d.). Threats to whales. https://baleinesendirect.org/en/discover/whales-future/threats/
             },
             {
@@ -281,16 +281,16 @@ const App = {
                 answerB: "Chlorophyll",
                 answerC: "Nitrates",
                 answerD: "Calcium carbonate",
-                explanation: 'Polychlorinated biphenyls (PCBs) are organic pollutants that accumulate in blubber and disrupt immune and reproductive systems. They are difficult for whales to metabolize and disrupt their internal processes. <a href="https://baleinesendirect.org/en/discover/whales-future/threats/" target="_blank">(Group for Research and Education on Marine Mammals, n.d.</a>; <a href="https://baleinesendirect.org/en/discover/whales-future/threats/" target="_blank">Whale and Dolphin Conservation, n.d.)</a>'
+                explanation: 'Polychlorinated biphenyls (PCBs) are organic pollutants that accumulate in blubber and disrupt immune and reproductive systems. They are difficult for whales to metabolize and disrupt their internal processes <a href="https://baleinesendirect.org/en/discover/whales-future/threats/" target="_blank">(Group for Research and Education on Marine Mammals, n.d.;</a> <a href="https://baleinesendirect.org/en/discover/whales-future/threats/" target="_blank">Whale and Dolphin Conservation, n.d.).</a>'
                 // Group for Research and Education on Marine Mammals (n.d.). Threats to whales. https://baleinesendirect.org/en/discover/whales-future/threats/
                 // Whale and Dolphin Conservation. (n.d.). Their biggest threats. https://hval.whales.org/en/meet-the-whales/their-biggest-threats
             }
         ]
         const highDiscomfortRow = [
             // The 600-point row.  
-            // The questions of this level reinforce a causal relation between Homo sapiens activity and its detrimental consequences on whale health. The consequences listed are more adverse and specific in comparison to the those from previous levels. 
+            // The questions of this level reinforce a causal relation between Homo sapiens activity and its detrimental consequences on whale health. The consequences listed are more adverse and specific in comparison to those from previous levels. 
             // Harmful chemicals, ships or other materials associated with Homo sapiens activity are directly attributed to Homo sapiens activity and even described with the "Homo sapiens" adjective modifier.  
-            // The explicit wording of these questions and explanations seek to emphasize the insidious harms of anthropocentrism on whale beings. 
+            // The explicit wording of these questions and explanations seeks to emphasize the insidious harms of anthropocentrism on whale beings. 
             {
                 showCard: ref(false),
                 button: "col1row3",
@@ -301,7 +301,7 @@ const App = {
                 answerB: "Blubber",
                 answerC: "Muscle sheath",
                 answerD: "Keratin plates",
-                explanation: 'Blubber is a thick, fibrous, energy-rich tissue that insulates whales and stores energy. It also accumulates fat-soluble toxins introduced by industrial <i>Homo sapiens</i> activity. <a href="https://oceantoday.noaa.gov/whaleanatomy/" target="_blank">(National Oceanic and Atmospheric Administration, n.d.</a>; <a href="https://baleinesendirect.org/en/discover/whales-future/threats/" target="_blank">Whale and Dolphin Conservation, n.d.)</a>'
+                explanation: 'Blubber is a thick, fibrous, energy-rich tissue that insulates whales and stores energy. It also accumulates fat-soluble toxins introduced by industrial <i>Homo sapiens</i> activity <a href="https://oceantoday.noaa.gov/whaleanatomy/" target="_blank">(National Oceanic and Atmospheric Administration, n.d.;</a> <a href="https://baleinesendirect.org/en/discover/whales-future/threats/" target="_blank">Whale and Dolphin Conservation, n.d.).</a>'
                 // National Oceanic and Atmospheric Administration. (n.d.). Whale anatomy. https://oceantoday.noaa.gov/whaleanatomy/
                 // Whale and Dolphin Conservation. (n.d.). Their biggest threats. https://hval.whales.org/en/meet-the-whales/their-biggest-threats
             },
@@ -315,7 +315,7 @@ const App = {
                 answerB: "Temporary Threshold Shift",
                 answerC: "Auditory paralysis",
                 answerD: "Auditory silencing",
-                explanation: 'Permanent threshold shift (PTS) occurs when hearing thresholds remain permanently elevated due to irreversible damage to the sensory hair cells or neural pathways of whales. <a href="https://doi.org/10.1007/978-1-4939-8574-6_10" target="_blank">(Erbe et al., 2018)</a>'
+                explanation: 'Permanent threshold shift (PTS) occurs when hearing thresholds remain permanently elevated due to irreversible damage to the sensory hair cells or neural pathways of whales <a href="https://doi.org/10.1007/978-1-4939-8574-6_10" target="_blank">(Erbe et al., 2018).</a>'
                 // Erbe, C., Dunlop, R. A., & Dolman, S. J. (2018). Effects of noise on marine mammals. In H. Slabbekoorn, R. J. Dooling, A. N. Popper, & R. R. Fay (Eds.), Effects of anthropogenic noise on animals (pp. 277–309). Springer. https://doi.org/10.1007/978-1-4939-8574-6_10
             },
             {
@@ -328,7 +328,7 @@ const App = {
                 answerB: "Cholecystokinin",
                 answerC: "Insulin",
                 answerD: "Cortisol",
-                explanation: 'Loud, <i>Homo sapiens</i> noise has been linked to increased cortisol levels, revealing a strong, physiological stress response in whales. <a href="https://doi.org/10.1016/j.watbs.2023.100141" target="_blank">(Guan & Brookens, 2023)</a>'
+                explanation: 'Loud, <i>Homo sapiens</i> noise has been linked to increased cortisol levels, revealing a strong, physiological stress response in whales <a href="https://doi.org/10.1016/j.watbs.2023.100141" target="_blank">(Guan & Brookens, 2023).</a>'
                 // Guan, Y. & Brookens, T. (2023). An overview of research efforts to understand the effects of underwater sound on cetaceans. Water Biology and Security, 2(2), 100141. https://doi.org/10.1016/j.watbs.2023.100141
             },
             {
@@ -341,7 +341,7 @@ const App = {
                 answerB: "Propeller",
                 answerC: "Rudder",
                 answerD: "Hull fin",
-                explanation: 'Propeller strikes from small <i>Homo sapiens</i> ships can result in deep lacerations and even fatal injuries in whales. <a href="https://hval.whales.org/en/meet-the-whales/their-biggest-threats" target="_blank">(Whale and Dolphin Conservation, n.d.)</a>'
+                explanation: 'Propeller strikes from small <i>Homo sapiens</i> ships can result in deep lacerations and even fatal injuries in whales <a href="https://hval.whales.org/en/meet-the-whales/their-biggest-threats" target="_blank">(Whale and Dolphin Conservation, n.d.).</a>'
                 // Whale and Dolphin Conservation. (n.d.). Their biggest threats. https://hval.whales.org/en/meet-the-whales/their-biggest-threats
             },
             {
@@ -354,7 +354,7 @@ const App = {
                 answerB: "Bone density loss",
                 answerC: "Infections and cancer",
                 answerD: "Thermal stress disorder",
-                explanation: 'St. Lawrence belugas are heavily contaminated with industrial pollutants such as heavy metals. These toxins impair immune function and are associated with elevated cancer rates and increased vulnerability to infection. St. Lawrence belugas cannot even migrate to escape chronic exposure to <i>Homo sapiens</i> pollutants. <a href="https://baleinesendirect.org/en/discover/whales-future/threats/" target="_blank">(Group for Research and Education on Marine Mammals, n.d.)</a>'
+                explanation: 'St. Lawrence belugas are heavily contaminated with industrial pollutants such as heavy metals. These toxins impair immune function and are associated with elevated cancer rates and increased vulnerability to infection. St. Lawrence belugas cannot even migrate to escape chronic exposure to <i>Homo sapiens</i> pollutants <a href="https://baleinesendirect.org/en/discover/whales-future/threats/" target="_blank">(Group for Research and Education on Marine Mammals, n.d.).</a>'
                 // Group for Research and Education on Marine Mammals (n.d.). Threats to whales. https://baleinesendirect.org/en/discover/whales-future/threats/
             }
         ]
@@ -372,7 +372,7 @@ const App = {
                 answerB: "Tubercles",
                 answerC: "Gill filaments",
                 answerD: "Spiral valves",
-                explanation: 'These tiny structures in the cochlea convert sound vibrations into neural signals. Intense <i>Homo sapiens</i> sound can permanently destroy them, leading to irreversible hearing loss and impeding whales from properly navigating the world. <a href="https://doi.org/10.1007/978-1-4939-8574-6_10" target="_blank">(Erbe et al., 2018)</a>'
+                explanation: 'These tiny structures in the cochlea convert sound vibrations into neural signals. Intense <i>Homo sapiens</i> sound can permanently destroy them, leading to irreversible hearing loss and impeding whales from properly navigating the world <a href="https://doi.org/10.1007/978-1-4939-8574-6_10" target="_blank">(Erbe et al., 2018).</a>'
                 // Erbe, C., Dunlop, R. A., & Dolman, S. J. (2018). Effects of noise on marine mammals. In H. Slabbekoorn, R. J. Dooling, A. N. Popper, & R. R. Fay (Eds.), Effects of anthropogenic noise on animals (pp. 277–309). Springer. https://doi.org/10.1007/978-1-4939-8574-6_10
             },
             {
@@ -385,7 +385,7 @@ const App = {
                 answerB: "Hypoxic seizure",
                 answerC: "Blubber rupture",
                 answerD: "Gas-bubble disease",
-                explanation: 'Rapid surfacing due to sonar exposure has been linked to tissue damage in deep-diving beaked whales. Gas-bubble disease is also known as decompression sickness. <a href="https://doi.org/10.1016/j.watbs.2023.100141" target="_blank">(Guan & Brookens, 2023)</a>'
+                explanation: 'Rapid surfacing due to sonar exposure has been linked to tissue damage in deep-diving beaked whales. Gas-bubble disease is also known as decompression sickness <a href="https://doi.org/10.1016/j.watbs.2023.100141" target="_blank">(Guan & Brookens, 2023).</a>'
                 // Guan, Y. & Brookens, T. (2023). An overview of research efforts to understand the effects of underwater sound on cetaceans. Water Biology and Security, 2(2), 100141. https://doi.org/10.1016/j.watbs.2023.100141
             },
             {
@@ -398,7 +398,7 @@ const App = {
                 answerB: "Foraging",
                 answerC: "Sleeping",
                 answerD: "Surfacing",
-                explanation: 'Whales are more hesitant to seek food when they are surrounded by dangerous ship vessels. Reduced feeding lowers energy intake, impairing their capacity to reproduce and survive. <a href="https://wdfw.wa.gov/sites/default/files/2020-09/reportwsas_srkw_summary.pdf" target="_blank">(Washington State Academy of Sciences, 2020)</a>'
+                explanation: 'Whales are more hesitant to seek food when they are surrounded by dangerous ship vessels. Reduced feeding lowers energy intake, impairing their capacity to reproduce and survive <a href="https://wdfw.wa.gov/sites/default/files/2020-09/reportwsas_srkw_summary.pdf" target="_blank">(Washington State Academy of Sciences, 2020).</a>'
                 // Washington State Academy of Sciences. (2020). Summary of key research findings about underwater noise and vessel disturbance. https://wdfw.wa.gov/sites/default/files/2020-09/reportwsas_srkw_summary.pdf
             },
             {
@@ -411,7 +411,7 @@ const App = {
                 answerB: "Beluga whales",
                 answerC: "Sperm whales",
                 answerD: "North Atlantic right whales",
-                explanation: 'This family of whales has declined to roughly 366 individuals. With such low numbers, each death significantly impacts the survival of this community of whales. <a href="http://wwfwhales.org/news-stories/whales-on-the-move" target="_blank">(Johnson, n.d.)</a>'
+                explanation: 'This family of whales has declined to roughly 366 individuals. With such low numbers, each death significantly impacts the survival of this community of whales <a href="http://wwfwhales.org/news-stories/whales-on-the-move" target="_blank">(Johnson, n.d.).</a>'
                 // Technically, this particular "family of whales" can be referred to as a "species," but we intentionally adapted the wording to resist any assumed homo sapiens superiority and facilitate empathetic engagement between the homo sapiens user and the dire circumstances faced by whale beings.
                 // Johnson, C. (n.d.). Whales on the move - mapping threats and solutions for our ocean giants. World Wildlife Fund. http://wwfwhales.org/news-stories/whales-on-the-move
             },
@@ -425,7 +425,7 @@ const App = {
                 answerB: "Milk",
                 answerC: "Amniotic fluid",
                 answerD: "Seawater",
-                explanation: 'Fat-soluble toxins stored in blubber are transferred to calves through maternal milk. This is the reason why many firstborn whales do not survive their first year of life. <a href="https://hval.whales.org/en/meet-the-whales/their-biggest-threats" target="_blank">(Whale and Dolphin Conservation, n.d.)</a>'
+                explanation: 'Fat-soluble toxins stored in blubber are transferred to calves through maternal milk. This is the reason why many firstborn whales do not survive their first year of life <a href="https://hval.whales.org/en/meet-the-whales/their-biggest-threats" target="_blank">(Whale and Dolphin Conservation, n.d.).</a>'
                 // Whale and Dolphin Conservation. (n.d.). Their biggest threats. https://hval.whales.org/en/meet-the-whales/their-biggest-threats
             }
         ]
