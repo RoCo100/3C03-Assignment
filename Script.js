@@ -322,7 +322,7 @@ const App = {
                 showCard: ref(false),
                 button: "col3row3",
                 points: "600",
-                content: "Exposure to persistent noise from homo sapiens in the surrounding environment elevates this hormone in whales.",
+                content: "Exposure to persistent noise from <i>Homo sapiens</i> in the surrounding environment elevates this hormone in whales.",
                 correctAnswer: "Cortisol",
                 answerA: "Melatonin",
                 answerB: "Cholecystokinin",
