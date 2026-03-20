@@ -73,7 +73,7 @@ const App = {
         function validateResult(input, correct, buttonID, points) {
             if (input == correct) {
                 scoreCount.value = scoreCount.value + Number(points);  // Increases the score count by the number of points associated with the question. (i.e., 200, 400, 600, or 800.)              
-                correctSelection.value = true; //This boolean state (true) is linked to a <v-card-text> that informs the user they've selected the correct answer.
+                correctSelection.value = true; //This boolean state (true) is linked to a <v-card-text> that informs the user they've selected the correct answer, along with an explanation of why it is correct.
             } else {
                 correctSelection.value = false;  //This boolean state (false) is linked to a <v-card-text> that displays an "incorrect" message, along with an explanation of the correct answer. 
             }
@@ -82,7 +82,7 @@ const App = {
         }
 
 
-        const modules = [ //This array contains the information for the navigation drawer.
+        const modules = [ //This array contains the information for the navigation drawer. May need to be updated if any groups change their module name. 
             { name: "Ocean Route Explorer",
                 url: "https://ameliag116.github.io/Ocean-Route-Explorer/"
             },
@@ -95,11 +95,11 @@ const App = {
             { name: "Indigenous Perspectives in Reducing Whale Harm in Shipping Practices",
                 url: "https://genevawhite.github.io/genevacoding/"
             },
-            { name: "Dive Into the World of Whales!",
+            { name: "Whale Anatomy, Maritime Threats, and Traditional Ecological Knowledge",
                 url: "https://safiya-fs.github.io/Whale-Anatomy-Module/"
             },
-            { name: "Relationship Between Indigenous Knowledge, Whale Protection, and Maritime Commerce",
-                url: "https://alipanju12.github.io/Traditional-Ecological-Knowledge-connection-to-Whales/"
+            { name: "Relationships Between Traditional and Western Ecological Knowledge in Whale Protection Practices",
+                url: "https://alipanju12.github.io/Relationships-Between-Western-and-TEK-respect-to-Whales/ "
             }
         ]
         
@@ -111,7 +111,7 @@ const App = {
             { name: "Toxins" }
         ]
 
-        // This function controls opening and closing a question button. It is activated once when the user seleects a question, and again when the user selects the "exit" button. 
+        // This function controls opening and closing a question button. It is activated once when the user selects a question, and again when the user selects the "exit" button. 
         function toggleCardOpenClose(button) {
             if (button.showCard.value == false) {
                 button.showCard.value = true
