@@ -146,7 +146,7 @@ const App = {
             // - correctAnswer: the correct multiple choice option, equal to one of answerA, answerB, answerC, or answerD.
             // - content: question that the user attempts to answer
             // - explanation: an explanation of the correct answer  
-            // The questions of this level seek to establish whales as independent beings with sophisticated capacities, physical abilities and anatomical structures. These questions does not yet tie their existence in relation to human activity and are more so scientific than political in nature. 
+            // The questions of this level seek to establish whales as independent beings with sophisticated capacities, physical abilities and anatomical structures. These questions do not yet tie their existence in relation to human activity and are more scientific than political in nature. 
             {
                 showCard: ref(false),
                 button: "col1row1",
