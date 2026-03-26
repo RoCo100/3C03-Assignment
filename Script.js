@@ -83,6 +83,9 @@ const App = {
 
 
         const modules = [ //This array contains the information for the navigation drawer. May need to be updated if any groups change their module name. 
+            { name: "Jeopardy: Whale Health!",
+                url: "https://roco100.github.io/3C03-Assignment/"
+            },
             { name: "Ocean Route Explorer",
                 url: "https://ameliag116.github.io/Ocean-Route-Explorer/"
             },
@@ -99,7 +102,7 @@ const App = {
                 url: "https://safiya-fs.github.io/Whale-Anatomy-Module/"
             },
             { name: "Relationships Between Traditional and Western Ecological Knowledge in Whale Protection Practices",
-                url: "https://alipanju12.github.io/Relationships-Between-Western-and-TEK-respect-to-Whales/ "
+                url: "https://alipanju12.github.io/Relationship-Between-Indigenous-Knowledge-Whale-Protection-and-Maritime-Commerce-/"
             }
         ]
         
